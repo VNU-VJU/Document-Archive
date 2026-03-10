@@ -1,0 +1,297 @@
+---
+doc_id: "glossary-vi-en-ja"
+part_id: "glossary-vi-en-ja"
+title: "VNU規程翻訳用語集（ベトナム語・英語・日本語）"
+doc_language: "multilingual"
+tags: ["glossary", "vnu", "translation-reference"]
+document_status: "active"
+---
+
+# Glossary: VNU Regulation Translation Terminology
+# 用語集：ベトナム国家大学ハノイ校 規程翻訳用語集
+
+> **Purpose / 目的:**
+> This glossary is a reference for consistent translation of Vietnam National University, Hanoi (VNU) regulation documents from Vietnamese to English and Japanese.
+> 本用語集は、ベトナム国家大学ハノイ校（VNU）の規程文書をベトナム語から英語・日本語へ翻訳する際の統一的な用語参照資料です。
+>
+> **Note / 注意:**
+> - "Đại học Quốc gia Hà Nội" is translated as "Vietnam National University, Hanoi" / "ベトナム国家大学ハノイ校"（「ハノイ国家大学」は誤訳）
+> - Abbreviation: VNU = Vietnam National University, Hanoi
+
+---
+
+## 1. Organization / Institution（組織・機関）
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| Đại học Quốc gia Hà Nội (ĐHQGHN) | Vietnam National University, Hanoi (VNU) | ベトナム国家大学ハノイ校 |
+| Trường Đại học Việt Nhật (ĐHVJ / VJU) | Vietnam Japan University (VJU) | 日越大学（VJU） |
+| đơn vị đào tạo | training unit | 教育訓練機関（教育実施単位） |
+| trường đại học thành viên | member university | 加盟大学（メンバー大学） |
+| khoa trực thuộc | affiliated faculty / directly affiliated school | 直属学部（直轄学部） |
+| Bộ Giáo dục và Đào tạo (Bộ GD&ĐT) | Ministry of Education and Training (MOET) | 教育訓練省 |
+| Ban Đào tạo | Department of Academic Affairs (VNU level) | 教務局（VNU本部） |
+| Phòng Đào tạo | Office of Academic Affairs (unit level) | 教務課（各大学・学部レベル） |
+| Hội đồng khoa học và đào tạo | Scientific and Training Council | 科学教育評議会 |
+| bộ môn | department / division | 学科目（教室） |
+| khoa | faculty / school | 学部（学科） |
+
+### Web Admissions Abbreviations（入試Web記事向け略語）
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| STT (Số thứ tự) | No. (serial number) | 番号 |
+| TT (Thứ tự) | No. (serial number) | 番号 |
+| Bài kiểm tra đánh giá năng lực (HSA) | Competency Assessment Test for High School Students (HSA) | 高校生向け学力評価試験（HSA） |
+| SAT (Scholastic Assessment Test) | SAT (Scholastic Assessment Test) | SAT標準化試験 |
+| Điểm quy đổi (ĐQĐ) | converted score | 換算点 |
+| Điểm ưu tiên (ĐT, KV) | priority points (category/object and region) | 優先加点（対象・地域） |
+| Cơ điện tử thông minh và sản xuất theo phương thức Nhật Bản (EMJM) | Engineer's program in Intelligent Mechatronics System & Japanese Manufacturing | 学部メカトロニクスと日本型ものづくりプログラム |
+| Đổi mới và phát triển toàn cầu (BGDI) | Bachelor's program in Global Development and Innovation | 学部グローバル開発とイノベーションプログラム |
+| Điều khiển thông minh và Tự động hóa (BICA) | Bachelor's program in Intelligent Control and Automation | 学部インテリジェント制御とオートメーションプログラム |
+
+---
+
+## 2. Roles / Positions（役職・職位）
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| Giám đốc Đại học Quốc gia Hà Nội | President of VNU | ベトナム国家大学ハノイ校総長 |
+| Phó Giám đốc | Vice President | 副総長 |
+| Hiệu trưởng | Rector | 学長 |
+| thủ trưởng đơn vị đào tạo | head of training unit | 教育訓練機関の長 |
+| giảng viên | lecturer / instructor | 講師（教員） |
+| sinh viên | student | 学生 |
+| cố vấn học tập | academic advisor | アカデミック・アドバイザー（学修指導員） |
+| giáo viên chủ nhiệm | homeroom teacher / class supervisor | クラス担任 |
+| Chủ nhiệm Khoa | Dean of Faculty | 学部長 |
+| Chủ nhiệm Bộ môn | Head of Department | 学科目長（教室主任） |
+| Trưởng Ban Đào tạo | Head of Department of Academic Affairs (VNU) | 教務局長（VNU本部） |
+| Chánh Văn phòng | Chief of Office / Secretary-General | 事務局長 |
+| Trưởng ban chức năng | Head of functional department | 部局長 |
+| Thủ trưởng đơn vị | Head of unit | 機関の長 |
+
+---
+
+## 3. Academic Programs / Curriculum（教育課程・カリキュラム）
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| chương trình đào tạo | training program / curriculum | 教育課程（カリキュラム） |
+
+---
+
+## X. IT / Data Integration Acronyms（IT・データ連携略語）
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| HEMIS | Higher Education Management Information System (MOET-level platform) | 高等教育管理情報システム（HEMIS） |
+| VNU-Hemis | VNU-level HEMIS integration system | VNUレベルHEMIS連携システム |
+| LGSP | Local Government Service Platform / data integration & sharing platform | 地方政府データ統合・共有基盤（LGSP） |
+| NDXP | National Data eXchange Platform | 国家データ交換基盤（NDXP） |
+| VNU-MIS | VNU Management Information System | VNU管理情報システム（VNU-MIS） |
+| HRM | Human Resource Management system | 人事管理システム（HRM） |
+| QLDT | Training Management system | 教務・学務管理システム（QLDT） |
+| QLKH | Science and Technology Management system | 科学技術管理システム（QLKH） |
+| ETL (Extract, Transform, Load) | ETL (Extract, Transform, Load) | ETL（抽出・変換・ロード） |
+| Data Warehouse | Data Warehouse | データウェアハウス |
+| API | Application Programming Interface | API（アプリケーション・プログラミング・インターフェース） |
+| Dashboard | Dashboard | ダッシュボード |
+| chương trình đào tạo chuẩn | standard training program | 標準教育課程 |
+| chương trình đào tạo chất lượng cao | high-quality training program | 高品質教育課程 |
+| chương trình đào tạo tài năng | honors / talented training program | 優秀人材育成教育課程（タレントプログラム） |
+| chương trình đào tạo song ngành | double-major program | ダブルメジャー（複数専攻）課程 |
+| chương trình đào tạo ngành chính - ngành phụ | major-minor program | メジャー・マイナー（主専攻・副専攻）課程 |
+| ngành học | field of study / major | 専攻（学科） |
+| chuẩn đầu ra | learning outcomes / graduate standards | 学修成果基準（卒業時到達目標） |
+| đề cương học phần | course syllabus | シラバス（科目概要） |
+
+---
+
+## 4. Courses / Credits（科目・単位）
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| học phần | course / subject | 科目（学修科目） |
+| tín chỉ | credit | 単位 |
+| giờ tín chỉ | credit hour | 単位時間 |
+| học phần bắt buộc | compulsory course / required course | 必修科目 |
+| học phần tự chọn có điều kiện | conditional elective course | 条件付き選択科目（選択必修科目） |
+| học phần tự chọn tự do | free elective course | 自由選択科目 |
+| học phần tiên quyết | prerequisite course | 前提科目（先修科目） |
+| học phần điều kiện | conditional course / corequisite | 条件科目 |
+| khóa luận tốt nghiệp | graduation thesis | 卒業論文 |
+| đồ án tốt nghiệp | graduation project / capstone project | 卒業研究（卒業設計） |
+
+---
+
+## 5. Academic Calendar / Organization（学事暦・学事組織）
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| học kỳ | semester / term | 学期 |
+| học kỳ chính | regular semester | 正規学期 |
+| học kỳ phụ | supplementary semester / summer term | 補充学期（サマーセメスター） |
+| khóa học | academic cohort / enrollment year | 入学年次（○○期生） |
+| năm đào tạo | academic year / training year | 学年度（修業年度） |
+| lớp khóa học | cohort class | 入学年次クラス |
+| lớp học phần | course class / course section | 科目クラス（授業クラス） |
+| kế hoạch đào tạo | training plan / academic plan | 教育計画（カリキュラムマップ） |
+
+---
+
+## 6. Training Forms（教育形態）
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| đào tạo chính quy | full-time training / regular program | 正規課程（全日制） |
+| vừa làm vừa học | part-time training / work-study program | 社会人課程（パートタイム） |
+| liên kết đào tạo | joint training program | 連携教育課程 |
+| văn bằng thứ hai | second degree | 第二学位 |
+
+---
+
+## 7. Assessment / Grading（成績評価）
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| điểm học phần | course grade | 科目成績 |
+| điểm đánh giá bộ phận | component score / continuous assessment score | 平常点（構成要素別評価点） |
+| điểm thi kết thúc học phần | final examination score | 期末試験成績 |
+| điểm trung bình chung học kỳ | semester GPA | 学期GPA（学期平均点） |
+| điểm trung bình chung tích lũy | cumulative GPA | 累積GPA（通算平均点） |
+| điểm trung bình chung các học phần | overall course GPA | 全科目GPA |
+| thang điểm 10 | 10-point grading scale | 10段階評価 |
+| điểm chữ | letter grade | 評語（レターグレード） |
+
+---
+
+## 8. Graduation / Degree（卒業・学位）
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| tốt nghiệp | graduation | 卒業 |
+| công nhận tốt nghiệp | recognition of graduation | 卒業認定 |
+| bằng tốt nghiệp | diploma / degree certificate | 卒業証書（学位記） |
+| phụ lục văn bằng | diploma supplement / transcript | 学位付録（成績証明書） |
+| hạng tốt nghiệp | graduation honors / classification | 卒業成績区分 |
+| Xuất sắc | Excellent | 優秀（最優等） |
+| Giỏi | Very Good | 優良（優等） |
+| Khá | Good | 良好（良） |
+| Trung bình | Average / Ordinary | 普通（可） |
+
+---
+
+## 9. Student Status（学籍）
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| đăng ký học phần | course registration | 履修登録 |
+| học lại | retake (a course) | 再履修 |
+| cải thiện điểm | grade improvement | 成績改善（成績向上のための再履修） |
+| rút bớt học phần | course withdrawal | 履修科目の取消（履修撤回） |
+| nghỉ học tạm thời | temporary leave of absence | 休学 |
+| buộc thôi học | forced dismissal / academic dismissal | 退学処分（強制退学） |
+| cảnh báo học tập | academic warning / academic probation | 学業警告 |
+| chuyển ngành | change of major / transfer of major | 転専攻（専攻変更） |
+| chuyển trường | transfer (to another institution) | 転学（他大学への移籍） |
+| tuyển sinh | admission / enrollment | 入学試験（入試・募集） |
+| chỉ tiêu tuyển sinh | admission quota | 入学定員（募集定員） |
+
+---
+
+## 10. Other Key Terms（その他の重要用語）
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| Quy chế | regulation | 規程 |
+| quy định | provision / rule | 規定 |
+| kiểm định chất lượng | quality assurance / accreditation | 品質保証（認証評価） |
+| ngân hàng câu hỏi | question bank / test bank | 試験問題バンク |
+| học phí | tuition fee | 学費（授業料） |
+| học bổng | scholarship | 奨学金 |
+| kỷ luật | discipline | 懲戒（規律処分） |
+| giáo dục quốc phòng - an ninh | national defense and security education | 国防安全保障教育 |
+| giáo dục thể chất | physical education | 体育教育 |
+| kỹ năng bổ trợ | supplementary skills / soft skills | 補助スキル（ソフトスキル） |
+| nghiên cứu khoa học | scientific research | 学術研究（科学研究） |
+| khối kiến thức | knowledge block / knowledge area | 知識領域（科目群） |
+
+---
+
+## 11. Abbreviations / Acronyms（略語・略称）
+
+### 11.1 Organization Abbreviations（組織略称）
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| ĐHQGHN (Đại học Quốc gia Hà Nội) | VNU (Vietnam National University, Hanoi) | VNU（ベトナム国家大学ハノイ校） |
+| Bộ GD&ĐT (Bộ Giáo dục và Đào tạo) | MOET (Ministry of Education and Training) | 教育訓練省 |
+| BĐT (Ban Đào tạo) | DAA (Department of Academic Affairs) | 教務局 |
+| Phòng TT&QTTH (Phòng Truyền thông và Quản trị thương hiệu) | Dept. of Communications and Brand Management | 広報・ブランド管理室 |
+| ĐT&CTSV (Đào tạo & Công tác sinh viên) | Academic Affairs & Student Activities | 教務・学生課 |
+| KT&ĐBCL (Khảo thí & Đảm bảo chất lượng) | Examination & Quality Assurance | 試験・品質保証課 |
+| KHTC (Kế hoạch tài chính) | Planning & Finance | 企画財務課 |
+| KĐCLGD (Kiểm định chất lượng giáo dục) | Educational Quality Accreditation | 教育品質認定 |
+| BGH (Ban Giám hiệu) | Board of Rectors | 学長団（経営陣） |
+| VP (Văn phòng) | Office / Secretariat | 事務局 |
+| HCTH (Hành chính tổng hợp) | General Administration | 総務課 |
+
+### 11.2 Document Type Abbreviations（文書種別略称）
+
+> **Note:** These abbreviations appear in document IDs (e.g., `3636/QĐ-ĐHQGHN`). They must be kept in the original Vietnamese form in all language versions.
+
+| Abbreviation | Vietnamese | English | Japanese（日本語） |
+|---|---|---|---|
+| QĐ | Quyết định | Decision | 決定 |
+| TT | 通達 | Circular | 通達（「円形」は誤訳） |
+| NĐ | Nghị định | Decree | 政令 |
+| NQ | Nghị quyết | Resolution | 決議 |
+| HD | Hướng dẫn | Guideline | 指針（ガイドライン） |
+| TB | Thông báo | Notification | 通知 |
+| CV | Công văn | Official Dispatch | 公文書 |
+
+### 11.3 Issuing Body Abbreviations（発行機関略称）
+
+| Abbreviation | Vietnamese | English | Japanese（日本語） |
+|---|---|---|---|
+| ĐHQGHN | Đại học Quốc gia Hà Nội | VNU | ベトナム国家大学ハノイ校 |
+| BGDĐT | Bộ Giáo dục và Đào tạo | MOET | 教育訓練省 |
+| CP | Chính phủ | Government | 政府 |
+| TTg | Thủ tướng Chính phủ | Prime Minister | 首相 |
+| HĐ | Hội đồng | Council | 評議会 |
+| BTC | Bộ Tài chính | Ministry of Finance | 財務省 |
+
+### 11.4 Signature & Distribution Abbreviations（署名欄・送付先略称）
+
+> **Note:** These terms appear in the Nơi nhận (distribution) and signature sections. In EN/JA versions, translate the meaning but keep the section structure intact.
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| KT. (Ký thay) | On behalf of / Acting | 代理（署名代行） |
+| Nơi nhận | Recipients / Distribution | 送付先 |
+| để b/c (để báo cáo) | for reporting | 報告用 |
+| đăng website | post on website | ウェブサイト掲載 |
+| VT (Văn thư) | Archives / Secretariat | 文書課（庶務） |
+| Lưu | File / Archive | 保存 |
+| ĐT (in Lưu context) | Academic Affairs (copy) | 教務局（写し） |
+| Ban CT&CTHSSV | Student Affairs Division | 学生支援課 |
+| Như Điều _N_ | As per Article _N_ | 第_N_条の通り |
+
+> **Filing codes / 保存番号:** Codes like `M50`, `Th50`, `H06`, `QH04`, `L03`, `P3` are internal archive reference numbers. They indicate the filing category and number of copies, and should be kept as-is in all language versions.
+> 保存番号（例：M50, Th50, H06, QH04）は内部ファイリング記号であり、全言語版でそのまま保持する。
+
+### 11.5 Masters-Specific Terms（修士課程固有用語）
+
+| Vietnamese | English | Japanese（日本語） |
+|---|---|---|
+| học viên | graduate student / master's student | 大学院生（修士課程学生） |
+| luận văn | thesis (master's) | 修士論文 |
+| đề án (thạc sĩ) | project / capstone (master's) | 修士課題（修士プロジェクト） |
+| định hướng nghiên cứu | research-oriented | 研究志向型 |
+| định hướng ứng dụng | application-oriented | 応用志向型 |
+| ngành phù hợp | cognate field / related major | 関連専攻（適合分野） |
+| học bổ sung kiến thức | prerequisite bridging courses | 補充科目（ブリッジ科目） |
+| người hướng dẫn luận văn | thesis supervisor | 修士論文指導教員 |
+
+*Last updated: 2026-02-23*

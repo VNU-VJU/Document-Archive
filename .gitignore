@@ -1,0 +1,34 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp files
+~$*
+*.tmp
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+firebase-config.js
+
+# Project files (not needed for GitHub Pages)
+docs/project/
+docs/src/
+docs/stitch/
+
+# Confidential local documents (must never be committed)
+confidential/
+data/confidential/
+
+# Local AI tool state / temp work artifacts
+.claude/
+.claude.json
+tmp/

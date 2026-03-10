@@ -1,0 +1,2243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VJU Document Archive</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'vnu-blue': '#0054A6',
+            'bg-canvas': '#F4F6F8',
+            'surface': '#FFFFFF',
+            'text-main': '#111827',
+            'text-muted': '#6B7280',
+            'accent-urgent': '#DC2626',
+            'accent-new': '#10B981',
+            'border': '#e2e8f0',
+            'accent': '#3b82f6',
+            'dept-brand': '#800000',
+          },
+          fontFamily: {
+            sans: ['Arial', 'sans-serif'],
+            display: ['Arial', 'sans-serif'],
+            mono: ['monospace'],
+          },
+          boxShadow: {
+            soft: '0 1px 3px rgba(0,0,0,0.05), 0 10px 25px -5px rgba(0,0,0,0.05)',
+            hover: '0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)',
+            subtle: '0 1px 3px rgba(0,0,0,0.05), 0 10px 25px -5px rgba(0,0,0,0.05)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Arial', sans-serif; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    .sync-highlight { background-color: #eff6ff; border-left: 3px solid #3b82f6; }
+    .view { display: none; }
+    .view.active { display: flex; }
+    .view-home.active, .view-search.active, .view-department.active { display: flex; flex-direction: column; }
+
+    /* Prose for document reader */
+    .prose-legal h1 { font-size: 1.35rem; font-weight: 700; margin: 2rem 0 0.75rem; text-align: center; }
+    .prose-legal h2 { font-size: 1.1rem; font-weight: 700; margin: 1.5rem 0 0.5rem; color: #1e293b; }
+    .prose-legal p { margin: 0.6rem 0; line-height: 1.75; font-size: 0.95rem; }
+    .prose-legal p.khoan { padding-left: 0; margin: 0.3rem 0; }
+    .prose-legal p.diem { padding-left: 1.5em; margin: 0.3rem 0; }
+    .prose-legal ul, .prose-legal ol { margin: 0.4rem 0 0.4rem 0.25rem; }
+    .prose-legal li { margin: 0.2rem 0; line-height: 1.7; font-size: 0.95rem; }
+    .prose-legal table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.85rem; }
+    .prose-legal th, .prose-legal td { border: 1px solid #e2e8f0; padding: 0.4rem 0.6rem; text-align: center; }
+    .prose-legal blockquote { border-left: 4px solid #f59e0b; background: #fffbeb; padding: 0.6rem 0.75rem; margin: 0.75rem 0; border-radius: 0 6px 6px 0; font-size: 0.85rem; }
+    .prose-legal .source-note { border-left: 4px solid #f59e0b; background: #fffbeb; padding: 0.6rem 0.75rem; margin: 0.75rem 0; border-radius: 0 6px 6px 0; font-size: 0.85rem; }
+    .prose-legal hr { border-color: #e2e8f0; margin: 1rem 0; }
+    .prose-legal strong { color: #1e293b; }
+
+    /* TOC */
+    #toc a { display: block; padding: 6px 8px; border-radius: 6px; color: #334155; font-size: 12px; text-decoration: none; transition: all 0.15s; }
+    #toc a:hover { background: #ffffff; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+    #toc a.active { background: #eff6ff; color: #3b82f6; font-weight: 500; border-left: 2px solid #3b82f6; }
+    #toc .chapter-item > a { font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; padding-left: 8px; margin-top: 12px; }
+    #toc .article-item > a { padding-left: 16px; }
+    .drag-handle { cursor: col-resize; user-select: none; }
+    .drag-handle:hover .handle-bar, .drag-handle.dragging .handle-bar { background: #3b82f6; }
+    /* Relations panel — horizontal bar above content */
+    #doc-relations { border-bottom: 1px solid #e2e8f0; background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%); padding: 8px 16px; }
+    #rel-content { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    #doc-relations h4 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin: 0; white-space: nowrap; }
+    #rel-tags, #rel-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    #rel-links { border-left: 1px solid #cbd5e1; padding-left: 12px; }
+    .rel-tag { display: inline-block; padding: 3px 10px; margin: 1px; font-size: 11px; background: #ffffff; color: #3b82f6; border: 1px solid #bfdbfe; border-radius: 9999px; cursor: pointer; transition: all 0.15s; font-weight: 500; }
+    .rel-tag:hover { background: #3b82f6; color: #ffffff; border-color: #3b82f6; }
+    .rel-link { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; margin: 1px; font-size: 12px; color: #334155; text-decoration: none; border-radius: 6px; transition: all 0.15s; cursor: pointer; background: #ffffff; border: 1px solid #e2e8f0; }
+    .rel-link:hover { background: #3b82f6; color: #ffffff; border-color: #3b82f6; }
+    .rel-link:hover .rel-type, .rel-link:hover .rel-icon { color: #ffffff; }
+    .rel-link .rel-type { font-size: 10px; color: #94a3b8; white-space: nowrap; }
+    .rel-link .rel-icon { font-size: 14px; color: #64748b; }
+  </style>
+</head>
+<body class="bg-bg-canvas text-text-main min-h-screen flex flex-col">
+
+<!-- ============================================================ -->
+<!-- SHARED HEADER NAV -->
+<!-- ============================================================ -->
+<nav id="main-nav" class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-14">
+      <!-- Logo -->
+      <a href="#" id="nav-home-btn" class="flex items-center gap-2.5 group">
+        <div class="w-7 h-7 rounded bg-vnu-blue flex items-center justify-center text-white font-bold text-sm">V</div>
+        <span class="font-bold text-base tracking-tight text-vnu-blue group-hover:text-blue-700 transition-colors">VJU Document Archive</span>
+      </a>
+      <!-- Nav links (hidden on reader) -->
+      <div id="nav-links" class="hidden md:flex gap-6">
+        <a href="#" data-nav="home" class="nav-link text-text-muted hover:text-vnu-blue text-sm font-medium transition-colors">Home</a>
+        <a href="#" data-nav="department" class="nav-link text-text-muted hover:text-vnu-blue text-sm font-medium transition-colors">Departments</a>
+        <a href="#" data-nav="search" class="nav-link text-text-muted hover:text-vnu-blue text-sm font-medium transition-colors">Search</a>
+      </div>
+      <!-- Reader controls (shown on reader only) -->
+      <div id="reader-controls" class="hidden items-center gap-1">
+        <button data-lang="vi" class="lang-btn px-2 py-1 text-[11px] font-bold bg-vnu-blue text-white rounded">VN</button>
+        <button data-lang="en" class="lang-btn px-2 py-1 text-[11px] font-bold bg-vnu-blue text-white rounded">EN</button>
+        <button data-lang="ja" class="lang-btn px-2 py-1 text-[11px] font-bold bg-vnu-blue text-white rounded">JP</button>
+        <div class="w-px h-3 bg-gray-200 mx-1"></div>
+        <a id="btn-source" href="data/3626-QD-DHQGHN_Regulation on Undergraduate Training_source.pdf" target="_blank" rel="noopener" class="view-btn px-2 py-1 text-[11px] font-medium text-text-muted hover:bg-gray-100 rounded inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">picture_as_pdf</span>Source</a>
+        <button id="btn-print-content" class="view-btn px-2 py-1 text-[11px] font-medium text-text-muted hover:bg-gray-100 rounded inline-flex items-center gap-1" title="Print or save PDF for the current document content only">
+          <span class="material-symbols-outlined text-[14px]">print</span>Print
+        </button>
+        <button id="btn-split" class="view-btn px-2 py-1 text-[11px] font-medium text-accent bg-blue-50 border border-blue-100 rounded">Split View</button>
+      </div>
+      <!-- Right actions -->
+      <div class="flex items-center gap-3">
+        <button id="btn-exit-split" class="hidden h-8 px-3 items-center gap-2 text-xs font-medium text-red-600 hover:bg-red-50 border border-red-100 rounded-md transition-all">
+          <span class="material-symbols-outlined text-[16px]">close_fullscreen</span>
+          <span class="hidden sm:inline">Exit Split</span>
+        </button>
+        <div id="ui-lang-switcher" class="flex items-center border border-gray-200 rounded-lg overflow-hidden">
+          <button data-ui-lang="en" class="ui-lang-btn px-2 py-1 text-[11px] font-bold bg-vnu-blue text-white transition-colors">EN</button>
+          <button data-ui-lang="vi" class="ui-lang-btn px-2 py-1 text-[11px] font-bold text-text-muted hover:bg-gray-100 transition-colors">VI</button>
+          <button data-ui-lang="ja" class="ui-lang-btn px-2 py-1 text-[11px] font-bold text-text-muted hover:bg-gray-100 transition-colors">JA</button>
+        </div>
+        <!-- Quick search (non-reader) -->
+        <div id="nav-search-box" class="relative hidden sm:block">
+          <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-text-muted">
+            <span class="material-symbols-outlined text-[18px]">search</span>
+          </span>
+          <input id="nav-search-input" type="text" placeholder="Quick search..." class="block w-48 pl-9 pr-3 py-1.5 border border-gray-200 rounded-lg bg-bg-canvas placeholder-text-muted focus:outline-none focus:bg-white focus:ring-1 focus:ring-vnu-blue focus:border-vnu-blue text-sm transition-colors">
+        </div>
+        <!-- Auth -->
+        <div class="border-l border-gray-200 pl-3" id="auth-section"></div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- VIEW: HOME / DISCOVERY -->
+<!-- ============================================================ -->
+<div id="view-home" class="view view-home active flex-1">
+  <!-- Hero -->
+  <section class="relative pt-14 pb-10 px-4 flex flex-col items-center text-center bg-gradient-to-b from-white to-bg-canvas border-b border-gray-200/50">
+    <div class="absolute top-0 inset-x-0 h-full overflow-hidden -z-10 pointer-events-none opacity-40">
+      <div class="absolute left-[calc(50%-15rem)] top-10 h-[40rem] w-[50rem] origin-top-left -rotate-12 rounded-full bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-10 blur-3xl"></div>
+      <div class="absolute right-[calc(50%-20rem)] top-20 h-[30rem] w-[40rem] origin-top-right rotate-12 rounded-full bg-gradient-to-tr from-[#0054A6] to-[#00C2FF] opacity-10 blur-3xl"></div>
+    </div>
+    <div class="w-full max-w-4xl mx-auto space-y-7 relative z-10">
+      <div class="space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-vnu-blue/5 text-vnu-blue text-xs font-semibold uppercase tracking-wider border border-vnu-blue/10">
+          <span class="w-2 h-2 rounded-full bg-vnu-blue animate-pulse"></span>
+          Administrative Intelligence
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-text-main tracking-tight leading-[1.1]">
+          Search the VNU<br>Administrative Archive
+        </h1>
+        <p class="text-lg text-text-muted max-w-2xl mx-auto">
+          Instant clarity on regulations, circulars, and academic decrees.
+        </p>
+      </div>
+      <!-- Search -->
+      <div class="relative max-w-[600px] w-full mx-auto group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-vnu-blue/20 to-cyan-500/20 rounded-[24px] blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+        <div class="relative bg-white rounded-[20px] shadow-soft flex items-center p-2 focus-within:shadow-xl focus-within:ring-2 focus-within:ring-vnu-blue/20 transition-all duration-300">
+          <div class="pl-4 text-text-muted">
+            <span class="material-symbols-outlined text-[28px]">search</span>
+          </div>
+          <input id="home-search" type="text" class="w-full h-12 px-4 bg-transparent border-none text-lg text-text-main placeholder-text-muted focus:ring-0" placeholder="Search by ID, keyword (e.g. Undergraduate, đại học, 学部)...">
+          <button id="home-search-btn" class="bg-vnu-blue hover:bg-blue-700 text-white p-3 rounded-2xl transition-colors flex items-center justify-center shadow-lg shadow-vnu-blue/20">
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+      <!-- Trending -->
+      <div class="flex flex-wrap justify-center gap-2 pt-1">
+        <span class="text-sm text-text-muted py-1.5">Trending:</span>
+        <button class="trending-tag px-3 py-1.5 bg-white border border-gray-200 hover:border-vnu-blue/30 hover:bg-vnu-blue/5 text-sm font-medium text-text-muted hover:text-vnu-blue rounded-full transition-all shadow-sm">Academic Affairs</button>
+        <button class="trending-tag px-3 py-1.5 bg-white border border-gray-200 hover:border-vnu-blue/30 hover:bg-vnu-blue/5 text-sm font-medium text-text-muted hover:text-vnu-blue rounded-full transition-all shadow-sm">Scholarships 2024</button>
+        <button class="trending-tag px-3 py-1.5 bg-white border border-gray-200 hover:border-vnu-blue/30 hover:bg-vnu-blue/5 text-sm font-medium text-text-muted hover:text-vnu-blue rounded-full transition-all shadow-sm">Dormitory Rules</button>
+        <button class="trending-tag px-3 py-1.5 bg-white border border-gray-200 hover:border-vnu-blue/30 hover:bg-vnu-blue/5 text-sm font-medium text-text-muted hover:text-vnu-blue rounded-full transition-all shadow-sm">Tuition Fees</button>
+      </div>
+    </div>
+  </section>
+  <!-- Recent Circulars -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold text-text-main flex items-center gap-2">
+        <span class="material-symbols-outlined text-vnu-blue">history_edu</span>
+        Recent Circulars
+      </h2>
+      <a href="#" class="group flex items-center gap-1 text-sm font-semibold text-vnu-blue hover:text-blue-700 transition-colors" onclick="event.preventDefault(); navigateTo('search')">
+        View all archive
+        <span class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+      </a>
+    </div>
+    <div id="home-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-200 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 opacity-60">
+        <div class="w-5 h-5 rounded bg-gray-800 flex items-center justify-center text-white font-bold text-[10px]">V</div>
+        <span class="text-sm text-text-muted">&copy; 2024 Vietnam National University</span>
+      </div>
+      <div class="flex gap-6 text-sm text-text-muted">
+        <a class="hover:text-vnu-blue transition-colors" href="#">Privacy Policy</a>
+        <a class="hover:text-vnu-blue transition-colors" href="#">Terms of Service</a>
+        <a class="hover:text-vnu-blue transition-colors" href="#">Help Center</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- VIEW: SEARCH RESULTS -->
+<!-- ============================================================ -->
+<div id="view-search" class="view view-search flex-1">
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 flex flex-col lg:flex-row gap-8">
+    <!-- Sidebar Filters -->
+    <aside class="w-full lg:w-[260px] shrink-0 space-y-6">
+      <!-- Department -->
+      <div class="bg-white rounded-xl shadow-subtle p-5 border border-gray-200">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-semibold text-base text-gray-900">Department</h3>
+          <span class="material-symbols-outlined text-gray-400 text-[20px]">apartment</span>
+        </div>
+        <div id="filter-departments" class="space-y-3"></div>
+      </div>
+      <!-- Document Type -->
+      <div class="bg-white rounded-xl shadow-subtle p-5 border border-gray-200">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-semibold text-base text-gray-900">Document Type</h3>
+          <span class="material-symbols-outlined text-gray-400 text-[20px]">description</span>
+        </div>
+        <div id="filter-types" class="space-y-3"></div>
+      </div>
+      <!-- Date Range -->
+      <div class="bg-white rounded-xl shadow-subtle p-5 border border-gray-200">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-semibold text-base text-gray-900">Date Range</h3>
+          <span class="material-symbols-outlined text-gray-400 text-[20px]">calendar_today</span>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div><label class="text-xs text-gray-500 mb-1 block">From</label><input id="date-from" type="date" class="w-full text-sm border-gray-300 rounded-lg focus:ring-vnu-blue focus:border-vnu-blue"></div>
+          <div><label class="text-xs text-gray-500 mb-1 block">To</label><input id="date-to" type="date" class="w-full text-sm border-gray-300 rounded-lg focus:ring-vnu-blue focus:border-vnu-blue"></div>
+        </div>
+        <div class="pt-2 flex flex-wrap gap-2">
+          <button class="date-preset px-3 py-1 bg-gray-100 hover:bg-gray-200 text-xs font-medium rounded-full text-gray-600 transition-colors" data-year="2024">2024</button>
+          <button class="date-preset px-3 py-1 bg-gray-100 hover:bg-gray-200 text-xs font-medium rounded-full text-gray-600 transition-colors" data-days="30">Last 30 days</button>
+        </div>
+      </div>
+    </aside>
+    <!-- Results area -->
+    <div class="flex-1 min-w-0">
+      <!-- Search bar -->
+      <div class="flex flex-col sm:flex-row gap-4 mb-6">
+        <div class="relative flex-1">
+          <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"><span class="material-symbols-outlined text-gray-400 text-[24px]">search</span></div>
+          <input id="search-input" type="text" class="block w-full pl-12 pr-4 py-3 border-gray-200 rounded-xl bg-white shadow-sm focus:ring-2 focus:ring-vnu-blue/20 focus:border-vnu-blue text-base placeholder-gray-400" placeholder="Search by ID, keyword, or department...">
+        </div>
+        <select id="search-sort" class="form-select border-gray-200 rounded-xl bg-white shadow-sm py-3 pl-4 pr-10 text-sm focus:ring-vnu-blue/20 focus:border-vnu-blue cursor-pointer">
+          <option>Relevance</option><option>Newest first</option><option>Oldest first</option>
+        </select>
+      </div>
+      <!-- Active filters -->
+      <div id="active-filters" class="flex flex-wrap items-center gap-2 border-b border-gray-200 pb-4 mb-6"></div>
+      <!-- Results list -->
+      <div id="search-results-list" class="space-y-4 pb-8"></div>
+    </div>
+  </main>
+</div>
+
+<!-- ============================================================ -->
+<!-- VIEW: DEPARTMENT ARCHIVE -->
+<!-- ============================================================ -->
+<div id="view-department" class="view view-department flex-1">
+  <!-- Breadcrumb -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <nav class="flex"><ol class="flex items-center space-x-2 text-sm">
+        <li><a href="#" class="text-text-muted hover:text-text-main font-medium" onclick="event.preventDefault(); navigateTo('home')">Home</a></li>
+        <li class="text-gray-300">/</li>
+        <li><span class="text-vnu-blue font-medium">Office of International Relations</span></li>
+      </ol></nav>
+    </div>
+  </div>
+  <main class="flex-grow py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Main -->
+        <div class="flex-1 min-w-0">
+          <!-- Hero -->
+          <div class="bg-white rounded-lg shadow-subtle border border-gray-200 overflow-hidden mb-8">
+            <div class="h-2 bg-dept-brand w-full"></div>
+            <div class="p-6 sm:p-8">
+              <div class="flex items-start justify-between gap-6">
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-2">
+                    <span class="bg-dept-brand/10 text-dept-brand text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Department</span>
+                    <span class="text-text-muted text-sm flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">location_on</span>Building C1, Room 202</span>
+                  </div>
+                  <h1 class="font-bold text-3xl text-text-main mb-4">Office of International Relations</h1>
+                  <p class="text-text-muted text-lg leading-relaxed max-w-2xl">Facilitating global partnerships, managing student exchange programs, and fostering international academic cooperation for Vietnam National University.</p>
+                </div>
+                <div class="hidden sm:flex items-center justify-center size-24 rounded-xl bg-gray-50 border border-gray-100 shrink-0 text-dept-brand">
+                  <span class="material-symbols-outlined text-[48px]">public</span>
+                </div>
+              </div>
+              <div class="mt-6 flex gap-3">
+                <button class="bg-vnu-blue hover:bg-blue-700 text-white font-medium px-5 py-2.5 rounded-lg text-sm transition-colors flex items-center gap-2 shadow-sm"><span class="material-symbols-outlined text-[20px]">mail</span>Contact Department</button>
+                <button class="bg-white border border-gray-200 hover:bg-gray-50 text-text-main font-medium px-5 py-2.5 rounded-lg text-sm transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">captive_portal</span>Visit Website</button>
+              </div>
+            </div>
+          </div>
+          <!-- Frequently Accessed -->
+          <section class="mb-8">
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="font-semibold text-xl text-text-main">Frequently Accessed</h2>
+              <a href="#" class="text-vnu-blue text-sm font-medium hover:underline">View all</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
+                <div class="flex justify-between items-start mb-3">
+                  <div class="bg-blue-50 text-vnu-blue p-2 rounded-lg group-hover:bg-vnu-blue group-hover:text-white transition-colors"><span class="material-symbols-outlined text-[24px]">book</span></div>
+                  <span class="bg-red-50 text-accent-urgent text-xs font-semibold px-2 py-0.5 rounded-full">Urgent</span>
+                </div>
+                <h3 class="font-semibold text-text-main mb-2 line-clamp-2 group-hover:text-vnu-blue transition-colors">Fall 2024 Exchange Guidelines</h3>
+                <p class="text-text-muted text-sm line-clamp-2 mb-3">Comprehensive guide for students applying for international exchange programs.</p>
+                <div class="flex items-center justify-between mt-auto"><span class="font-mono text-xs text-text-muted">DOC-2024-001</span><span class="text-xs text-text-muted">Oct 24, 2024</span></div>
+              </div>
+              <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
+                <div class="flex justify-between items-start mb-3">
+                  <div class="bg-blue-50 text-vnu-blue p-2 rounded-lg group-hover:bg-vnu-blue group-hover:text-white transition-colors"><span class="material-symbols-outlined text-[24px]">description</span></div>
+                  <span class="bg-gray-100 text-text-muted text-xs font-semibold px-2 py-0.5 rounded-full">Form</span>
+                </div>
+                <h3 class="font-semibold text-text-main mb-2 line-clamp-2 group-hover:text-vnu-blue transition-colors">Visa Application Support Form 3B</h3>
+                <p class="text-text-muted text-sm line-clamp-2 mb-3">Required documentation request form for student visa sponsorship letters.</p>
+                <div class="flex items-center justify-between mt-auto"><span class="font-mono text-xs text-text-muted">FRM-2023-882</span><span class="text-xs text-text-muted">Jan 12, 2024</span></div>
+              </div>
+              <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
+                <div class="flex justify-between items-start mb-3">
+                  <div class="bg-blue-50 text-vnu-blue p-2 rounded-lg group-hover:bg-vnu-blue group-hover:text-white transition-colors"><span class="material-symbols-outlined text-[24px]">gavel</span></div>
+                  <span class="bg-green-100 text-accent-new text-xs font-semibold px-2 py-0.5 rounded-full">Policy</span>
+                </div>
+                <h3 class="font-semibold text-text-main mb-2 line-clamp-2 group-hover:text-vnu-blue transition-colors">Scholarship Criteria Framework 2024-2025</h3>
+                <p class="text-text-muted text-sm line-clamp-2 mb-3">Updated eligibility requirements for VNU international excellence scholarships.</p>
+                <div class="flex items-center justify-between mt-auto"><span class="font-mono text-xs text-text-muted">REG-2024-112</span><span class="text-xs text-text-muted">Aug 05, 2024</span></div>
+              </div>
+            </div>
+          </section>
+          <!-- Announcements list -->
+          <section>
+            <div class="border-b border-gray-200 mb-6">
+              <nav class="-mb-px flex space-x-8">
+                <a href="#" class="border-vnu-blue text-vnu-blue whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm flex items-center gap-2">Announcements <span class="bg-vnu-blue/10 text-vnu-blue py-0.5 px-2 rounded-full text-xs">12</span></a>
+                <a href="#" class="border-transparent text-text-muted hover:text-text-main hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm flex items-center gap-2">Forms <span class="bg-gray-100 text-text-muted py-0.5 px-2 rounded-full text-xs">5</span></a>
+                <a href="#" class="border-transparent text-text-muted hover:text-text-main hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm flex items-center gap-2">Regulations <span class="bg-gray-100 text-text-muted py-0.5 px-2 rounded-full text-xs">28</span></a>
+              </nav>
+            </div>
+            <div class="space-y-3">
+              <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-subtle transition-shadow flex flex-col sm:flex-row sm:items-center gap-4 group cursor-pointer">
+                <div class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-16 bg-gray-50 rounded-lg border border-gray-100 text-text-muted group-hover:border-vnu-blue/20 group-hover:bg-vnu-blue/5 transition-colors">
+                  <span class="block text-xs font-bold uppercase text-text-muted mb-0.5">Oct</span><span class="block text-xl font-bold text-text-main">22</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-1"><span class="font-mono text-xs text-text-muted bg-gray-100 px-1.5 py-0.5 rounded">ANC-2024-045</span><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">New</span></div>
+                  <h4 class="text-base font-semibold text-text-main truncate group-hover:text-vnu-blue transition-colors">Call for Applications: Erasmus+ Mobility Program Spring 2025</h4>
+                  <p class="text-sm text-text-muted truncate">Deadline for submissions is November 30th. Open to all undergraduate students.</p>
+                </div>
+                <div class="flex items-center gap-3 sm:border-l sm:border-gray-100 sm:pl-4">
+                  <div class="flex -space-x-1 overflow-hidden">
+                    <div class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold text-text-muted bg-gray-100 rounded border border-white">VN</div>
+                    <div class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold text-text-muted bg-gray-100 rounded border border-white">EN</div>
+                  </div>
+                  <button class="text-text-muted hover:text-vnu-blue transition-colors p-1"><span class="material-symbols-outlined">download</span></button>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-subtle transition-shadow flex flex-col sm:flex-row sm:items-center gap-4 group cursor-pointer">
+                <div class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-16 bg-gray-50 rounded-lg border border-gray-100 text-text-muted group-hover:border-vnu-blue/20 group-hover:bg-vnu-blue/5 transition-colors">
+                  <span class="block text-xs font-bold uppercase text-text-muted mb-0.5">Oct</span><span class="block text-xl font-bold text-text-main">15</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-1"><span class="font-mono text-xs text-text-muted bg-gray-100 px-1.5 py-0.5 rounded">ANC-2024-041</span></div>
+                  <h4 class="text-base font-semibold text-text-main truncate group-hover:text-vnu-blue transition-colors">Notice regarding change in office hours for International Student Support</h4>
+                  <p class="text-sm text-text-muted truncate">Effective immediately, the support desk will close at 4:30 PM on Fridays.</p>
+                </div>
+                <div class="flex items-center gap-3 sm:border-l sm:border-gray-100 sm:pl-4">
+                  <div class="flex -space-x-1 overflow-hidden"><div class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold text-text-muted bg-gray-100 rounded border border-white">VN</div></div>
+                  <button class="text-text-muted hover:text-vnu-blue transition-colors p-1"><span class="material-symbols-outlined">download</span></button>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-subtle transition-shadow flex flex-col sm:flex-row sm:items-center gap-4 group cursor-pointer">
+                <div class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-16 bg-gray-50 rounded-lg border border-gray-100 text-text-muted group-hover:border-vnu-blue/20 group-hover:bg-vnu-blue/5 transition-colors">
+                  <span class="block text-xs font-bold uppercase text-text-muted mb-0.5">Sep</span><span class="block text-xl font-bold text-text-main">30</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-1"><span class="font-mono text-xs text-text-muted bg-gray-100 px-1.5 py-0.5 rounded">ANC-2024-038</span></div>
+                  <h4 class="text-base font-semibold text-text-main truncate group-hover:text-vnu-blue transition-colors">Seminar Invitation: "Global Trends in Higher Education"</h4>
+                  <p class="text-sm text-text-muted truncate">Guest speaker Dr. Emily Chen from NUS. Registration required.</p>
+                </div>
+                <div class="flex items-center gap-3 sm:border-l sm:border-gray-100 sm:pl-4">
+                  <div class="flex -space-x-1 overflow-hidden">
+                    <div class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold text-text-muted bg-gray-100 rounded border border-white">VN</div>
+                    <div class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold text-text-muted bg-gray-100 rounded border border-white">EN</div>
+                  </div>
+                  <button class="text-text-muted hover:text-vnu-blue transition-colors p-1"><span class="material-symbols-outlined">download</span></button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- Right sidebar -->
+        <aside class="w-full lg:w-80 flex-shrink-0">
+          <div class="lg:sticky lg:top-20 space-y-6">
+            <!-- Contact -->
+            <div class="bg-white rounded-lg shadow-md border border-gray-200 p-6 relative overflow-hidden">
+              <h3 class="font-semibold text-lg text-text-main mb-4">Department Contact</h3>
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <div class="size-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-text-muted">person</span></div>
+                  <div><p class="text-xs text-text-muted font-medium uppercase">Secretary</p><p class="text-sm font-semibold text-text-main">Ms. Nguyen Thi Lan</p></div>
+                </div>
+                <div class="h-px bg-gray-100 w-full"></div>
+                <a class="flex items-center gap-3 group" href="mailto:intl@vnu.edu.vn"><div class="size-8 rounded bg-blue-50 text-vnu-blue flex items-center justify-center group-hover:bg-vnu-blue group-hover:text-white transition-colors"><span class="material-symbols-outlined text-[18px]">mail</span></div><span class="text-sm text-text-muted group-hover:text-vnu-blue transition-colors">intl@vnu.edu.vn</span></a>
+                <a class="flex items-center gap-3 group" href="tel:+842412345678"><div class="size-8 rounded bg-blue-50 text-vnu-blue flex items-center justify-center group-hover:bg-vnu-blue group-hover:text-white transition-colors"><span class="material-symbols-outlined text-[18px]">call</span></div><span class="text-sm text-text-muted group-hover:text-vnu-blue transition-colors">+84 24 1234 5678</span></a>
+                <div class="flex items-start gap-3"><div class="size-8 rounded bg-gray-50 text-text-muted flex items-center justify-center mt-0.5"><span class="material-symbols-outlined text-[18px]">schedule</span></div><div class="text-sm text-text-muted"><p><span class="font-medium text-text-main">Mon - Fri:</span> 08:00 - 17:00</p><p><span class="font-medium text-text-main">Sat - Sun:</span> Closed</p></div></div>
+              </div>
+            </div>
+            <!-- Related -->
+            <div class="bg-white rounded-lg border border-gray-200 p-5">
+              <h3 class="font-semibold text-base text-text-main mb-3">Related Departments</h3>
+              <ul class="space-y-2">
+                <li><a class="flex items-center justify-between text-sm text-text-muted hover:text-vnu-blue group py-1" href="#"><span>Student Affairs</span><span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span></a></li>
+                <li><a class="flex items-center justify-between text-sm text-text-muted hover:text-vnu-blue group py-1" href="#"><span>Academic Affairs</span><span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span></a></li>
+                <li><a class="flex items-center justify-between text-sm text-text-muted hover:text-vnu-blue group py-1" href="#"><span>Science &amp; Technology</span><span class="material-symbols-outlined text-[16px] opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-white border-t border-gray-200 py-6 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-text-muted">&copy; 2024 Vietnam National University. All rights reserved.</p>
+      <div class="flex gap-6 text-sm text-text-muted">
+        <a class="hover:text-vnu-blue" href="#">Privacy Policy</a>
+        <a class="hover:text-vnu-blue" href="#">Terms of Use</a>
+        <a class="hover:text-vnu-blue" href="#">Help Center</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- VIEW: DOCUMENT READER (Split View) -->
+<!-- ============================================================ -->
+<div id="view-reader" class="view" style="flex-direction:column; height:calc(100vh - 56px);">
+  <div id="doc-relations" style="display:none;">
+    <div id="rel-content">
+      <div id="rel-tags"></div>
+      <div id="rel-links"></div>
+    </div>
+  </div>
+  <div id="reader-body" class="flex-1 flex overflow-hidden">
+    <!-- TOC Sidebar -->
+    <aside id="sidebar" class="w-60 flex-shrink-0 border-r border-gray-200 bg-slate-50 flex flex-col z-20">
+      <div class="h-[44px] border-b border-gray-200 flex items-center justify-between px-4 bg-white">
+        <span class="text-xs font-bold text-gray-900 flex items-center gap-2"><span class="material-symbols-outlined text-sm">menu_book</span>On this page</span>
+        <button id="toc-collapse" class="p-1 hover:bg-gray-100 rounded text-text-muted"><span class="material-symbols-outlined text-[18px]">side_navigation</span></button>
+      </div>
+      <nav id="toc" class="flex-1 overflow-y-auto p-3 space-y-1" aria-label="Table of contents">
+        <div class="text-xs text-text-muted py-4 text-center">Loading...</div>
+      </nav>
+    </aside>
+    <!-- Split container -->
+    <div id="split-container" class="flex-1 flex overflow-hidden">
+      <!-- Left: Vietnamese -->
+      <section id="pane-left" class="flex-1 flex flex-col border-r border-gray-200 min-w-[280px] bg-white">
+        <div class="h-[44px] border-b border-gray-200 bg-slate-50/50 flex items-center justify-between px-4 shrink-0">
+          <div class="flex items-center gap-2">
+            <select id="lang-select-left" class="text-sm font-medium text-gray-900 bg-transparent border border-gray-300 rounded px-2 py-1 cursor-pointer focus:outline-none focus:ring-1 focus:ring-accent min-w-[200px]">
+              <option value="vi">🇻🇳 Vietnamese (Original)</option>
+              <option value="en" selected>🇬🇧 English (Translated)</option>
+              <option value="ja">🇯🇵 Japanese (Translated)</option>
+            </select>
+          </div>
+        </div>
+        <div id="content-left-vi" class="flex-1 overflow-y-auto p-6 sm:p-8 hidden"><div class="max-w-[680px] mx-auto prose-legal"><div class="flex items-center justify-center py-12 text-text-muted"><span class="material-symbols-outlined animate-spin mr-2">progress_activity</span>Loading...</div></div></div>
+        <div id="content-left-en" class="flex-1 overflow-y-auto p-6 sm:p-8"><div class="max-w-[680px] mx-auto prose-legal"><div class="flex items-center justify-center py-12 text-text-muted"><span class="material-symbols-outlined animate-spin mr-2">progress_activity</span>Loading...</div></div></div>
+        <div id="content-left-ja" class="flex-1 overflow-y-auto p-6 sm:p-8 hidden"><div class="max-w-[680px] mx-auto prose-legal"><div class="flex items-center justify-center py-12 text-text-muted"><span class="material-symbols-outlined animate-spin mr-2">progress_activity</span>Loading...</div></div></div>
+      </section>
+      <!-- Drag handle -->
+      <div id="drag-handle" class="drag-handle w-[5px] bg-gray-200 hover:bg-accent/30 transition-all duration-200 z-10 flex flex-col justify-center items-center relative">
+        <div class="handle-bar h-8 w-1 bg-slate-300 rounded-full absolute"></div>
+      </div>
+      <!-- Right: English -->
+      <section id="pane-right" class="flex-1 flex flex-col min-w-[280px] bg-white">
+        <div id="pane-right-header" class="h-[44px] border-b border-gray-200 bg-slate-50/50 flex items-center justify-between px-4 shrink-0">
+          <div class="flex items-center gap-2">
+            <select id="lang-select-right" class="text-sm font-medium text-gray-900 bg-transparent border border-gray-300 rounded px-2 py-1 cursor-pointer focus:outline-none focus:ring-1 focus:ring-accent min-w-[200px]">
+              <option value="vi" selected>🇻🇳 Vietnamese (Original)</option>
+              <option value="en">🇬🇧 English (Translated)</option>
+              <option value="ja">🇯🇵 Japanese (Translated)</option>
+            </select>
+            <span class="text-[10px] text-emerald-600 bg-emerald-50 border border-emerald-100 px-1 rounded uppercase font-bold tracking-wider ml-1">AI</span>
+          </div>
+        </div>
+        <div id="content-right-vi" class="flex-1 overflow-y-auto p-6 sm:p-8"><div class="max-w-[680px] mx-auto prose-legal"><div class="flex items-center justify-center py-12 text-text-muted"><span class="material-symbols-outlined animate-spin mr-2">progress_activity</span>Loading...</div></div></div>
+        <div id="content-right-en" class="flex-1 overflow-y-auto p-6 sm:p-8 hidden"><div class="max-w-[680px] mx-auto prose-legal"><div class="flex items-center justify-center py-12 text-text-muted"><span class="material-symbols-outlined animate-spin mr-2">progress_activity</span>Loading...</div></div></div>
+        <div id="content-right-ja" class="flex-1 overflow-y-auto p-6 sm:p-8 hidden"><div class="max-w-[680px] mx-auto prose-legal"><div class="flex items-center justify-center py-12 text-text-muted"><span class="material-symbols-outlined animate-spin mr-2">progress_activity</span>Loading...</div></div></div>
+      </section>
+    </div>
+  </div>
+  <!-- Sync toast -->
+  <div id="sync-toast" class="fixed bottom-6 right-6 z-50 bg-gray-900 text-white text-xs px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 transition-opacity duration-300 opacity-0">
+    <span class="material-symbols-outlined text-[16px] text-accent">sync</span>
+    <div><span class="font-semibold">Scroll Sync Active</span><br><span class="text-gray-400 text-[10px]">Sections aligned by heading</span></div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- LOGIN MODAL -->
+<!-- ============================================================ -->
+<div id="login-modal" class="fixed inset-0 z-[100] hidden" data-pending-doc="">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('login-modal').classList.add('hidden')"></div>
+  <div class="absolute inset-0 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full p-8 relative">
+      <div class="text-center mb-6">
+        <div class="w-14 h-14 rounded-xl bg-vnu-blue/10 flex items-center justify-center mx-auto mb-4">
+          <span class="material-symbols-outlined text-vnu-blue text-[32px]">lock</span>
+        </div>
+        <h3 class="text-xl font-bold text-text-main mb-2">Restricted Document</h3>
+        <p class="text-sm text-text-muted leading-relaxed">This document is available only to VJU members. Please sign in with your <strong class="text-vnu-blue">@vju.ac.vn</strong> account to continue.</p>
+      </div>
+      <button id="modal-sign-in-btn" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-white border-2 border-gray-200 hover:border-vnu-blue/30 hover:bg-blue-50 rounded-xl font-medium text-sm transition-all">
+        <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Sign in with Google
+      </button>
+      <button class="w-full mt-3 text-sm text-text-muted hover:text-text-main transition-colors py-2" onclick="document.getElementById('login-modal').classList.add('hidden')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ACCESS DENIED MODAL -->
+<!-- ============================================================ -->
+<div id="access-denied-modal" class="fixed inset-0 z-[100] hidden">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('access-denied-modal').classList.add('hidden')"></div>
+  <div class="absolute inset-0 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full p-8 relative">
+      <div class="text-center mb-6">
+        <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center mx-auto mb-4">
+          <span class="material-symbols-outlined text-red-500 text-[32px]">shield</span>
+        </div>
+        <h3 class="text-xl font-bold text-text-main mb-2">Access Denied</h3>
+        <p class="text-sm text-text-muted leading-relaxed">This document is restricted to <strong class="text-vnu-blue">@vju.ac.vn</strong> members only.</p>
+        <p class="text-sm text-text-muted mt-2">Signed in as: <span class="current-email font-mono text-xs bg-gray-100 px-2 py-0.5 rounded"></span></p>
+      </div>
+      <button id="modal-switch-account-btn" class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-vnu-blue hover:bg-blue-700 text-white rounded-xl font-medium text-sm transition-colors mb-2">
+        <span class="material-symbols-outlined text-[18px]">switch_account</span>
+        Sign in with a different account
+      </button>
+      <button class="w-full text-sm text-text-muted hover:text-text-main transition-colors py-2" onclick="document.getElementById('access-denied-modal').classList.add('hidden')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+
+<!-- Firebase SDK (compat) -->
+<script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-storage-compat.js"></script>
+<script src="./firebase-config.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  // ==================== FIREBASE AUTH ====================
+  const firebaseConfig = window.VJU_FIREBASE_CONFIG || {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT.firebasestorage.app",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID",
+    measurementId: "YOUR_MEASUREMENT_ID"
+  };
+
+  // Firebase initialization (skipped if config not set)
+  const firebaseReady = firebaseConfig.apiKey !== 'YOUR_API_KEY';
+  let fbApp = null, fbAuth = null, fbDb = null, fbStorage = null;
+  if (firebaseReady) {
+    fbApp = firebase.initializeApp(firebaseConfig);
+    fbAuth = firebase.auth();
+    fbDb = firebase.firestore();
+    fbStorage = firebase.storage();
+  }
+
+  let currentUser = null;
+  const ALLOWED_DOMAIN = 'vju.ac.vn';
+
+  function isVjuMember() {
+    return currentUser?.email?.endsWith('@' + ALLOWED_DOMAIN);
+  }
+
+  function updateAuthUI() {
+    const authSection = document.getElementById('auth-section');
+    if (!authSection) return;
+    if (currentUser) {
+      const name = currentUser.displayName || currentUser.email;
+      const photo = currentUser.photoURL;
+      const emailShort = currentUser.email.split('@')[0];
+      authSection.innerHTML = `
+        <div class="flex items-center gap-2">
+          ${photo ? `<img src="${photo}" class="w-7 h-7 rounded-full border border-gray-200" alt="" referrerpolicy="no-referrer">` : `<div class="w-7 h-7 rounded-full bg-vnu-blue flex items-center justify-center text-white text-xs font-bold">${(name || '?')[0].toUpperCase()}</div>`}
+          <span class="hidden sm:inline text-xs font-medium text-text-main max-w-[100px] truncate">${emailShort}</span>
+          ${isVjuMember() ? '<span class="hidden sm:inline px-1.5 py-0.5 rounded text-[9px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">VJU</span>' : ''}
+          <button id="btn-sign-out" class="p-1.5 text-text-muted hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors" title="Sign out">
+            <span class="material-symbols-outlined text-[18px]">logout</span>
+          </button>
+        </div>`;
+      document.getElementById('btn-sign-out').addEventListener('click', handleSignOut);
+    } else {
+      authSection.innerHTML = `
+        <button id="btn-sign-in" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-text-muted hover:text-vnu-blue hover:bg-blue-50 border border-gray-200 rounded-lg transition-all">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24"><path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Sign in
+        </button>`;
+      document.getElementById('btn-sign-in').addEventListener('click', handleSignIn);
+    }
+  }
+
+  function handleSignIn() {
+    if (!firebaseReady) {
+      console.warn('Firebase is not configured yet. Please provide window.VJU_FIREBASE_CONFIG in firebase-config.js.');
+      return;
+    }
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.setCustomParameters({ hd: ALLOWED_DOMAIN });
+    fbAuth.signInWithPopup(provider).catch(err => {
+      if (err.code !== 'auth/popup-closed-by-user') {
+        console.error('Sign-in error:', err);
+        console.warn('Sign-in failed: ' + err.message);
+      }
+    });
+  }
+
+  function handleSignOut() {
+    if (fbAuth) fbAuth.signOut();
+  }
+
+  function showLoginModal(docId) {
+    const modal = document.getElementById('login-modal');
+    if (modal) {
+      modal.dataset.pendingDoc = docId || '';
+      modal.classList.remove('hidden');
+    }
+  }
+
+  function hideLoginModal() {
+    const modal = document.getElementById('login-modal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function showAccessDenied() {
+    const modal = document.getElementById('access-denied-modal');
+    if (modal) {
+      const emailEl = modal.querySelector('.current-email');
+      if (emailEl) emailEl.textContent = currentUser?.email || '';
+      modal.classList.remove('hidden');
+    }
+  }
+
+  function hideAccessDenied() {
+    const modal = document.getElementById('access-denied-modal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  // Listen for auth state changes
+  if (firebaseReady) {
+    fbAuth.onAuthStateChanged((user) => {
+      currentUser = user;
+      updateAuthUI();
+      // If login modal was open and user just signed in, try opening pending doc
+      const modal = document.getElementById('login-modal');
+      if (user && modal && !modal.classList.contains('hidden')) {
+        const pendingDoc = modal.dataset.pendingDoc;
+        hideLoginModal();
+        if (pendingDoc) {
+          const restricted = true;
+          if (!isVjuMember()) {
+            showAccessDenied();
+          } else {
+            currentDocId = pendingDoc;
+            currentDocRestricted = true;
+            readerLoaded = false;
+            navigateTo('reader');
+          }
+        }
+      }
+    });
+  }
+
+  // ==================== DOCUMENT REGISTRY ====================
+  // Maps doc ID → file prefix under docs/data/
+  // Naming: {prefix}_transcription.md (VI), _transcription_en.md, _transcription_ja.md, _source.pdf
+  const DOC_REGISTRY = {
+    '3626-QD-DHQGHN': {
+      prefix: '3626-QD-DHQGHN_Regulation on Undergraduate Training',
+      doc_id: '3626/QĐ-ĐHQGHN',
+      title: 'Regulation on Undergraduate Training',
+      title_vi: 'Quy chế đào tạo trình độ đại học tại ĐHQGHN',
+      title_ja: 'ベトナム国家大学ハノイ校における学部課程教育に関する規程',
+      description_vi: '',
+      description_ja: '',
+      tags: ['undergraduate', 'training', 'VNU regulation'],
+      date: '2022-10-21',
+      department: 'Academic Affairs',
+      type: 'Regulation',
+      description: 'Decision 3626/QD-DHQGHN promulgating the regulation on undergraduate training at Vietnam National University, Hanoi.',
+      restricted: false,
+      relations: [
+        { id: '5115-QD-DHQGHN', type: 'supersedes', label: 'Supersedes' },
+        { id: '2486-QD-DHQGHN', type: 'amended-by', label: 'Amended by' },
+        { id: '3636-QD-DHQGHN', type: 'related', label: 'Related' },
+        { id: '3638-QD-DHQGHN', type: 'related', label: 'Related' },
+      ]
+    },
+    '3636-QD-DHQGHN': {
+      prefix: '3636-QD-DHQGHN_Regulation on Masters Training',
+      doc_id: '3636/QĐ-ĐHQGHN',
+      title: 'Regulation on Masters Training',
+      title_vi: 'Quy chế đào tạo thạc sĩ tại ĐHQGHN',
+      title_ja: 'ベトナム国家大学ハノイ校における修士課程教育に関する規程',
+      description_vi: '',
+      description_ja: '',
+      tags: ['masters', 'training', 'VNU regulation'],
+      date: '2022-10-21',
+      department: 'Academic Affairs',
+      type: 'Regulation',
+      description: 'Decision 3636/QĐ-ĐHQGHN promulgating the regulation on master\u2019s training at Vietnam National University, Hanoi.',
+      restricted: false,
+      relations: [
+        { id: '2459-QD-DHQGHN', type: 'amended-by', label: 'Amended by' },
+        { id: '3626-QD-DHQGHN', type: 'related', label: 'Related' },
+        { id: '3638-QD-DHQGHN', type: 'related', label: 'Related' },
+      ]
+    },
+    '3638-QD-DHQGHN': {
+      prefix: '3638-QD-DHQGHN_Regulation on Doctoral Training',
+      doc_id: '3638/QĐ-ĐHQGHN',
+      title: 'Regulation on Doctoral Training',
+      title_vi: 'Quy chế đào tạo tiến sĩ tại ĐHQGHN',
+      title_ja: 'ベトナム国家大学ハノイ校における博士課程教育に関する規程',
+      description_vi: '',
+      description_ja: '',
+      tags: ['doctoral', 'training', 'VNU regulation'],
+      date: '2022-10-24',
+      department: 'Academic Affairs',
+      type: 'Regulation',
+      description: 'Decision 3638/QĐ-ĐHQGHN promulgating the regulation on doctoral training at Vietnam National University, Hanoi.',
+      restricted: false,
+      relations: [
+        { id: '3626-QD-DHQGHN', type: 'related', label: 'Related' },
+        { id: '3636-QD-DHQGHN', type: 'related', label: 'Related' },
+      ]
+    },
+    '2459-QD-DHQGHN': {
+      prefix: '2459-QD-DHQGHN_Amendment to Masters Training Regulation',
+      doc_id: '2459/QĐ-ĐHQGHN',
+      title: 'Amendment to Masters Training Regulation',
+      title_vi: 'Quyết định sửa đổi, bổ sung Quy chế đào tạo thạc sĩ',
+      title_ja: '修士課程教育規程改正決定',
+      description_vi: '',
+      description_ja: '',
+      tags: ['masters', 'amendment'],
+      date: '2024-06-05',
+      department: 'Academic Affairs',
+      type: 'Decision',
+      description: 'Decision 2459/QĐ-ĐHQGHN amending and supplementing the Master\u2019s training regulation promulgated with Decision 3636.',
+      restricted: false,
+      relations: [
+        { id: '3636-QD-DHQGHN', type: 'amends', label: 'Amends' },
+      ]
+    },
+    '2486-QD-DHQGHN': {
+      prefix: '2486-QD-DHQGHN_Amendment to Undergraduate Admission Regulation',
+      doc_id: '2486/QĐ-ĐHQGHN',
+      title: 'Amendment to Undergraduate Admission Regulation',
+      title_vi: 'Quyết định sửa đổi, bổ sung Quy chế tuyển sinh đại học chính quy',
+      title_ja: '正規学部入学規程改正決定',
+      description_vi: '',
+      description_ja: '',
+      tags: ['undergraduate', 'amendment', 'admission'],
+      date: '2024-06-06',
+      department: 'Academic Affairs',
+      type: 'Decision',
+      description: 'Decision 2486/QĐ-ĐHQGHN amending and supplementing the regular undergraduate admission regulation at VNU.',
+      restricted: false,
+      relations: [
+        { id: '3626-QD-DHQGHN', type: 'amends', label: 'Amends' },
+      ]
+    },
+    '4391-QD-DHQGHN': {
+      prefix: '4391-QD-DHQGHN_Online Training and E-Lecture Regulations',
+      doc_id: '4391/QĐ-ĐHQGHN',
+      title: 'Online Training and E-Lecture Regulations',
+      title_vi: 'Quy định về tổ chức, quản lý đào tạo trực tuyến và xây dựng bài giảng điện tử',
+      title_ja: 'オンライン教育の組織・管理および電子講義の構築に関する規定',
+      description_vi: '',
+      description_ja: '',
+      tags: ['e-learning', 'online'],
+      date: '2021-12-29',
+      department: 'Academic Affairs',
+      type: 'Regulation',
+      description: 'Decision 4391/QĐ-ĐHQGHN on organizing, managing online training and developing electronic lectures at VNU.',
+      restricted: false,
+      relations: []
+    },
+    '4455-QD-DHQGHN': {
+      prefix: '4455-QD-DHQGHN_Diploma and Certificate Management',
+      doc_id: '4455/QĐ-ĐHQGHN',
+      title: 'Diploma and Certificate Management',
+      title_vi: 'Quy định về quản lý văn bằng, chứng chỉ, chứng nhận tại ĐHQGHN',
+      title_ja: 'ベトナム国家大学ハノイ校における卒業証書、証明書及び認証の管理に関する規定',
+      description_vi: '',
+      description_ja: '',
+      tags: ['diploma', 'certificate', 'management'],
+      date: '2023-11-23',
+      department: 'Academic Affairs',
+      type: 'Regulation',
+      description: 'Decision 4455/QĐ-ĐHQGHN on management of diplomas, certificates, and certifications at VNU.',
+      restricted: false,
+      relations: []
+    },
+    '4618-QD-DHQGHN': {
+      prefix: '4618-QD-DHQGHN_Scholarship Management and Use',
+      doc_id: '4618/QĐ-ĐHQGHN',
+      title: 'Scholarship Management and Use',
+      title_vi: 'Quy định về công tác quản lý và sử dụng học bổng tại ĐHQGHN',
+      title_ja: 'ベトナム国家大学ハノイ校における奨学金の管理及び使用に関する規程',
+      description_vi: '',
+      description_ja: '',
+      tags: ['scholarship', 'finance'],
+      date: '2024-10-07',
+      department: 'Student Affairs',
+      type: 'Regulation',
+      description: 'Decision 4618/QĐ-ĐHQGHN on management and use of scholarships at VNU.',
+      restricted: false,
+      relations: []
+    },
+    '5115-QD-DHQGHN': {
+      prefix: '5115-QD-DHQGHN_Superseded Undergraduate Training',
+      doc_id: '5115/QĐ-ĐHQGHN',
+      title: 'Superseded Undergraduate Training',
+      title_vi: 'Quy chế đào tạo đại học tại ĐHQGHN [Thay thế bởi 3626/QĐ-ĐHQGHN]',
+      title_ja: 'ベトナム国家大学ハノイ校における学部教育に関する規程 [3626/QĐ-ĐHQGHNにより置換]',
+      description_vi: '',
+      description_ja: '',
+      tags: ['undergraduate', 'training', 'superseded'],
+      date: '2014-12-25',
+      department: 'Academic Affairs',
+      type: 'Superseded',
+      description: 'Decision 5115/QĐ-ĐHQGHN \u2014 superseded by 3626/QĐ-ĐHQGHN (2022). Retained for historical reference.',
+      restricted: false,
+      relations: [
+        { id: '3626-QD-DHQGHN', type: 'superseded-by', label: 'Superseded by' },
+      ]
+    },
+    '1132-QD-DHVN': {
+      prefix: '1132-QD-DHVN_Examination Affairs Regulations',
+      doc_id: '1132/QĐ-ĐHVN',
+      title: 'Examination Affairs Regulations',
+      title_vi: 'Quy định về công tác khảo thí của Trường Đại học Việt Nhật',
+      title_ja: '日越大学における試験業務規程',
+      description_vi: '',
+      description_ja: '',
+      tags: ['examination', 'VJU regulation'],
+      date: '2025-10-01',
+      department: 'Education Testing',
+      type: 'Regulation',
+      description: 'Decision 1132/QĐ-ĐHVN on examination affairs at Vietnam Japan University \u2014 assessment, grading, and end-of-course exams.',
+      restricted: false,
+      relations: []
+    },
+    '1274-HD-KTDBCL': {
+      prefix: '1274-HD-KTDBCL_End-of-Course Exam Guidance S1 2025-2026',
+      doc_id: '1274/HD-KTĐBCL',
+      title: 'End-of-Course Exam Guidance S1 2025-2026',
+      title_vi: 'Hướng dẫn tổ chức thi kết thúc học phần HK1 năm học 2025-2026',
+      title_ja: '2025-2026年度第1学期 科目終了試験実施ガイダンス',
+      description_vi: '',
+      description_ja: '',
+      tags: ['examination', 'guidance', 'semester'],
+      date: '2025-10-27',
+      department: 'Education Testing',
+      type: 'Guidance',
+      description: 'Guidance 1274/HD-KT&ĐBCL on implementing end-of-course examinations for Semester 1, AY2025-2026.',
+      restricted: false,
+      relations: []
+    },
+    '628-QD-DHQGHN': {
+      prefix: '628-QD-DHQGHN_Educational Quality Assurance Regulation',
+      doc_id: '628/QĐ-ĐHQGHN',
+      title: 'Educational Quality Assurance Regulation',
+      title_vi: 'Quy định về đảm bảo chất lượng giáo dục trong ĐHQGHN',
+      title_ja: 'ベトナム国家大学ハノイ校における教育質保証に関する規程',
+      description_vi: '',
+      description_ja: '',
+      tags: ['quality assurance', 'VNU regulation'],
+      date: '2015-02-10',
+      department: 'Quality Assurance',
+      type: 'Regulation',
+      description: 'Decision 628/QĐ-ĐHQGHN on educational quality assurance \u2014 accreditation, benchmarking, and data management.',
+      restricted: false,
+      relations: []
+    },
+    '6311-CV-DHQGHN': {
+      prefix: '6311-CV-DHQGHN_Shared_Database_Catalog',
+      doc_id: '6311/ĐHQGHN-VP',
+      title: 'Shared Database Catalog (VNU)',
+      tags: ['IT', 'data', 'catalog', 'integration', 'VNU'],
+      date: '2025-12-17',
+      department: 'General Affairs',
+      type: 'Catalog',
+      description: 'VNU shared database catalog for internal/external data connectivity and data sharing, including common code lists and integration architecture context.',
+      restricted: false,
+      relations: []
+    },
+    '700-QD-DHVN': {
+      prefix: '700-QD-DHVN_Anti-Plagiarism Regulations',
+      doc_id: '700/QĐ-ĐHVN',
+      title: 'Anti-Plagiarism Regulations',
+      title_vi: 'Quy định về phòng chống đạo văn trong đào tạo và NCKH tại ĐHVN',
+      title_ja: '日越大学における教育及び科学研究における盗用防止規程',
+      description_vi: '',
+      description_ja: '',
+      tags: ['plagiarism', 'academic integrity'],
+      date: '2021-09-30',
+      department: 'Education Testing',
+      type: 'Regulation',
+      description: 'Decision 700/QĐ-ĐHVN on prevention of plagiarism in education and scientific research at VJU.',
+      restricted: false,
+      relations: []
+    },
+    '840-DT-DHVN': {
+      prefix: '840-DT-DHVN_Academic Calendar 2025-2026',
+      doc_id: '840/ĐT-ĐHVN',
+      title: 'Academic Calendar 2025-2026',
+      title_vi: 'Công văn về Lịch trình đào tạo năm học 2025-2026',
+      title_ja: '2025-2026年度学事暦に関する公文書',
+      description_vi: '',
+      description_ja: '',
+      tags: ['academic calendar', 'schedule'],
+      date: '2025-07-30',
+      department: 'Academic Affairs',
+      type: 'Official Letter',
+      description: 'Official letter 840/ĐHVN-ĐT on the academic calendar for AY2025-2026, with annexes for each cohort.',
+      restricted: false,
+      relations: []
+    },
+    '483-HD-DHVN': {
+      prefix: '483-HD-DHVN_Practical Internship Guidance',
+      doc_id: '483/HD-ĐHVN',
+      title: 'Practical Internship Guidance',
+      title_vi: 'Hướng dẫn Công tác thực tập thực tế và chuyên đề thực tập',
+      title_ja: '実務実習及び実習課題に関するガイダンス',
+      description_vi: '',
+      description_ja: '',
+      tags: ['internship', 'guidance'],
+      date: '2025-05-20',
+      department: 'Academic Affairs',
+      type: 'Guidance',
+      description: 'Guidance 483/HD-ĐHVN on practical internship and internship projects for full-time undergraduate students at VJU.',
+      restricted: false,
+      relations: []
+    },
+    '1534-HD-DHVN': {
+      prefix: '1534-HD-DHVN_Thesis and Graduation Project Guidelines',
+      doc_id: '1534/HD-ĐHVN',
+      title: 'Thesis and Graduation Project Guidelines',
+      title_vi: 'Hướng dẫn Tổ chức thực hiện khóa luận, đồ án tốt nghiệp',
+      title_ja: '卒業論文・卒業研究の実施に関するガイダンス',
+      description_vi: '',
+      description_ja: '',
+      tags: ['thesis', 'graduation', 'guidance'],
+      date: '2023-12-29',
+      department: 'Academic Affairs',
+      type: 'Guidance',
+      description: 'Guidance 1534/HD-ĐHVN on organizing undergraduate theses and graduation projects at VJU.',
+      restricted: false,
+      relations: [
+        { id: 'DHVN-HD-1534-Annex', type: 'has-annex', label: 'Annex' },
+      ]
+    },
+    'DHVN-HD-1534-Annex': {
+      prefix: '1534-HD-DHVN_Annex Templates English Format',
+      doc_id: '1534/HD-ĐHVN (Annex)',
+      title: 'Annex Templates English Format',
+      title_vi: 'Phụ lục biểu mẫu khóa luận (Định dạng tiếng Anh)',
+      title_ja: '論文・卒業研究 付録テンプレート（英語書式）',
+      description_vi: '',
+      description_ja: '',
+      tags: ['thesis', 'templates'],
+      date: '2023-12-29',
+      department: 'Academic Affairs',
+      type: 'Annex',
+      description: 'English-format annex templates for thesis cover pages, reference guidelines, and evaluation forms (HD-1534).',
+      restricted: false,
+      relations: [
+        { id: '1534-HD-DHVN', type: 'annex-of', label: 'Annex of' },
+      ]
+    },
+    'WEB-TTTS2026-VJU': {
+      prefix: 'WEB-TTTS2026-VJU_Undergraduate Admissions Information 2026',
+      doc_id: 'WEB-TTTS2026-VJU',
+      title: 'Undergraduate Admissions Information 2026',
+      title_vi: 'THÔNG TIN TUYỂN SINH ĐẠI HỌC CHÍNH QUY NĂM 2026',
+      title_ja: '学部正規課程入試情報 2026',
+      description_vi: '',
+      description_ja: '',
+      tags: ['admissions', 'undergraduate', 'website article'],
+      date: '2025-12-30',
+      department: 'Admissions',
+      type: 'Admissions',
+      description: 'VJU website admissions article (2026 regular undergraduate intake), converted to markdown with VI/EN/JA versions and archived page PDF.',
+      restricted: false,
+      relations: []
+    },
+    '106-QD-DHVN': {
+      prefix: '106-QD-DHVN_Payment and Advance Control Procedures',
+      doc_id: '106/QĐ-ĐHVN',
+      title: 'Payment and Advance Control Procedures',
+      tags: ['payment', 'advance', 'finance', 'accounting', 'internal procedures'],
+      date: '2016-11-11',
+      department: 'Financial Affairs',
+      type: 'Guidance',
+      description: 'Decision 106/QĐ-ĐHVN on payment control and advance procedures at VJU, covering salary, procurement, travel, and financial reporting.',
+      restricted: true,
+      relations: []
+    },
+  };
+
+  // ==================== UI LANGUAGE STATE ====================
+  let uiLang = 'en'; // 'en' | 'vi' | 'ja'
+
+  function getLocalizedTitle(doc) {
+    if (uiLang === 'vi' && doc.title_vi) return doc.title_vi;
+    if (uiLang === 'ja' && doc.title_ja) return doc.title_ja;
+    return doc.title;
+  }
+
+  // ==================== SEARCH CONSTANTS ====================
+  const DEPARTMENTS = [
+    { id: 'Academic Affairs', icon: 'school', label: 'Academic Affairs' },
+    { id: 'Education Testing', icon: 'quiz', label: 'Education Testing' },
+    { id: 'Student Affairs', icon: 'payments', label: 'Student Affairs' },
+    { id: 'Quality Assurance', icon: 'verified', label: 'Quality Assurance' },
+    { id: 'Admissions', icon: 'campaign', label: 'Admissions' },
+    { id: 'Financial Affairs', icon: 'account_balance', label: 'Financial Affairs' },
+  ];
+  const DOC_TYPES = ['Regulation', 'Decision', 'Guidance', 'Official Letter', 'Annex', 'Admissions', 'Superseded'];
+
+  // ==================== SEARCH INDEX (multilingual full-text) ====================
+  let searchIndex = null;
+  fetch('data/search-index.json').then(r => r.ok ? r.json() : null).then(data => { searchIndex = data; console.log('[SearchIndex] Loaded', data ? Object.keys(data).length + ' entries' : 'failed'); }).catch(() => { console.warn('[SearchIndex] Not available, falling back to metadata search'); });
+
+  // ==================== SEARCH STATE ====================
+  let searchState = { query: '', departments: [], types: [], tags: [], dateFrom: null, dateTo: null, sortBy: 'newest' };
+
+  // ==================== SEARCH HELPERS ====================
+  function getAllDocs() {
+    return Object.entries(DOC_REGISTRY).map(([id, e]) => ({ id, ...e }));
+  }
+
+  function countByDepartment(dept) {
+    return getAllDocs().filter(d => d.department === dept).length;
+  }
+
+  function countByType(type) {
+    return getAllDocs().filter(d => d.type === type).length;
+  }
+
+  function getDeptIcon(dept) {
+    const d = DEPARTMENTS.find(x => x.id === dept);
+    return d ? d.icon : 'description';
+  }
+
+  function renderHomeCards() {
+    const docs = getAllDocs().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    const grid = document.getElementById('home-cards-grid');
+    if (!grid) return;
+    grid.innerHTML = docs.map(doc => {
+      const isRestricted = doc.restricted === true;
+      const borderClass = isRestricted ? 'border-amber-200' : 'border-gray-200';
+      const sideColor = isRestricted ? 'bg-amber-500' : 'bg-vnu-blue';
+      const typeBadge = isRestricted
+        ? '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-700 border border-amber-100"><span class="material-symbols-outlined text-[14px] mr-1">lock</span>Restricted</span>'
+        : '<span class="tag-link inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-700 border border-amber-100 hover:underline cursor-pointer" data-tag-type="' + doc.type + '" role="button">' + doc.type + '</span>';
+      const deptIconBg = isRestricted ? 'bg-amber-50' : 'bg-blue-50';
+      const deptIconColor = isRestricted ? 'text-amber-600' : 'text-vnu-blue';
+      return '<article class="doc-card group bg-white rounded-xl border ' + borderClass + ' p-6 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer" data-doc="' + doc.id + '"' + (isRestricted ? ' data-restricted="true"' : '') + '>'
+        + '<div class="absolute top-0 left-0 w-1 h-full ' + sideColor + ' rounded-l-xl"></div>'
+        + '<div class="flex justify-between items-start mb-4">'
+        + typeBadge
+        + '<time class="text-xs text-text-muted font-mono bg-gray-50 px-2 py-1 rounded">' + formatDisplayDate(doc.date).toUpperCase() + '</time>'
+        + '</div>'
+        + '<p class="text-xs font-mono text-gray-400 mb-1">' + (doc.doc_id || doc.id) + '</p>'
+        + '<h3 class="text-lg font-bold text-text-main mb-2 group-hover:text-vnu-blue transition-colors">' + getLocalizedTitle(doc) + '</h3>'
+        + '<p class="text-text-muted text-sm leading-relaxed mb-6 line-clamp-2">' + (doc.description || '') + '</p>'
+        + '<div class="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">'
+        + '<div class="flex items-center gap-2">'
+        + '<div class="w-6 h-6 rounded-full ' + deptIconBg + ' flex items-center justify-center ' + deptIconColor + '">'
+        + '<span class="material-symbols-outlined text-[14px]">' + getDeptIcon(doc.department) + '</span>'
+        + '</div>'
+        + '<span class="tag-link text-xs font-medium text-text-main hover:underline cursor-pointer" data-tag-dept="' + (doc.department || '') + '" role="button">' + (doc.department || '') + '</span>'
+        + '</div>'
+        + '<div class="flex gap-1">'
+        + '<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-100">VN</span>'
+        + '<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">EN</span>'
+        + '<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-rose-50 text-rose-700 border border-rose-100">JA</span>'
+        + '</div>'
+        + '</div>'
+        + '</article>';
+    }).join('');
+    // Wire up card click handlers
+    grid.querySelectorAll('.doc-card[data-doc]').forEach(el => {
+      el.addEventListener('click', () => openDocument(el.dataset.doc, el.dataset.restricted === 'true'));
+    });
+    // Wire up tag-link click handlers
+    grid.querySelectorAll('.tag-link[data-tag-dept], .tag-link[data-tag-type]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        searchState = { query: '', departments: [], types: [], tags: [], dateFrom: null, dateTo: null, sortBy: 'newest' };
+        if (el.dataset.tagDept) searchState.departments = [el.dataset.tagDept];
+        if (el.dataset.tagType) searchState.types = [el.dataset.tagType];
+        searchViewInitialized = false;
+        navigateTo('search');
+      });
+    });
+  }
+
+  function formatDisplayDate(isoDate) {
+    if (!isoDate) return '';
+    const d = new Date(isoDate + 'T00:00:00');
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  // ==================== SEARCH ENGINE ====================
+  // Find search index entries matching a DOC_REGISTRY key
+  function getIndexEntries(registryKey) {
+    if (!searchIndex) return [];
+    return Object.values(searchIndex).filter(e => e.registry_key === registryKey);
+  }
+
+  function normalizeSearchQuery(query) {
+    return (query || '')
+      .toLowerCase()
+      .trim()
+      // Ignore both ASCII and Japanese/typographic quotes users may paste/type
+      .replace(/["'“”‘’「」『』]/g, '')
+      .replace(/\s+/g, ' ');
+  }
+
+  function normalizeTag(tag) { return (tag || '').toLowerCase().trim(); }
+  function formatTagLabel(tag) { return normalizeTag(tag).replace(/\s+/g, '-'); }
+
+  function parseSearchQuery(raw) {
+    const tags = [];
+    const rest = (raw || '').replace(/tag:(\S+)/gi, function(_, t) { tags.push(normalizeTag(t.replace(/-/g, ' '))); return ''; }).trim();
+    return { text: rest, tags: tags };
+  }
+
+  function applyTagSearchState(tagArray) {
+    searchState = { query: '', departments: [], types: [], tags: tagArray.map(normalizeTag), dateFrom: null, dateTo: null, sortBy: 'newest' };
+    const input = document.getElementById('search-input');
+    if (input) input.value = '';
+    searchViewInitialized = false;
+    navigateTo('search');
+  }
+
+  // Score a document against a query using search index (multilingual full-text)
+  function scoreDoc(doc, q) {
+    let score = 0;
+    // Metadata match (always available)
+    if (doc.title.toLowerCase().includes(q)) score += 10;
+    if (doc.id.toLowerCase().includes(q)) score += 5;
+    if ((doc.department || '').toLowerCase().includes(q)) score += 9;
+    if ((doc.type || '').toLowerCase().includes(q)) score += 4;
+    if ((doc.tags || []).join(' ').toLowerCase().includes(q)) score += 3;
+    if ((doc.description || '').toLowerCase().includes(q)) score += 2;
+    // Search index match (multilingual titles + body text)
+    const entries = getIndexEntries(doc.id);
+    for (const entry of entries) {
+      const titles = entry.titles || {};
+      for (const lang of ['vi', 'en', 'ja']) {
+        if (titles[lang] && titles[lang].toLowerCase().includes(q)) score += 8;
+      }
+      const body = entry.body || {};
+      for (const lang of ['vi', 'en', 'ja']) {
+        if (body[lang] && body[lang].toLowerCase().includes(q)) score += 4;
+      }
+    }
+    return score;
+  }
+
+  function filterDocs(state) {
+    let docs = getAllDocs();
+    // 0. Parse tag: tokens from query
+    const parsed = parseSearchQuery(state.query);
+    const activeTags = (state.tags || []).concat(parsed.tags).map(normalizeTag).filter(Boolean);
+    const q = normalizeSearchQuery(parsed.text);
+    // 1. Filter by text query (metadata + search index)
+    if (q) {
+      docs = docs.filter(d => scoreDoc(d, q) > 0);
+    }
+    // 1b. Filter by tags (all must match)
+    if (activeTags.length > 0) {
+      docs = docs.filter(d => { const dt = (d.tags || []).map(normalizeTag); return activeTags.every(t => dt.some(dt2 => dt2.includes(t))); });
+    }
+    // 2. Filter by departments
+    if (state.departments && state.departments.length > 0) {
+      docs = docs.filter(d => state.departments.includes(d.department));
+    }
+    // 3. Filter by types
+    if (state.types && state.types.length > 0) {
+      docs = docs.filter(d => state.types.includes(d.type));
+    }
+    // 4. Filter by date range
+    if (state.dateFrom) {
+      docs = docs.filter(d => d.date && d.date >= state.dateFrom);
+    }
+    if (state.dateTo) {
+      docs = docs.filter(d => d.date && d.date <= state.dateTo);
+    }
+    // 5. Sort
+    if (state.sortBy === 'newest') {
+      docs.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    } else if (state.sortBy === 'oldest') {
+      docs.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+    } else if (state.sortBy === 'relevance' && q) {
+      docs.sort((a, b) => scoreDoc(b, q) - scoreDoc(a, q) || (b.date || '').localeCompare(a.date || ''));
+    }
+    return docs;
+  }
+
+  function getDocPrefix(docId) {
+    const entry = DOC_REGISTRY[docId];
+    if (!entry) return docId;
+    return typeof entry === 'string' ? entry : entry.prefix;
+  }
+
+  // ==================== SEARCH VIEW RENDERING ====================
+  let searchViewInitialized = false;
+
+  function renderDepartmentFilters() {
+    const container = document.getElementById('filter-departments');
+    container.innerHTML = DEPARTMENTS.map(d => '<label class="flex items-center gap-3 py-1.5 cursor-pointer group">' + '<input type="checkbox" value="' + d.id + '" class="dept-filter size-4 rounded border-gray-300 text-vnu-blue focus:ring-vnu-blue/20">' + '<span class="material-symbols-outlined text-[18px] text-gray-400">' + d.icon + '</span>' + '<span class="text-sm text-gray-700 group-hover:text-vnu-blue">' + d.label + '</span>' + '<span class="ml-auto text-xs text-gray-400 font-mono">' + countByDepartment(d.id) + '</span>' + '</label>').join('');
+    container.querySelectorAll('.dept-filter').forEach(cb => {
+      cb.addEventListener('change', () => {
+        searchState.departments = [...container.querySelectorAll('.dept-filter:checked')].map(c => c.value);
+        renderSearchResults();
+      });
+    });
+  }
+
+  function renderTypeFilters() {
+    const container = document.getElementById('filter-types');
+    container.innerHTML = DOC_TYPES.map(t => '<label class="flex items-center gap-3 py-1.5 cursor-pointer group">' + '<input type="checkbox" value="' + t + '" class="type-filter size-4 rounded border-gray-300 text-vnu-blue focus:ring-vnu-blue/20">' + '<span class="text-sm text-gray-700 group-hover:text-vnu-blue">' + t + '</span>' + '<span class="ml-auto text-xs text-gray-400 font-mono">' + countByType(t) + '</span>' + '</label>').join('');
+    container.querySelectorAll('.type-filter').forEach(cb => {
+      cb.addEventListener('change', () => {
+        searchState.types = [...container.querySelectorAll('.type-filter:checked')].map(c => c.value);
+        renderSearchResults();
+      });
+    });
+  }
+
+  function renderActiveFilters() {
+    const container = document.getElementById('active-filters');
+    const chips = [];
+    searchState.departments.forEach(d => chips.push({ label: d, type: 'dept', value: d }));
+    searchState.types.forEach(t => chips.push({ label: t, type: 'type', value: t }));
+    (searchState.tags || []).forEach(t => chips.push({ label: 'tag:' + formatTagLabel(t), type: 'tag', value: t }));
+    parseSearchQuery(searchState.query).tags.forEach(t => chips.push({ label: 'tag:' + formatTagLabel(t), type: 'queryTag', value: t }));
+    if (searchState.query) chips.push({ label: '"' + searchState.query + '"', type: 'query', value: searchState.query });
+    if (searchState.dateFrom) chips.push({ label: 'From: ' + searchState.dateFrom, type: 'dateFrom', value: searchState.dateFrom });
+    if (searchState.dateTo) chips.push({ label: 'To: ' + searchState.dateTo, type: 'dateTo', value: searchState.dateTo });
+    const count = filterDocs(searchState).length;
+    let html = '<span class="text-sm font-medium text-gray-500 mr-2">Showing ' + count + ' results</span>';
+    chips.forEach(c => {
+      html += '<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-vnu-blue/10 text-vnu-blue border border-vnu-blue/20 text-sm font-medium">' + c.label + ' <button class="filter-chip-remove hover:bg-vnu-blue/20 rounded-full p-0.5" data-type="' + c.type + '" data-value="' + c.value + '"><span class="material-symbols-outlined text-[16px]">close</span></button></div>';
+    });
+    if (chips.length > 0) html += '<button id="clear-all-filters" class="text-sm text-gray-500 hover:text-vnu-blue font-medium ml-1">Clear all</button>';
+    container.innerHTML = html;
+    container.querySelectorAll('.filter-chip-remove').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const chipType = btn.dataset.type;
+        const chipValue = btn.dataset.value;
+        if (chipType === 'dept') { searchState.departments = searchState.departments.filter(d => d !== chipValue); document.querySelectorAll('.dept-filter').forEach(cb => { if (cb.value === chipValue) cb.checked = false; }); }
+        else if (chipType === 'type') { searchState.types = searchState.types.filter(t => t !== chipValue); document.querySelectorAll('.type-filter').forEach(cb => { if (cb.value === chipValue) cb.checked = false; }); }
+        else if (chipType === 'tag') { searchState.tags = (searchState.tags || []).filter(t => t !== chipValue); }
+        else if (chipType === 'queryTag') {
+          const escaped = chipValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          searchState.query = (searchState.query || '').replace(new RegExp('(^|\\s)tag:' + escaped + '(?=\\s|$)', 'ig'), ' ').replace(/\s+/g, ' ').trim();
+          document.getElementById('search-input').value = searchState.query;
+        }
+        else if (chipType === 'query') { searchState.query = ''; document.getElementById('search-input').value = ''; }
+        else if (chipType === 'dateFrom') { searchState.dateFrom = null; document.getElementById('date-from').value = ''; }
+        else if (chipType === 'dateTo') { searchState.dateTo = null; document.getElementById('date-to').value = ''; }
+        renderSearchResults();
+      });
+    });
+    const clearBtn = document.getElementById('clear-all-filters');
+    if (clearBtn) clearBtn.addEventListener('click', () => {
+      searchState.query = ''; searchState.departments = []; searchState.types = []; searchState.tags = []; searchState.dateFrom = null; searchState.dateTo = null;
+      document.getElementById('search-input').value = '';
+      document.getElementById('date-from').value = '';
+      document.getElementById('date-to').value = '';
+      document.querySelectorAll('.dept-filter, .type-filter').forEach(cb => { cb.checked = false; });
+      renderSearchResults();
+    });
+  }
+
+  function renderSearchResults() {
+    const results = filterDocs(searchState);
+    const container = document.getElementById('search-results-list');
+    if (results.length === 0) {
+      container.innerHTML = '<div class="text-center py-12 text-gray-500"><span class="material-symbols-outlined text-4xl mb-2 block">search_off</span><p class="text-lg font-medium">No results found</p><p class="text-sm">Try adjusting your search or filters</p></div>';
+      renderActiveFilters();
+      return;
+    }
+    container.innerHTML = results.map(doc => {
+      const prefix = getDocPrefix(doc.id);
+      const tagHtml = (doc.tags || []).map(t => '<span class="search-tag rel-tag" data-tag="' + t + '">' + formatTagLabel(t) + '</span>').join('');
+      return '<article class="search-result bg-white rounded-xl p-5 shadow-subtle border border-gray-200 hover:shadow-md hover:border-vnu-blue/30 transition-all cursor-pointer group flex flex-col sm:flex-row gap-5" data-doc="' + doc.id + '"' + (doc.restricted ? ' data-restricted="true"' : '') + '>' + '<div class="shrink-0 flex sm:flex-col items-center sm:items-start gap-3 sm:w-36">' + '<span class="inline-flex items-center px-2.5 py-1 rounded bg-gray-100 text-gray-600 font-mono text-xs font-medium border border-gray-200 group-hover:bg-vnu-blue/5 group-hover:text-vnu-blue group-hover:border-vnu-blue/20 transition-colors">' + prefix + '</span>' + '<div class="flex items-center gap-1.5 text-xs text-gray-500"><span class="material-symbols-outlined text-[16px]">calendar_month</span><span>' + formatDisplayDate(doc.date) + '</span></div>' + '</div>' + '<div class="flex-1 space-y-2">' + '<h3 class="text-lg font-semibold text-gray-900 group-hover:text-vnu-blue transition-colors leading-tight">' + doc.title + '</h3>' + '<p class="text-sm text-gray-600 leading-relaxed line-clamp-2">' + (doc.description || '') + '</p>' + '<div class="flex items-center flex-wrap gap-4 pt-2">' + '<div class="flex items-center gap-1.5 text-xs font-medium text-gray-500"><span class="material-symbols-outlined text-[18px] text-gray-400">apartment</span>' + (doc.department || '') + '</div>' + '<span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 border border-gray-200">' + (doc.type || '') + '</span>' + (doc.restricted ? '<span class="inline-flex items-center gap-1 text-xs font-medium text-amber-600"><span class="material-symbols-outlined text-[16px]">lock</span>Restricted</span>' : '') + '</div>' + (tagHtml ? '<div class="flex flex-wrap gap-1 pt-1">' + tagHtml + '</div>' : '') + '</div>' + '</article>';
+    }).join('');
+    container.querySelectorAll('.search-result[data-doc]').forEach(el => {
+      el.addEventListener('click', (e) => { if (e.target.closest('.search-tag')) return; openDocument(el.dataset.doc, el.dataset.restricted === 'true'); });
+    });
+    container.querySelectorAll('.search-tag').forEach(el => {
+      el.addEventListener('click', (e) => { e.stopPropagation(); applyTagSearchState([el.dataset.tag]); });
+    });
+    renderActiveFilters();
+  }
+
+  function initSearchView() {
+    if (!searchViewInitialized) {
+      renderDepartmentFilters();
+      renderTypeFilters();
+      // Date range inputs
+      document.getElementById('date-from').addEventListener('change', function() { searchState.dateFrom = this.value || null; renderSearchResults(); });
+      document.getElementById('date-to').addEventListener('change', function() { searchState.dateTo = this.value || null; renderSearchResults(); });
+      // Date presets
+      document.querySelectorAll('.date-preset').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const year = btn.dataset.year;
+          const days = btn.dataset.days;
+          if (year) { searchState.dateFrom = year + '-01-01'; searchState.dateTo = year + '-12-31'; document.getElementById('date-from').value = year + '-01-01'; document.getElementById('date-to').value = year + '-12-31'; }
+          else if (days) { const now = new Date(); const from = new Date(now.getTime() - parseInt(days) * 86400000); searchState.dateFrom = from.toISOString().slice(0, 10); searchState.dateTo = now.toISOString().slice(0, 10); document.getElementById('date-from').value = searchState.dateFrom; document.getElementById('date-to').value = searchState.dateTo; }
+          renderSearchResults();
+        });
+      });
+      // Sort select
+      document.getElementById('search-sort').addEventListener('change', function() {
+        const map = { 'Relevance': 'relevance', 'Newest first': 'newest', 'Oldest first': 'oldest' };
+        searchState.sortBy = map[this.value] || 'relevance';
+        renderSearchResults();
+      });
+      // Debounced real-time search on search-input
+      let searchDebounce = null;
+      document.getElementById('search-input').addEventListener('input', function() {
+        clearTimeout(searchDebounce);
+        const val = this.value;
+        searchDebounce = setTimeout(() => { searchState.query = val; renderSearchResults(); }, 300);
+      });
+      searchViewInitialized = true;
+    }
+    // Sync search-input value with searchState
+    document.getElementById('search-input').value = searchState.query;
+    // Set sort select to match state
+    const sortSelect = document.getElementById('search-sort');
+    const reverseMap = { 'relevance': 'Relevance', 'newest': 'Newest first', 'oldest': 'Oldest first' };
+    sortSelect.value = reverseMap[searchState.sortBy] || 'Relevance';
+    renderSearchResults();
+  }
+
+  // ==================== NAVIGATION ====================
+  const views = ['home', 'search', 'department', 'reader'];
+  let currentView = 'home';
+  let readerLoaded = false;
+  let currentDocId = '3626-QD-DHQGHN';
+  let currentDocRestricted = false;
+
+  function openDocument(docId, restricted) {
+    if (!restricted) {
+      currentDocId = docId;
+      currentDocRestricted = false;
+      readerLoaded = false;
+      navigateTo('reader');
+      return;
+    }
+    if (!currentUser) {
+      showLoginModal(docId);
+      return;
+    }
+    if (!isVjuMember()) {
+      showAccessDenied();
+      return;
+    }
+    currentDocId = docId;
+    currentDocRestricted = true;
+    readerLoaded = false;
+    navigateTo('reader');
+  }
+  window.openDocument = openDocument;
+
+  function navigateTo(view, skipHistory) {
+    currentView = view;
+    views.forEach(v => {
+      const el = document.getElementById('view-' + v);
+      el.classList.toggle('active', v === view);
+    });
+    if (!skipHistory) {
+      const state = { view: view };
+      if (view === 'reader') { state.docId = currentDocId; state.restricted = currentDocRestricted; }
+      history.pushState(state, '', null);
+    }
+
+    // Nav state
+    const navLinks = document.getElementById('nav-links');
+    const readerControls = document.getElementById('reader-controls');
+    const navSearchBox = document.getElementById('nav-search-box');
+    const body = document.body;
+
+    if (view === 'reader') {
+      navLinks.classList.add('hidden');
+      navLinks.classList.remove('md:flex');
+      readerControls.classList.remove('hidden');
+      readerControls.classList.add('flex');
+      navSearchBox.classList.add('hidden');
+      navSearchBox.classList.remove('sm:block');
+      body.style.overflow = 'hidden';
+      body.style.height = '100vh';
+      if (!readerLoaded) loadReader();
+    } else {
+      navLinks.classList.remove('hidden');
+      navLinks.classList.add('md:flex');
+      readerControls.classList.add('hidden');
+      readerControls.classList.remove('flex');
+      navSearchBox.classList.remove('hidden');
+      navSearchBox.classList.add('sm:block');
+      body.style.overflow = '';
+      body.style.height = '';
+    }
+
+    // Highlight active nav link
+    document.querySelectorAll('.nav-link').forEach(a => {
+      const target = a.dataset.nav;
+      if (target === view) {
+        a.classList.add('text-vnu-blue');
+        a.classList.remove('text-text-muted');
+      } else {
+        a.classList.remove('text-vnu-blue');
+        a.classList.add('text-text-muted');
+      }
+    });
+
+    // Update exit split button visibility
+    updateReaderUI();
+
+    // Initialize search view when navigating to it
+    if (view === 'search') {
+      initSearchView();
+    }
+
+    window.scrollTo(0, 0);
+  }
+  window.navigateTo = navigateTo;
+  history.replaceState({ view: 'home' }, '', null);
+  window.addEventListener('popstate', function(e) {
+    if (e.state && e.state.view) {
+      if (e.state.view === 'reader' && e.state.docId) { currentDocId = e.state.docId; currentDocRestricted = e.state.restricted || false; readerLoaded = false; }
+      navigateTo(e.state.view, true);
+    } else { navigateTo('home', true); }
+  });
+
+  // Home logo → home
+  document.getElementById('nav-home-btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo('home');
+  });
+
+  // Nav links
+  document.querySelectorAll('.nav-link').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateTo(a.dataset.nav);
+    });
+  });
+
+  // Home search → search view
+  document.getElementById('home-search-btn').addEventListener('click', () => {
+    const parsed = parseSearchQuery(document.getElementById('home-search').value);
+    searchState.query = parsed.text;
+    searchState.tags = parsed.tags;
+    searchViewInitialized = false;
+    navigateTo('search');
+  });
+  document.getElementById('home-search').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') document.getElementById('home-search-btn').click();
+  });
+
+  // Trending tags → search
+  document.querySelectorAll('.trending-tag').forEach(btn => {
+    btn.addEventListener('click', () => {
+      searchState.query = btn.textContent;
+      navigateTo('search');
+    });
+  });
+
+  // Nav quick search → search view
+  document.getElementById('nav-search-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const parsed = parseSearchQuery(e.target.value);
+      searchState.query = parsed.text;
+      searchState.tags = parsed.tags;
+      searchViewInitialized = false;
+      navigateTo('search');
+    }
+  });
+
+  // Render home cards dynamically from DOC_REGISTRY
+  renderHomeCards();
+
+  // UI language switcher
+  document.querySelectorAll('.ui-lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      uiLang = btn.dataset.uiLang;
+      document.querySelectorAll('.ui-lang-btn').forEach(b => {
+        b.classList.remove('bg-vnu-blue', 'text-white');
+        b.classList.add('text-text-muted');
+      });
+      btn.classList.add('bg-vnu-blue', 'text-white');
+      btn.classList.remove('text-text-muted');
+      if (document.getElementById('view-home').classList.contains('active')) {
+        renderHomeCards();
+      }
+    });
+  });
+
+  // Modal button wiring
+  const modalSignInBtn = document.getElementById('modal-sign-in-btn');
+  if (modalSignInBtn) modalSignInBtn.addEventListener('click', handleSignIn);
+  const modalSwitchBtn = document.getElementById('modal-switch-account-btn');
+  if (modalSwitchBtn) modalSwitchBtn.addEventListener('click', () => {
+    hideAccessDenied();
+    if (fbAuth) fbAuth.signOut().then(() => handleSignIn());
+  });
+
+  // Initialize auth UI on load
+  updateAuthUI();
+
+  // ==================== READER ====================
+  let viewMode = 'split';
+  let syncEnabled = true;
+  let isSyncing = false;
+  let leftLang = 'en';
+  let rightLang = 'vi';
+
+  const sidebar = document.getElementById('sidebar');
+  const paneLeft = document.getElementById('pane-left');
+  const paneRight = document.getElementById('pane-right');
+  const dragHandle = document.getElementById('drag-handle');
+  const langSelectLeft = document.getElementById('lang-select-left');
+  const langSelectRight = document.getElementById('lang-select-right');
+  const syncToast = document.getElementById('sync-toast');
+  const btnSplit = document.getElementById('btn-split');
+  const btnExitSplit = document.getElementById('btn-exit-split');
+  const btnPrintContent = document.getElementById('btn-print-content');
+  const tocEl = document.getElementById('toc');
+
+  function getActiveLeft() { return document.getElementById('content-left-' + leftLang); }
+  function getActiveRight() { return document.getElementById('content-right-' + rightLang); }
+  function langPrefix(lang) { return lang === 'vi' ? 'vi-sec-' : lang === 'ja' ? 'ja-sec-' : 'en-sec-'; }
+  function getActivePaneContent(pane) {
+    const lang = pane === 'left' ? leftLang : rightLang;
+    return document.getElementById('content-' + pane + '-' + lang);
+  }
+
+  function switchPaneLang(pane, lang) {
+    ['vi','en','ja'].forEach(l => {
+      const el = document.getElementById('content-' + pane + '-' + l);
+      if (el) el.classList.toggle('hidden', l !== lang);
+    });
+    if (pane === 'left') leftLang = lang; else rightLang = lang;
+    document.getElementById('lang-select-' + pane).value = lang;
+    // Update top language button styles (reflect left pane language)
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      const l = b.dataset.lang;
+      if (l === leftLang) {
+        b.className = 'lang-btn px-2 py-1 text-[11px] font-bold bg-vnu-blue text-white rounded';
+      } else {
+        b.className = 'lang-btn px-2 py-1 text-[11px] font-medium text-text-muted hover:bg-gray-100 rounded';
+      }
+    });
+    if (pane === 'left') {
+      buildToc();
+      setupScrollSpy();
+    }
+  }
+
+  langSelectLeft.addEventListener('change', (e) => switchPaneLang('left', e.target.value));
+  langSelectRight.addEventListener('change', (e) => switchPaneLang('right', e.target.value));
+
+  // TOC collapse
+  document.getElementById('toc-collapse').addEventListener('click', () => {
+    sidebar.style.display = sidebar.style.display === 'none' ? '' : 'none';
+  });
+
+  // View mode
+  function setViewMode(mode) {
+    viewMode = mode;
+    paneLeft.style.display = '';
+    paneRight.style.display = '';
+    paneLeft.style.flex = '';
+    paneRight.style.flex = '';
+    paneLeft.style.width = '';
+    paneRight.style.width = '';
+    dragHandle.style.display = '';
+
+    if (mode === 'split') {
+      paneLeft.style.flex = '1';
+      paneRight.style.flex = '1';
+      btnSplit.className = 'view-btn px-2 py-1 text-[11px] font-medium text-accent bg-blue-50 border border-blue-100 rounded';
+      // Source button is now an <a> link to PDF
+      syncEnabled = true;
+      syncToast.style.opacity = '1';
+      setTimeout(() => { syncToast.style.opacity = '0'; }, 3000);
+    } else {
+      dragHandle.style.display = 'none';
+      btnSplit.className = 'view-btn px-2 py-1 text-[11px] font-medium text-text-muted hover:bg-gray-100 rounded';
+      // Source button is now an <a> link to PDF
+      syncEnabled = false;
+      syncToast.style.opacity = '0';
+      if (mode === 'source-vi') {
+        paneRight.style.display = 'none';
+        paneLeft.style.flex = '1';
+        switchPaneLang('left', 'vi');
+      } else {
+        // source-en, source-ja, or source-vi (via right pane)
+        paneLeft.style.display = 'none';
+        paneRight.style.flex = '1';
+        switchPaneLang('right', mode.replace('source-', ''));
+      }
+    }
+    updateReaderUI();
+  }
+
+  function updateReaderUI() {
+    if (currentView === 'reader' && viewMode === 'split') {
+      btnExitSplit.classList.remove('hidden');
+      btnExitSplit.classList.add('flex');
+    } else {
+      btnExitSplit.classList.add('hidden');
+      btnExitSplit.classList.remove('flex');
+    }
+  }
+
+  btnSplit.addEventListener('click', () => setViewMode('split'));
+  // Source button is now a direct PDF link (<a> tag), no JS needed
+  btnExitSplit.addEventListener('click', () => {
+    setViewMode('source-' + rightLang);
+  });
+  btnPrintContent.addEventListener('click', () => printContentOnly());
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.disabled) return;
+      const lang = btn.dataset.lang;
+      if (viewMode === 'split') {
+        switchPaneLang('left', lang);
+      } else {
+        // In source mode, keep button semantics consistent: control left pane language.
+        switchPaneLang('left', lang);
+      }
+    });
+  });
+
+  function buildPrintSection(title, langLabel, paneContentEl) {
+    const prose = paneContentEl?.querySelector('.prose-legal');
+    const body = prose ? prose.innerHTML : '<p>Content unavailable.</p>';
+    return `
+      <section class="print-pane">
+        <header class="print-pane-header">
+          <div class="print-doc-title">${currentDocId}</div>
+          <div class="print-lang">${langLabel}</div>
+        </header>
+        <div class="prose-legal">${body}</div>
+      </section>
+    `;
+  }
+
+  function printContentOnly() {
+    if (currentView !== 'reader') return;
+    const leftEl = getActivePaneContent('left');
+    const rightEl = getActivePaneContent('right');
+    const sections = [];
+    if (viewMode === 'split') {
+      sections.push(buildPrintSection(currentDocId, langSelectLeft.options[langSelectLeft.selectedIndex].text, leftEl));
+      sections.push(buildPrintSection(currentDocId, langSelectRight.options[langSelectRight.selectedIndex].text, rightEl));
+    } else if (paneLeft.style.display === 'none') {
+      sections.push(buildPrintSection(currentDocId, langSelectRight.options[langSelectRight.selectedIndex].text, rightEl));
+    } else {
+      sections.push(buildPrintSection(currentDocId, langSelectLeft.options[langSelectLeft.selectedIndex].text, leftEl));
+    }
+
+    const printWin = window.open('', '_blank', 'noopener,noreferrer');
+    if (!printWin) {
+      console.warn('Popup blocked. Please allow popups to print/export content.');
+      return;
+    }
+
+    const printCss = `
+      body { font-family: ui-sans-serif, system-ui, sans-serif; margin: 0; color: #111827; }
+      .print-wrap { padding: 24px; }
+      .print-meta { margin-bottom: 16px; font-size: 12px; color: #6b7280; }
+      .print-grid { display: grid; grid-template-columns: ${sections.length === 2 ? '1fr 1fr' : '1fr'}; gap: 20px; align-items: start; }
+      .print-pane { border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px; background: #fff; }
+      .print-pane-header { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid #f3f4f6; padding-bottom: 8px; }
+      .print-doc-title { font-weight: 700; font-size: 12px; color: #1f2937; }
+      .print-lang { font-size: 11px; color: #6b7280; }
+      .prose-legal { max-width: none; line-height: 1.6; font-size: 14px; }
+      .prose-legal h1, .prose-legal h2, .prose-legal h3 { break-after: avoid-page; }
+      .prose-legal p, .prose-legal li { orphans: 3; widows: 3; }
+      .prose-legal img { max-width: 100%; }
+      @media print {
+        .print-wrap { padding: 0; }
+        .print-pane { border: none; padding: 0; }
+        .print-grid { gap: 12px; }
+        .print-meta { margin-bottom: 8px; }
+      }
+    `;
+
+    printWin.document.open();
+    printWin.document.write(`<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>${currentDocId} - Content Print</title>
+  <style>${printCss}</style>
+</head>
+<body>
+  <div class="print-wrap">
+    <div class="print-meta">Content-only print/export generated from reader view. UI chrome omitted. Generated: ${new Date().toLocaleString()}</div>
+    <div class="print-grid">${sections.join('')}</div>
+  </div>
+</body>
+</html>`);
+    printWin.document.close();
+    printWin.focus();
+    setTimeout(() => printWin.print(), 250);
+  }
+
+  // Drag handle
+  let isDragging = false;
+  dragHandle.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    dragHandle.classList.add('dragging');
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const container = document.getElementById('split-container');
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const leftPct = Math.max(20, Math.min(80, (x / rect.width) * 100));
+    paneLeft.style.flex = 'none';
+    paneRight.style.flex = 'none';
+    paneLeft.style.width = leftPct + '%';
+    paneRight.style.width = (100 - leftPct) + '%';
+  });
+  document.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      dragHandle.classList.remove('dragging');
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+    }
+  });
+
+  // Strip YAML front matter (--- ... ---) from markdown text
+  function stripFrontMatter(md) {
+    return md.replace(/^---\n[\s\S]*?\n---\n*/, '');
+  }
+
+  // Parse YAML front matter into a plain object (simple key: value pairs)
+  function parseFrontMatter(md) {
+    const match = md.match(/^---\n([\s\S]*?)\n---/);
+    if (!match) return {};
+    const meta = {};
+    match[1].split('\n').forEach(line => {
+      const m = line.match(/^(\w+):\s*(.*)$/);
+      if (m) {
+        let val = m[2].trim();
+        if (val === 'true') val = true;
+        else if (val === 'false') val = false;
+        else if (/^".*"$/.test(val)) val = val.slice(1, -1);
+        meta[m[1]] = val;
+      }
+    });
+    return meta;
+  }
+
+  // Load document content (public via fetch, restricted via Firestore)
+  async function loadPublicDoc(docId) {
+    const prefix = getDocPrefix(docId);
+    const [viRaw, enRaw, jaRaw, viHtmlRaw] = await Promise.all([
+      fetch(encodeURI('data/' + prefix + '_transcription.md')).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); }),
+      fetch(encodeURI('data/' + prefix + '_transcription_en.md')).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); }),
+      fetch(encodeURI('data/' + prefix + '_transcription_ja.md')).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); }),
+      fetch(encodeURI('data/' + prefix + '_transcription_vi.html')).then(r => r.ok ? r.text() : null).catch(() => null)
+    ]);
+    // Parse metadata from the source transcription (canonical), strip front matter from all
+    const meta = parseFrontMatter(viRaw);
+    return { vi: stripFrontMatter(viRaw), en: stripFrontMatter(enRaw), ja: stripFrontMatter(jaRaw), viHtmlRaw, meta };
+  }
+
+  async function loadRestrictedDoc(docId) {
+    if (!fbDb) throw new Error('Firebase not configured');
+    const [viSnap, enSnap, jaSnap] = await Promise.all([
+      fbDb.collection('docs').doc(docId).collection('content').doc('vi').get(),
+      fbDb.collection('docs').doc(docId).collection('content').doc('en').get(),
+      fbDb.collection('docs').doc(docId).collection('content').doc('ja').get()
+    ]);
+    const getText = (snap, lang) => {
+      if (!snap.exists) throw new Error('Document content (' + lang + ') not found in Firestore');
+      return stripFrontMatter(snap.data().text || '');
+    };
+    return { vi: getText(viSnap, 'vi'), en: getText(enSnap, 'en'), ja: getText(jaSnap, 'ja') };
+  }
+
+  async function loadReader() {
+    readerLoaded = true;
+    const loading = '<div class="flex items-center justify-center py-12 text-text-muted"><span class="material-symbols-outlined animate-spin mr-2">progress_activity</span>Loading...</div>';
+    ['left','right'].forEach(pane => {
+      ['vi','en','ja'].forEach(lang => {
+        document.getElementById('content-' + pane + '-' + lang).querySelector('.prose-legal').innerHTML = loading;
+      });
+    });
+
+    // Update source PDF link
+    const btnSource = document.getElementById('btn-source');
+    if (currentDocRestricted && fbStorage) {
+      btnSource.removeAttribute('href');
+      btnSource.style.cursor = 'pointer';
+      btnSource.onclick = async (e) => {
+        e.preventDefault();
+        try {
+          const url = await fbStorage.ref('restricted/' + currentDocId + '.pdf').getDownloadURL();
+          window.open(url, '_blank');
+        } catch (err) { console.warn('PDF not available: ' + err.message); }
+      };
+    } else {
+      btnSource.href = 'data/' + getDocPrefix(currentDocId) + '_source.pdf';
+      btnSource.onclick = null;
+      btnSource.style.cursor = '';
+    }
+
+    try {
+      const docs = currentDocRestricted
+        ? await loadRestrictedDoc(currentDocId)
+        : await loadPublicDoc(currentDocId);
+
+      marked.setOptions({ gfm: true, breaks: true });
+      const DIEM_RE = /^( *)([a-eghik-np-t\u0111])\) /;
+      const sanitizeWebArticleHtml = (rawHtml) => {
+        if (!rawHtml) return null;
+        let html = DOMPurify.sanitize(rawHtml, {
+          ADD_TAGS: ['main'],
+          ADD_ATTR: ['align','style','width','height','srcset','sizes','fetchpriority','decoding','class','id']
+        });
+        // Remove site chrome and floating widgets if present in captured HTML.
+        html = html
+          .replace(/<nav[\s\S]*?<\/nav>/gi, '')
+          .replace(/<script[\s\S]*?<\/script>/gi, '')
+          .replace(/<iframe[\s\S]*?<\/iframe>/gi, '')
+          .replace(/<div[^>]*class=\"[^\"]*(zalo-chat-widget|elementor-location-footer|elementor-location-header)[^\"]*\"[^>]*>[\s\S]*?<\/div>/gi, '');
+        return html;
+      };
+      const preprocessLegalMd = (md) => {
+        const lines = md.split('\n');
+        const out = [];
+        for (let i = 0; i < lines.length; i++) {
+          let line = lines[i];
+          const prev = i > 0 ? lines[i - 1] : '';
+          if (/^\d+\.\s/.test(line) && prev.trim() !== '') out.push('');
+          line = line.replace(/^(\d+)\. /, '$1\\. ');
+          const dm = line.match(DIEM_RE);
+          if (dm) {
+            if (prev.trim() !== '') out.push('');
+            line = dm[2] + ') ' + line.slice(dm[0].length);
+          }
+          if (/^ {4,}- /.test(line)) line = line.replace(/^ {4,}(- )/, '$1');
+          out.push(line);
+        }
+        return out.join('\n');
+      };
+      const DIEM_LETTERS = 'a-eghik-np-t\u0111';
+      const render = md => { let html = DOMPurify.sanitize(marked.parse(preprocessLegalMd(md)), { ADD_TAGS: ['sub','sup'], ADD_ATTR: ['align','style'] }); html = html.replace(/<p>\s*(\d+)\. /g, '<p class="khoan">$1. '); html = html.replace(new RegExp('<p>\\s*([' + DIEM_LETTERS + '])\\) ', 'g'), '<p class="diem">$1) '); return html; };
+      const rendered = {
+        vi: docs.viHtmlRaw ? sanitizeWebArticleHtml(docs.viHtmlRaw) : render(docs.vi),
+        en: render(docs.en),
+        ja: render(docs.ja)
+      };
+      ['left','right'].forEach(pane => {
+        ['vi','en','ja'].forEach(lang => {
+          document.getElementById('content-' + pane + '-' + lang).querySelector('.prose-legal').innerHTML = rendered[lang];
+        });
+      });
+      buildToc();
+      setupScrollSync();
+      setupScrollSpy();
+      setViewMode('split');
+      buildRelationsPanel();
+    } catch (err) {
+      const msg = `<div class="text-center py-12 text-red-500"><span class="material-symbols-outlined text-3xl mb-2">error</span><p>Failed to load document.</p><p class="text-sm text-gray-400 mt-1">${err.message}</p></div>`;
+      ['left','right'].forEach(pane => {
+        ['vi','en','ja'].forEach(lang => {
+          document.getElementById('content-' + pane + '-' + lang).querySelector('.prose-legal').innerHTML = msg;
+        });
+      });
+    }
+  }
+
+  function buildRelationsPanel() {
+    const panel = document.getElementById('doc-relations');
+    const tagsEl = document.getElementById('rel-tags');
+    const linksEl = document.getElementById('rel-links');
+    const entry = DOC_REGISTRY[currentDocId];
+    if (!entry || typeof entry === 'string') { panel.style.display = 'none'; return; }
+    const tags = entry.tags || [];
+    const relations = entry.relations || [];
+    if (!tags.length && !relations.length) { panel.style.display = 'none'; return; }
+    panel.style.display = '';
+    // Tags
+    if (tags.length) {
+      tagsEl.innerHTML = '<h4>Tags</h4>' + tags.map(t => '<span class="rel-tag" data-tag="' + t + '">' + formatTagLabel(t) + '</span>').join('');
+    } else { tagsEl.innerHTML = ''; }
+    // Relations
+    if (relations.length) {
+      const typeIcons = { 'supersedes': 'upgrade', 'superseded-by': 'history', 'amended-by': 'edit_note', 'amends': 'edit_note', 'related': 'link', 'has-annex': 'attach_file', 'annex-of': 'attach_file' };
+      linksEl.innerHTML = '<h4>Related</h4>' + relations.map(r => {
+        const rEntry = DOC_REGISTRY[r.id];
+        const rTitle = rEntry && typeof rEntry !== 'string' ? rEntry.title : r.id;
+        const icon = typeIcons[r.type] || 'description';
+        return '<a class="rel-link" data-doc-id="' + r.id + '"><span class="material-symbols-outlined rel-icon">' + icon + '</span><span>' + rTitle + '</span><span class="rel-type">' + r.label + '</span></a>';
+      }).join('');
+      linksEl.querySelectorAll('.rel-link').forEach(a => { a.addEventListener('click', () => openDocument(a.dataset.docId, false)); });
+    } else { linksEl.innerHTML = ''; }
+    // Wire tag clicks → search by tag
+    tagsEl.querySelectorAll('.rel-tag').forEach(el => { el.addEventListener('click', () => applyTagSearchState([el.dataset.tag])); });
+  }
+
+  let tocIndexMap = [];
+  let scrollSpyObserver = null;
+
+  function collectTocHeadingsFromProse(proseEl) {
+    const nativeHeads = Array.from(proseEl.querySelectorAll('h1, h2, h3')).map(el => ({
+      el, level: Number(el.tagName.slice(1)), text: (el.textContent || '').trim()
+    }));
+    // If native headings are sufficient, use them.
+    if (nativeHeads.length >= 8) return nativeHeads;
+
+    const items = [];
+    const add = (el, level, text) => {
+      const t = (text || '').replace(/\s+/g, ' ').trim();
+      if (!t) return;
+      items.push({ el, level, text: t });
+    };
+
+    proseEl.querySelectorAll('h1').forEach(h => add(h, 1, h.textContent));
+
+    // WordPress article often uses red span+strong banners
+    proseEl.querySelectorAll('p > span > strong').forEach(st => {
+      const txt = st.textContent || '';
+      if (/THÔNG TIN/i.test(txt) || /C[ÁA]C NỘI DUNG KHÁC/i.test(txt)) add(st.closest('p'), 2, txt);
+    });
+
+    // List headings like <ol><li><strong> ... </strong></li></ol>
+    proseEl.querySelectorAll('ol > li > strong').forEach(st => {
+      const txt = st.textContent || '';
+      add(st.closest('ol') || st.closest('li') || st, 2, txt);
+    });
+
+    // Paragraph strong headings like 1.1 / 2.3 / 10.5.1
+    proseEl.querySelectorAll('p > strong').forEach(st => {
+      const p = st.closest('p');
+      if (!p) return;
+      const full = (p.textContent || '').trim();
+      if (/^\d+\.\d+(?:\.\d+)?\.?\s+/.test(full)) add(p, 3, full);
+      else if (/^\d+\.\s+/.test(full)) add(p, 2, full);
+    });
+
+    // Top-level plain paragraph headings in article body (e.g., "Chỉ tiêu tuyển sinh năm 2026")
+    proseEl.querySelectorAll('p').forEach(p => {
+      const txt = (p.textContent || '').trim();
+      if (!txt || txt.length > 140) return;
+      if (/^(Chỉ tiêu tuyển sinh năm 2026|Các thông tin cần thiết khác|Lệ phí xét tuyển, học phí và học bổng|Việc cơ sở đào tạo thực hiện các cam kết đối với thí sinh|Các nội dung khác|Thông tin về tuyển sinh của 2 năm gần nhất)$/i.test(txt)) {
+        add(p, 2, txt);
+      }
+    });
+
+    // De-duplicate by element and preserve DOM order
+    const seen = new Set();
+    const dedup = [];
+    for (const it of items) {
+      if (!it.el || seen.has(it.el)) continue;
+      seen.add(it.el);
+      dedup.push(it);
+    }
+    dedup.sort((a, b) => {
+      if (a.el === b.el) return 0;
+      const pos = a.el.compareDocumentPosition(b.el);
+      if (pos & Node.DOCUMENT_POSITION_FOLLOWING) return -1;
+      if (pos & Node.DOCUMENT_POSITION_PRECEDING) return 1;
+      return 0;
+    });
+    return dedup;
+  }
+
+  function buildToc() {
+    // Build TOC from the currently visible left pane so heading order matches
+    // scroll spy and click targets even when one language uses HTML source rendering.
+    const leftPane = getActiveLeft();
+    const leftProse = leftPane.querySelector('.prose-legal');
+    const headingItems = collectTocHeadingsFromProse(leftProse);
+    tocEl.innerHTML = '';
+    tocIndexMap = [];
+    // Assign IDs to left pane headings (TOC + scrollspy source of truth)
+    headingItems.forEach((it, i) => { it.el.id = 'left-' + langPrefix(leftLang) + i; });
+    // Best-effort IDs to right pane only (same index when structures align; harmless if not)
+    const rightProse = getActiveRight().querySelector('.prose-legal');
+    collectTocHeadingsFromProse(rightProse).forEach((it, i) => {
+      it.el.id = 'right-' + langPrefix(rightLang) + i;
+    });
+
+    // Prefer legal-document style TOC filtering, but fall back to generic article headings.
+    let entries = headingItems.map((it, i) => {
+      const text = it.text;
+      const tagName = (it.level === 1 ? 'H1' : it.level === 2 ? 'H2' : 'H3');
+      const isChapter = tagName === 'H1' || /^chapter\s/i.test(text);
+      const isArticle = /^article\s/i.test(text);
+      const isTitle = /^regulation|^decision|^hereby/i.test(text);
+      const legalMatch = isChapter || isArticle || isTitle;
+      let kind = 'section';
+      if (isArticle) kind = 'article';
+      else if (tagName === 'H1') kind = 'chapter';
+      else if (tagName === 'H2') kind = 'section';
+      else kind = 'subsection';
+      return { h: it.el, i, text, legalMatch, isArticle, kind };
+    });
+
+    const legalEntries = entries.filter(e => e.legalMatch);
+    const useEntries = legalEntries.length >= 3 ? legalEntries : entries.filter(e => e.text && !/^loading/i.test(e.text));
+    if (!useEntries.length) {
+      tocEl.innerHTML = '<div class="text-xs text-text-muted py-4 text-center">No headings found</div>';
+      return;
+    }
+
+    useEntries.forEach((e) => {
+      tocIndexMap.push(e.i);
+      const item = document.createElement('div');
+      item.className = e.kind === 'article' ? 'article-item' : 'chapter-item';
+      if (e.kind === 'section') item.className = 'article-item';
+      if (e.kind === 'subsection') item.className = 'article-item';
+      const a = document.createElement('a');
+      a.href = '#';
+      a.dataset.idx = e.i;
+      if (e.isArticle) {
+        const s = e.text.replace(/^Article\s+(\d+)\.\s*/, 'Art. $1. ');
+        a.textContent = s.length > 42 ? s.slice(0, 39) + '...' : s;
+        a.title = e.text;
+      } else {
+        const maxLen = e.kind === 'subsection' ? 54 : 46;
+        a.textContent = e.text.length > maxLen ? e.text.slice(0, maxLen - 3) + '...' : e.text;
+        a.title = e.text;
+      }
+      a.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        const idx = a.dataset.idx;
+        isSyncing = true;
+        const leftEl = getActiveLeft();
+        const rightEl = getActiveRight();
+        const leftH = document.getElementById('left-' + langPrefix(leftLang) + idx);
+        const rightH = document.getElementById('right-' + langPrefix(rightLang) + idx);
+        const scrollOffset = Math.round(leftEl.clientHeight / 3);
+        if (leftH) leftEl.scrollTo({ top: leftH.offsetTop - scrollOffset, behavior: 'smooth' });
+        if (rightH) {
+          rightEl.scrollTo({ top: rightH.offsetTop - scrollOffset, behavior: 'smooth' });
+        } else {
+          // If heading counts differ across languages, let generic sync place the right pane.
+          syncScroll(leftEl, rightEl, 'left-' + langPrefix(leftLang), 'right-' + langPrefix(rightLang));
+        }
+        setTimeout(() => { isSyncing = false; }, 800);
+      });
+      item.appendChild(a);
+      tocEl.appendChild(item);
+    });
+  }
+
+  // Heading-based scroll sync: find which heading is at the top of the
+  // source pane, compute fractional progress between it and the next heading,
+  // then scroll the target pane to the same fractional position between the
+  // corresponding pair of headings.
+  function getHeadingOffsets(container, prefix) {
+    const els = container.querySelectorAll('[id^="' + prefix + '"]');
+    const arr = [];
+    for (const el of els) {
+      arr.push({ id: el.id, top: el.offsetTop });
+    }
+    return arr;
+  }
+
+  function syncScroll(source, target, sourcePrefix, targetPrefix) {
+    const srcHeadings = getHeadingOffsets(source, sourcePrefix);
+    const tgtHeadings = getHeadingOffsets(target, targetPrefix);
+    if (srcHeadings.length < 2 || tgtHeadings.length < 2) {
+      // Fallback for article-like docs with sparse/non-aligned headings:
+      // sync by scroll ratio so split panes still move together.
+      const srcMax = Math.max(1, source.scrollHeight - source.clientHeight);
+      const tgtMax = Math.max(0, target.scrollHeight - target.clientHeight);
+      target.scrollTop = Math.max(0, Math.min(tgtMax, (source.scrollTop / srcMax) * tgtMax));
+      return;
+    }
+
+    const scrollTop = source.scrollTop;
+    const count = Math.min(srcHeadings.length, tgtHeadings.length);
+
+    // Find which source heading interval we're in
+    let idx = 0;
+    for (let i = count - 1; i >= 0; i--) {
+      if (scrollTop >= srcHeadings[i].top - 60) { idx = i; break; }
+    }
+
+    // Fraction between heading[idx] and heading[idx+1] in source
+    let frac = 0;
+    if (idx < count - 1) {
+      const gap = srcHeadings[idx + 1].top - srcHeadings[idx].top;
+      if (gap > 0) frac = Math.min(1, Math.max(0, (scrollTop - srcHeadings[idx].top + 60) / gap));
+    } else {
+      // Past last heading: use remaining scroll distance
+      const remaining = source.scrollHeight - source.clientHeight - srcHeadings[idx].top;
+      if (remaining > 0) frac = Math.min(1, (scrollTop - srcHeadings[idx].top + 60) / remaining);
+    }
+
+    // Map to target position
+    let targetTop;
+    if (idx < count - 1) {
+      targetTop = tgtHeadings[idx].top + frac * (tgtHeadings[idx + 1].top - tgtHeadings[idx].top) - 60;
+    } else {
+      const tgtRemaining = target.scrollHeight - target.clientHeight - tgtHeadings[idx].top;
+      targetTop = tgtHeadings[idx].top + frac * tgtRemaining - 60;
+    }
+
+    target.scrollTop = Math.max(0, targetTop);
+  }
+
+  function setupScrollSync() {
+    let rafLeft = null, rafRight = null;
+
+    ['left','right'].forEach(pane => {
+      ['vi','en','ja'].forEach(lang => {
+        const el = document.getElementById('content-' + pane + '-' + lang);
+        el.addEventListener('scroll', () => {
+          if (!syncEnabled || isSyncing) return;
+          if (pane === 'left') {
+            if (rafLeft) return;
+            rafLeft = requestAnimationFrame(() => {
+              isSyncing = true;
+              syncScroll(getActiveLeft(), getActiveRight(), 'left-' + langPrefix(leftLang), 'right-' + langPrefix(rightLang));
+              requestAnimationFrame(() => { isSyncing = false; });
+              rafLeft = null;
+            });
+          } else {
+            if (rafRight) return;
+            rafRight = requestAnimationFrame(() => {
+              isSyncing = true;
+              syncScroll(getActiveRight(), getActiveLeft(), 'right-' + langPrefix(rightLang), 'left-' + langPrefix(leftLang));
+              requestAnimationFrame(() => { isSyncing = false; });
+              rafRight = null;
+            });
+          }
+        });
+      });
+    });
+  }
+
+  function setupScrollSpy() {
+    if (scrollSpyObserver) {
+      scrollSpyObserver.disconnect();
+      scrollSpyObserver = null;
+    }
+    const tocLinks = tocEl.querySelectorAll('a[data-idx]');
+    if (!tocLinks.length) return;
+    const activeLeft = getActiveLeft();
+    const prefix = 'left-' + langPrefix(leftLang);
+    scrollSpyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(a => a.classList.remove('active'));
+          const match = entry.target.id.match(/(\d+)$/);
+          if (match) {
+            const active = tocEl.querySelector(`a[data-idx="${match[1]}"]`);
+            if (active) { active.classList.add('active'); active.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+          }
+        }
+      });
+    }, { root: activeLeft, rootMargin: '-44px 0px -70% 0px', threshold: 0 });
+    activeLeft.querySelectorAll('[id^="' + prefix + '"]').forEach(h => scrollSpyObserver.observe(h));
+  }
+
+  // Start on home
+  navigateTo('home');
+})();
+</script>
+</body>
+</html>
