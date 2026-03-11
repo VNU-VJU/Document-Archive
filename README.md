@@ -2,6 +2,13 @@
 
 A document archive for Vietnam-Japan University and related academic regulations.
 
+## Repository Metadata
+
+| Field | Value |
+|-------|-------|
+| Repository Purpose | Public repository |
+| Last Maintenance Date | 2026-03-11 |
+
 ## Live Site
 
 Hosted via GitHub Pages.
@@ -40,3 +47,17 @@ The app loads Firebase Web config from `firebase-config.js`, which is intentiona
 3. Do not commit `firebase-config.js`.
 
 For Google Cloud API keys used in browser apps, apply both API restrictions and HTTP referrer restrictions in Google Cloud Console.
+
+## Convention
+
+All repository-facing names - file names, folder names, branch names, and commit messages - must be written in English.
+
+## Repository Skills
+
+Repository-specific agent skills live under `skills/`.
+
+- `skills/common-qa-orchestrator/`: QA and transcription batch workflow for this repository
+
+Latest handover: `docs/handover.md`
+
+Maintenance notes: `docs/repository-maintenance-audit.md`
