@@ -27,7 +27,8 @@ If the same conversation invokes this skill again, you may omit this briefing un
 ## Load Order
 1. Read `references/vju-project.md`.
 2. Read only the sections of `docs/QA_CHECKLIST.md` needed for the current task.
-3. Inspect the configured scripts and target files before making decisions.
+3. If the current runtime is GitHub Copilot, immediately load and follow `children/copilot-qa/SKILL.md` for the execution handoff pattern.
+4. Inspect the configured scripts and target files before making decisions.
 
 ## Core Rules
 - Keep user-facing updates in Japanese.
@@ -36,6 +37,8 @@ If the same conversation invokes this skill again, you may omit this briefing un
 - Serialize Git operations.
 - Prefer deterministic checks and scripts before model judgment.
 - Keep one consolidated report file and one machine-readable status file.
+- If the current runtime is GitHub Copilot, use the child skill to package and delegate large QA batches there.
+- If Gemini cannot be called, do not stop the whole run unless the current document is blocked on Gemini and no other eligible work remains. Continue with renames, metadata fixes, contract fixes, report/status updates, and other non-Gemini work.
 
 ## Required Inputs
 Before execution, resolve or confirm these values:
@@ -116,7 +119,8 @@ Run the work in this order:
 - If the final Gemini translation audit finds structural drift, hallucination, omissions, mistranslations, or glossary violations, fix the translation first when it is safe to do so, then rerun the audit before closing the document or reporting batch completion.
 - Record the final Gemini translation audit outcome explicitly in the status/progress tracker.
 - Keep fixes isolated per `doc_id` when committing.
-- If Gemini-dependent recovery is required, complete that portion before downstream QA.
+- If Gemini is available and the current document depends on Gemini for recovery or first-gate completion, complete that portion before downstream QA for that document.
+- If Gemini is unavailable, mark only the affected document step as pending or blocked, record the reason, and continue with other eligible documents or non-Gemini tasks in the same batch.
 
 ## Reporting Contract
 `REPORT_PATH` must contain these sections:
@@ -187,6 +191,8 @@ Continue working in priority order until one of these happens:
 1. Gemini 3.1-series usage hits a quota limit or rate-limit that blocks continued work.
 2. Codex or Claude token budget is estimated to be at or below 50% remaining.
 3. Priority rule 5 is active and the 12-file refresh batch is complete.
+
+If Gemini quota or rate-limit is hit, do not stop the whole run automatically. Stop only Gemini-dependent steps, continue other eligible work, and record which documents remain pending because Gemini was unavailable. Stop the whole batch only when no more non-Gemini-safe work remains, or another stop condition is hit.
 
 If a stop condition is hit, do not start a new document-set. Finish only in-progress work, update the report and status files, and record the stop reason in the batch summary.
 

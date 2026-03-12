@@ -29,6 +29,17 @@
         "skills/repo-qa/SKILL.md",
         "skills/repo-qa/references/vju-project.md"
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "Run `repo-qa` in a GitHub Copilot runtime for a heavy public batch. Use the child handoff skill, keep working when Gemini is unavailable, and leave only Gemini-gated steps pending.",
+      "expected_output": "The agent loads the Copilot child skill, packages a single heavy-batch handoff, preserves the repo-qa contracts, and continues non-Gemini work instead of halting the whole batch when Gemini is unavailable.",
+      "files": [
+        "skills/repo-qa/SKILL.md",
+        "skills/repo-qa/children/copilot-qa/SKILL.md",
+        "skills/repo-qa/references/vju-project.md",
+        "docs/QA_CHECKLIST.md"
+      ]
     }
   ]
 }

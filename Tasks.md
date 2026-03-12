@@ -55,3 +55,10 @@
 - [completed] Re-ran disclaimer/source-note contract validation and confirmed zero mismatches.
 - [blocked] Final Gemini rerun could not be completed in this environment because direct Gemini API access returned `API_KEY_INVALID` and the available Gemini CLI path did not return reusable non-interactive output.
 - [completed] Reset `final_translation_audit_status` for the 4 corrected sets to `pending` so they can be rerun cleanly later.
+- [completed] Applied an extra local glossary-cleanup pass to `/HD-ĐHVN`, `1010/TB-ĐHVN`, and `1274/HD-KT&ĐBCL` to remove residual legacy terms in citations, appendix headings, and LO labels.
+
+## 2026-03-12 repo-qa Copilot child skill
+
+- [completed] Added `skills/repo-qa/children/copilot-qa/SKILL.md` as the GitHub Copilot handoff child skill for heavy repo-qa batches.
+- [completed] Updated the parent `repo-qa` skill to delegate to the Copilot child skill when the active runtime is GitHub Copilot.
+- [completed] Clarified that Gemini-unavailable steps must not halt unrelated QA work; only the affected gate stays pending or blocked.

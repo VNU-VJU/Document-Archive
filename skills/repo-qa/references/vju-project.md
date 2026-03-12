@@ -8,6 +8,7 @@ Use this reference only when the task is for this repository.
 - The default report path is `docs/qa_report_master.md`.
 - The default status path is `tmp/qa_status.json`.
 - Existing policy and QA rules live in `docs/QA_CHECKLIST.md` and `docs/document_repository_policy.md`.
+- If the active runtime is GitHub Copilot, `skills/repo-qa/children/copilot-qa/SKILL.md` defines the handoff pattern for large batch execution.
 
 ## Existing Scripts
 - Disclaimer detection helper: `scripts/check_disclaimer_issuer_link.js`
@@ -55,3 +56,8 @@ Use:
 - `complete` when all required gates passed and report/status updates are written
 - `partial` when useful progress exists but some checks remain open
 - `blocked` when safe continuation is not possible
+
+## Gemini Availability
+- Gemini-dependent gates remain mandatory for document completion.
+- If Gemini is temporarily unavailable, continue other safe repository work instead of stopping the whole batch.
+- Record Gemini-blocked items explicitly in the report and `tmp/qa_status.json`.

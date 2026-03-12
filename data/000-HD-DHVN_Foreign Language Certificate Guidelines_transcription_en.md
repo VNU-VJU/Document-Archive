@@ -34,7 +34,7 @@ No.: /HD-ĐHVN
 
 *Pursuant to Decision No. 3626/QĐ-ĐHQGHN dated November 24, 2022 of the President of Vietnam National University, Hanoi on promulgating the Regulations on undergraduate training at Vietnam National University, Hanoi;*
 
-*Pursuant to Guidance No. 1011/HD-ĐHQGHN dated March 23, 2023 of the President of Vietnam National University, Hanoi on promulgating guidelines for organizing training of foreign language courses in the general knowledge block and determining output standards in undergraduate, master's and doctoral training programs at Vietnam National University, Hanoi;*
+*Pursuant to Guideline No. 1011/HD-ĐHQGHN dated March 23, 2023 of the President of Vietnam National University, Hanoi on promulgating guidelines for organizing training of foreign language courses in the general knowledge block and determining learning outcomes / graduate standards in undergraduate, master's and doctoral training programs at Vietnam National University, Hanoi;*
 
 *Pursuant to Official Dispatch No. 4162/ĐHQGHN-ĐT dated November 3, 2023 of the President of Vietnam National University, Hanoi on agreeing on the test format and assigning the organization of the foreign language proficiency assessment test according to the orientation of professional communication;*
 
@@ -82,7 +82,7 @@ Before graduating, students need to submit a certificate or certification of for
 
 ### 3.2. For Japanese language courses
 
-- Students shall follow Guidance No. 856/ĐHVN-ĐT dated August 4, 2025 on Organizing the teaching of foreign language courses in university-level training programs for Japanese B1 and Japanese B2 courses in the General Knowledge Block (M1).
+- Students shall follow Guideline No. 856/ĐHVN-ĐT dated August 4, 2025 on Organizing the teaching of foreign language courses in university-level training programs for Japanese B1 and Japanese B2 courses in the General Knowledge Block (M1).
 - List of certificates and certifications recognized at Vietnam National University, Hanoi in Appendix 1 of this Guidance.
 
 ## 4. Important information to note
@@ -116,9 +116,9 @@ Sincerely inform./.
 
 # Appendix 1. Reference Table for Conversion of Foreign Language Certificates
 
-**REFERENCE TABLE FOR CONVERSION OF CERTIFICATES AND FOREIGN LANGUAGE CERTIFICATIONS CORRESPONDING TO OUTPUT STANDARD REQUIREMENTS ON FOREIGN LANGUAGE PROFICIENCY (*)**
+**REFERENCE TABLE FOR CONVERSION OF CERTIFICATES AND FOREIGN LANGUAGE CERTIFICATIONS CORRESPONDING TO LEARNING OUTCOMES / GRADUATE STANDARDS ON FOREIGN LANGUAGE PROFICIENCY (*)**
 
-*(Attached to Guidance No. /HD-ĐHVN dated month year 2025 of the Rector of Vietnam-Japan University, VNU)*
+*(Attached to Guideline No. /HD-ĐHVN dated month year 2025 of the Rector of Vietnam-Japan University, VNU)*
 
 **1. English**
 
@@ -144,7 +144,7 @@ Sincerely inform./.
 
 **AUTHORIZATION FORM FOR STUDENTS REGISTERING FOR JLPT JAPANESE LANGUAGE TEST**
 
-*(Attached to Guidance No. /HD-ĐHVN dated month year 2025 of the Rector of Vietnam-Japan University, VNU)*
+*(Attached to Guideline No. /HD-ĐHVN dated month year 2025 of the Rector of Vietnam-Japan University, VNU)*
 
 **For students registering for the JLPT certification exam in Vietnam**
 

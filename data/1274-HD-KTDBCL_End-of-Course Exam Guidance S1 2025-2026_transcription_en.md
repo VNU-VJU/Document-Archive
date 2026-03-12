@@ -59,7 +59,7 @@ The implementation of end-of-course examinations for the first semester of the 2
 
 ### 2.3. Requirements for Creating Examination Questions and Answer Keys
 
-  - End-of-course examination questions must be able to assess the Learning Outcomes (LOs) of the course.
+  - End-of-course examination questions must be able to assess the learning outcomes / graduate standards (LOs) of the course.
   - Examination questions must not be identical to those from previous semester examinations, quizzes, practice problems, or review questions that have been previously disclosed to learners. This includes courses where examination papers are required to be collected.
   - For courses offered to multiple classes, a common examination paper shall be created, with prior agreement on the requirements and basic content of the examination among all responsible faculty members and the Program Director/Dean (approval from the Rector's Office is required for special cases).
   - For courses with an existing question bank, the Head of the Department of Examination & Quality Assurance shall compile the examination questions based on the approved question bank.
@@ -348,7 +348,7 @@ Duration: ..... minutes
 
 ### I.1. Purpose of Examination Assessment:
 
-To evaluate the outcomes achieved by students based on Learning Outcomes (LOs)
+To evaluate the outcomes achieved by students based on learning outcomes / graduate standards (LOs)
   - LO1: ................................................................
   - LO3: ................................................................
 
@@ -408,7 +408,7 @@ To evaluate the outcomes achieved by students based on Learning Outcomes (LOs)
 
 ### I.1. Purpose of Examination Assessment:
 
-To evaluate the outcomes achieved by students based on Learning Outcomes (LOs)
+To evaluate the outcomes achieved by students based on learning outcomes / graduate standards (LOs)
   - LO1: ................................................................
   - LO2: ................................................................
 
@@ -458,7 +458,7 @@ To evaluate the outcomes achieved by students based on Learning Outcomes (LOs)
 
 ### I.1. Purpose of Examination Assessment:
 
-To evaluate the outcomes achieved by students based on Learning Outcomes (LOs)
+To evaluate the outcomes achieved by students based on learning outcomes / graduate standards (LOs)
   - LO1: ................................................................
   - LO2: ................................................................
   - LO3: ................................................................

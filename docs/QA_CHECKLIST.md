@@ -164,6 +164,7 @@ PDFの視覚的レイアウトがMDに正確に反映されていることを確
 - [ ] If Gemini flags structural drift, hallucination, omissions, or terminology errors, the translation is corrected first and the audit is rerun before completion is reported
 - [ ] Audit result is recorded in `tmp/qa_status.json` under `final_translation_audit_status`
 - [ ] A document is not treated as finally complete until this audit passes
+- [ ] If Gemini is unavailable, the affected document is left pending or blocked for this gate only, while other non-Gemini-safe work in the repository batch continues
 
 ## 5. ブラウザ動作検証 (Browser/UI Testing)
 
