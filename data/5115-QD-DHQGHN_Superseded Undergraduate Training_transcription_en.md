@@ -1527,4 +1527,10 @@ Clause 3, Article 33 of these Regulations.
 
 **PRESIDENT** **Phung Xuan Nha**
 
+---
+
+# TABLE OF CONTENTS
+
+*[See source document for full Vietnamese table of contents with page references.]*
+
 > **[SOURCE_NOTE]** Transcription source: `data/5115-QD-DHQGHN_Superseded Undergraduate Training_source.pdf` (48 pages)

@@ -148,6 +148,8 @@ Independence – Freedom – Happiness
 | 63 | JPS3049 | Japanese Political System | JPS3049 | 3 | 51 | Essay | 19/01/2026 | | | | |
 | 64 | JPS3019 | Japanese Financial System | JPS3019 | 2 | 40 | Essay | 30/01/2026 | | | | |
 
+## APPENDIX: Semester Exam Schedule
+
 | No. | Course Code | Course Name | Class / Section | Credits | Students | Exam Format | Date | Time | Room(s) | Waiting Room | Notes |
 |-----|------------|-------------|-----------------|---------|----------|-------------|------|------|---------|--------------|-------|
 | 65 | CSE3067 | Machine Learning in Economics and Finance | CSE3067 (BCSE2022) | 3 | 37 | Presentation | 29/12/2025 | 13:00–17:00 | MĐ-613 | | |

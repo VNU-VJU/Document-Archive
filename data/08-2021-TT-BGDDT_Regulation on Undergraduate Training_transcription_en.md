@@ -36,7 +36,7 @@ structure of the Ministry of Education and Training;
 
 Pursuant to Decree No. 99/2019/ND-CP dated December 30, 2019 of the
 Government detailing and guiding the implementation of a number of
-### articles of the Law amending and supplementing a number of articles of
+articles of the Law amending and supplementing a number of articles of
 the Law on Higher Education;
 
 At the request of the Director of the Department of Higher Education;
@@ -432,7 +432,7 @@ Minister of Education and Training)</em>
 4.  Retake, test and improve grades:
     a)  Students whose course scores fail must re-register for the
         course according to the provisions in Clause 1 and Clause 2,
-### Article 3 of this Regulation, except for the case specified in
+        Article 3 of this Regulation, except for the case specified in
         Point d, Clause 5 of this Article; the final grade is the
         official grade of the course;
     b)  Students who have achieved a passing grade can register to
@@ -451,7 +451,7 @@ Minister of Education and Training)</em>
     d)  Requiring the passing score threshold to be higher than that
         prescribed in Point a, Clause 3 of this Article; applying more
         letter grades than that prescribed in Clause 3 of this
-### Article;
+        Article;
     đ) Allowing re-examination or re-evaluation of a
         component score to improve the course score from failing to
         passing; in this case, the course score after re-examination or
@@ -571,7 +571,7 @@ Minister of Education and Training)</em>
 4.  The training facility's regulations specifically stipulate:
     a)  The choice to apply a number of similar academic warning
         conditions prescribed for credit-based training in Clause 1,
-### Article 11 of this Regulation;
+        Article 11 of this Regulation;
     b)  Procedures for academic warning (if any), forced expulsion;
         notification of applicable forms to students;
     c)  Retention of accumulated learning results in case a student is

@@ -1,5 +1,6 @@
 ---
 id: DHVN-TB-911
+doc_id: "911/TB-ĐHVN"
 title: Notification on Submission of Foreign Language Certificates VJU2024 Cohort
 issuer: Trường Đại học Việt Nhật
 category: 3. University Regulations

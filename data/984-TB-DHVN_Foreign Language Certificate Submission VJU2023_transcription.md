@@ -1,5 +1,6 @@
 ---
 id: DHVN-TB-984
+doc_id: "984/TB-ĐHVN"
 title: Thông báo Nộp chứng chỉ ngoại ngữ khóa VJU2023
 issuer: Trường Đại học Việt Nhật
 category: 3. University Regulations

@@ -1,5 +1,6 @@
 ---
 id: DHVN-HD-1534
+doc_id: "1534/HD-ĐHVN"
 title: 論文・卒業プロジェクト別紙 体裁ガイド
 issuer: VNU – Vietnam-Japan University
 category: 3. University Regulations

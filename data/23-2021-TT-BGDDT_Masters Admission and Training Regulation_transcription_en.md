@@ -34,7 +34,7 @@ Education dated November 19, 2018;
 
 Pursuant to Decree No. 99/2019/ND-CP dated December 30, 2019 of the
 Government detailing and guiding the implementation of a number of
-### articles of the Law amending and supplementing a number of articles of
+articles of the Law amending and supplementing a number of articles of
 the Law on Higher Education;
 
 Pursuant to Decree No. 69/2017/ND-CP dated May 25, 2017 of the
