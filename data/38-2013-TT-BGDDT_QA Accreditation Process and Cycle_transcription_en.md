@@ -1,6 +1,10 @@
 ---
 id: BGDDT-TT-2013-38
 doc_id: "38/2013/TT-BGDĐT"
+date: 2013-11-29
+department: "Quality Assurance"
+type: "Circular"
+restricted: false
 language: "en"
 original_language: "vi"
 source_pdf: "data/38-2013-TT-BGDDT_QA Accreditation Process and Cycle_source.pdf"
@@ -8,7 +12,7 @@ title: Circular on the Process and Cycle for Quality Accreditation of Training P
   at Universities, Colleges, and Professional Secondary Schools
 issuer: Bộ Giáo dục và Đào tạo
 category: 2. Quality Assurance
-issue_date: null
+issue_date: "2013-11-29"
 status: active
 replaces: []
 replaced_by: []

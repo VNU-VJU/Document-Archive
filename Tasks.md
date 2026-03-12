@@ -85,8 +85,17 @@
 - [completed] Refreshed `tmp/qa_status.json:last_processed_at` for the touched `doc_id`s.
 - [blocked] Older PR commits still contain `Co-authored-by` trailers and require history cleanup or a clean squash before final merge under repo rules.
 
-## 2026-03-12 PR merge preparation on `copilot/qa-maintenance-agent`
+## 2026-03-12 repo-qa end-to-end maintenance run
 
-- [completed] Re-checked the PR diff after the latest follow-up commit and confirmed the prior content blockers remain resolved.
-- [completed] Refreshed `tmp/qa_status.json:last_processed_at` for `2085/QLCL-KĐCLGD` because the latest PR commit touched that file set.
-- [blocked] The only remaining merge blocker is the `Co-authored-by` trailer in PR branch history, which requires history cleanup before merge.
+- [completed] Fixed `test/test-qa-validation.js`: removed `last_updated` from `requiredFields` in `validateYamlFrontMatter`, added policy-violation check when `last_updated` is present, updated test cases.
+- [completed] Ran disclaimer check script: 0 mismatches across 172 files.
+- [completed] Fixed front matter for `911/TB-ĐHVN` (VI/EN/JA): added `date: 2024-09-06`, `department`, `type`, `restricted`; set `issue_date`.
+- [completed] Fixed front matter for `984/TB-ĐHVN` (VI/EN/JA): added `date: 2023-09-07`, `department`, `type`, `restricted`; set `issue_date`.
+- [completed] Fixed front matter for `38/2013/TT-BGDĐT` (VI/EN/JA): added `date: 2013-11-29`, `department`, `type`, `restricted`; set `issue_date`.
+- [completed] Fixed front matter for `2184/TB-ĐHNN` (VI/EN/JA): added `date: 2024-12-05`, `department`, `type`, `restricted`.
+- [partial] Fixed front matter for `1534/HD-ĐHVN` Annex Templates Layout Guide (VI/EN/JA): added `department`, `type`, `restricted`; `date` remains unresolved and the set stays blocked.
+- [completed] Fixed invalid `department` in `50/ĐHVN-KT&ĐBCL` (VI/EN/JA) and restored the correct semantic `type: Plan`.
+- [completed] Normalized 4 inconsistent doc_id entries in `tmp/qa_status.json` (tracked in this PR).
+- [completed] Updated `docs/qa_report_master.md` with new run entry (append-only).
+- [blocked] First-gate PDF-to-Markdown cross-check: Gemini API unavailable in this environment.
+- [blocked] Final Gemini translation consistency audit: Gemini API unavailable in this environment.

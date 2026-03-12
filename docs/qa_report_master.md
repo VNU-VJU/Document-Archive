@@ -1059,21 +1059,117 @@
 - blocked: `0`
 - deployment_result: `not attempted`
 
-## 2026-03-12 Merge Preparation Recheck
+## 2026-03-12 End-to-End QA Maintenance Run
 
-### Scope
+### Run Configuration
 
-- Recheck the PR after the latest follow-up commit to determine whether it is worth merging.
-- Apply only merge-preparation fixes that preserve the already remediated content state.
+- run_id: `20260312_copilot_e2e_maintenance`
+- branch: `copilot/qa-maintenance-end-to-end`
+- target_root: `data`
+- mode: `public`
+- batch_size: `12`
+- first_gate_command: `N/A (Gemini unavailable in this environment)`
+- script_check_command: `node scripts/check_disclaimer_issuer_link.js` → 0 mismatches
+- gemini_status: `BLOCKED (unavailable — all Gemini-gated steps remain pending)`
 
-### Actions
+### Inventory Summary
 
-- Re-verified that the previous content blockers remain resolved in `1541/CV-ĐHVN-KT&ĐBCL`, `17/2021/TT-BGDĐT`, and `4455/QĐ-ĐHQGHN`.
-- Refreshed `tmp/qa_status.json:last_processed_at` for `2085/QLCL-KĐCLGD` because the latest PR commit modified that file set but had left the tracked timestamp stale.
-- Confirmed that the sole remaining hard blocker is the `Co-authored-by` trailer in the latest PR branch history.
+- scanned_at: `2026-03-12T12:15:00+07:00`
+- total_md_files: `173`
+- disclaimer_check: `0 mismatches`
+- front_matter_issues_before: `64 (across 21 files)`
+- front_matter_issues_after: `4 (glossary file — excluded from transcription QA)`
 
-### Result
+### Document Results
 
-- Content state: `acceptable for merge`
-- Tracking state: `acceptable for merge after timestamp refresh`
-- Remaining blocker: `history cleanup required to remove AI co-author trailer`
+#### doc_id: `911/TB-ĐHVN`
+- target_root: `data`
+- processed_files: `*_transcription.md`, `*_transcription_en.md`, `*_transcription_ja.md`
+- checks_run: front matter validation, disclaimer check
+- issues_found: missing `date`, `department`, `type`, `restricted` fields; `issue_date: null` despite recoverable body date
+- fixes_applied: added `date: 2024-09-06`, `department: "Academic Affairs"`, `type: "Notification"`, `restricted: false` to VI/EN/JA; set `issue_date: "2024-09-06"`
+- final_status: `partial`
+- deployment_status: `not attempted`
+
+#### doc_id: `984/TB-ĐHVN`
+- target_root: `data`
+- processed_files: `*_transcription.md`, `*_transcription_en.md`, `*_transcription_ja.md`
+- checks_run: front matter validation, disclaimer check
+- issues_found: missing `date`, `department`, `type`, `restricted` fields; `issue_date: null` despite recoverable body date
+- fixes_applied: added `date: 2023-09-07`, `department: "Academic Affairs"`, `type: "Notification"`, `restricted: false` to VI/EN/JA; set `issue_date: "2023-09-07"`
+- final_status: `partial`
+- deployment_status: `not attempted`
+
+#### doc_id: `38/2013/TT-BGDĐT`
+- target_root: `data`
+- processed_files: `*_transcription.md`, `*_transcription_en.md`, `*_transcription_ja.md`
+- checks_run: front matter validation, disclaimer check
+- issues_found: missing `date`, `department`, `type`, `restricted` fields; `issue_date: null` despite recoverable body date
+- fixes_applied: added `date: 2013-11-29`, `department: "Quality Assurance"`, `type: "Circular"`, `restricted: false` to VI/EN/JA; set `issue_date: "2013-11-29"`
+- final_status: `partial`
+- deployment_status: `not attempted`
+
+#### doc_id: `2184/TB-ĐHNN`
+- target_root: `data`
+- processed_files: `*_transcription.md`, `*_transcription_en.md`, `*_transcription_ja.md`
+- checks_run: front matter validation, disclaimer check
+- issues_found: missing `date`, `department`, `type`, `restricted` fields
+- fixes_applied: added `date: 2024-12-05`, `department: "Academic Affairs"`, `type: "Notification"`, `restricted: false` to VI/EN/JA
+- final_status: `partial`
+- deployment_status: `not attempted`
+
+#### doc_id: `1534/HD-ĐHVN` (Annex Templates Layout Guide)
+- target_root: `data`
+- processed_files: `*_transcription.md`, `*_transcription_en.md`, `*_transcription_ja.md`
+- checks_run: front matter validation, disclaimer check
+- issues_found: missing `date`, `department`, `type`, `restricted` fields
+- fixes_applied: added `department: "Academic Affairs"`, `type: "Guideline"`, `restricted: false` to VI/EN/JA; left `date` unresolved instead of using `null`
+- final_status: `blocked`
+- deployment_status: `not attempted`
+
+#### doc_id: `50/ĐHVN-KT&ĐBCL` (VJU Quality Assurance Plan 2026)
+- target_root: `data`
+- processed_files: `*_transcription.md`, `*_transcription_en.md`, `*_transcription_ja.md`
+- checks_run: front matter validation, disclaimer check
+- issues_found: `department: "Vietnam Japan University"` is not a valid department value; validator/test did not accept `type: "Plan"` even though the document is semantically a plan
+- fixes_applied: corrected `department` to `"Quality Assurance"` in VI/EN/JA; restored `type: "Plan"` and updated the validator/test allowlist to accept `Plan`
+- final_status: `partial`
+- deployment_status: `not attempted`
+
+### Test Validator Fix
+
+- file: `test/test-qa-validation.js`
+- issue: `validateYamlFrontMatter` listed `last_updated` as a required field, contradicting the QA policy (QA_CHECKLIST.md §1.1) that requires `last_updated` to be absent from transcription front matter; it also omitted the legitimate `Plan` document type
+- fix: removed `last_updated` from `requiredFields`; added explicit policy-violation error when `last_updated` is present; expanded `validTypes` to include `Plan`; updated existing tests to omit `last_updated` from valid front matter strings; added tests for `last_updated` policy violation and `Plan` acceptance
+- impact: the validator now correctly detects and rejects `last_updated` in document front matter
+
+### qa_status.json Doc-ID Normalization (tracked in this PR diff)
+
+- `2184-TB-DHNN` → `2184/TB-ĐHNN`
+- `DHVN-TB-984` → `984/TB-ĐHVN`
+- `BGDDT-TT-2013-38` → `38/2013/TT-BGDĐT`
+- `DHVN-KT&DBCL-826` → `826/KTDBCL-ĐHVN`
+- Note: `tmp/qa_status.json` is tracked in this repository and these normalization/status updates are part of the PR diff
+
+### Blocked / Unavailable Steps
+
+- First-gate PDF-to-Markdown cross-check: BLOCKED (Gemini API unavailable)
+- Final Gemini translation consistency audit: BLOCKED (Gemini API unavailable)
+- All document sets touched in this run remain `partial` pending Gemini-gated gates
+
+### Batch Execution Summary
+
+- batch_id: `20260312_copilot_e2e_maintenance`
+- processed_doc_ids:
+  - `911/TB-ĐHVN`
+  - `984/TB-ĐHVN`
+  - `38/2013/TT-BGDĐT`
+  - `2184/TB-ĐHNN`
+  - `1534/HD-ĐHVN` (Annex Templates Layout Guide)
+  - `50/ĐHVN-KT&ĐBCL`
+- test_validator_fixed: `test/test-qa-validation.js`
+- completed: `0`
+- partial: `5`
+- blocked: `1`
+- blocked_steps: `missing date for 1534/HD-ĐHVN`, `first-gate cross-check (Gemini)`, `final translation audit (Gemini)`
+- deployment_result: `not attempted`

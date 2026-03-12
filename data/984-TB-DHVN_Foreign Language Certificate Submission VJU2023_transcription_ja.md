@@ -2,9 +2,13 @@
 id: DHVN-TB-984
 doc_id: "984/TB-ĐHVN"
 title: 外国語証明書提出通知 VJU2023
+date: 2023-09-07
+department: "Academic Affairs"
+type: "Notification"
+restricted: false
 issuer: Trường Đại học Việt Nhật
 category: 3. University Regulations
-issue_date: null
+issue_date: "2023-09-07"
 status: active
 replaces: []
 replaced_by: []

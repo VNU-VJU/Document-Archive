@@ -1,6 +1,9 @@
 ---
 id: DHVN-HD-1534
 doc_id: "1534/HD-ĐHVN"
+department: "Academic Affairs"
+type: "Guideline"
+restricted: false
 title: Hướng dẫn bố cục phụ lục khóa luận tiếng Anh_source
 issuer: VNU – Vietnam-Japan University
 category: 3. University Regulations

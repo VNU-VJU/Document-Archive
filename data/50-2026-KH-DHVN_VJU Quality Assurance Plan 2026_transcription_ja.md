@@ -3,7 +3,7 @@ doc_id: "50/ĐHVN-KT&ĐBCL"
 id: "50-2026-KH-DHVN"
 title: "2026年ベトナム日本大学における品質保証活動実施計画"
 date: 2026-01-19
-department: "Vietnam Japan University"
+department: "Quality Assurance"
 type: "Plan"
 language: ja
 original_language: vi

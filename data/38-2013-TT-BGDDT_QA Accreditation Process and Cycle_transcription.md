@@ -1,6 +1,10 @@
 ---
 id: BGDDT-TT-2013-38
 doc_id: "38/2013/TT-BGDĐT"
+date: 2013-11-29
+department: "Quality Assurance"
+type: "Circular"
+restricted: false
 language: "vi"
 original_language: "vi"
 source_pdf: "data/38-2013-TT-BGDDT_QA Accreditation Process and Cycle_source.pdf"
@@ -8,7 +12,7 @@ title: Quy định về quy trình và chu kỳ kiểm định chất lượng c
   các trường đại học, cao đẳng và trung cấp chuyên nghiệp
 issuer: Bộ Giáo dục và Đào tạo
 category: 2. Quality Assurance
-issue_date: null
+issue_date: "2013-11-29"
 status: active
 replaces: []
 replaced_by: []
