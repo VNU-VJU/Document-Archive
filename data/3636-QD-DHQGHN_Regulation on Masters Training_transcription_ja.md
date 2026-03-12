@@ -5,9 +5,8 @@ date: 2022-10-21
 department: "Academic Affairs"
 type: "Regulation"
 restricted: false
-last_updated: 2026-03-07
 ---
-> **[免責事項]** この文書はAIにより生成されたものであり、参考用です。法的効力はありません。重要な判断を行う際は、必ず公式文書を参照するか、発行機関であるベトナム国家大学ハノイ校（__https://vnu.edu.vn__）に問い合わせてください。
+> **[DISCLAIMER]** 本文書はAIにより生成されたものであり、参考資料としてのみ使用されます。法的効力はありません。重要な判断を行う場合は、必ず公式文書を参照するか、発行機関（ベトナム国家大学ハノイ校 __https://vnu.edu.vn__）にお問い合わせください。
 
 <div style="display: flex; justify-content: space-between; text-align: center;">
 <div>
@@ -640,3 +639,5 @@ Số: 3636/QĐ-ĐHQGHN
 1.  訓練部隊は、本規則に基づき、部隊の実際の状況に適合した詳細な文書を発行することができるが、本規則に反してはならない。
 2.  研修ユニットは、ユニット内の研修規則の実施状況の検査と監視を組織する責任を負います。ベトナム国家大学ハノイ校は、研修ユニットの研修規則の実施状況について検査と点検を実施します。
 3.  特別な場合には、研修ユニットは検討と決定のためにベトナム国家大学ハノイ校の学長に報告します。
+
+> **[SOURCE_NOTE]** Transcription source: `data/3636-QD-DHQGHN_Regulation on Masters Training_source.pdf` (42 pages)

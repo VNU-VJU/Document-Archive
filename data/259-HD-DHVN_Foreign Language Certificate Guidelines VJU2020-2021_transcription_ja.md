@@ -5,7 +5,6 @@ date: 2024-04-03
 department: "Academic Affairs"
 type: "Guidance"
 restricted: false
-last_updated: 2026-02-22
 ---
 
 > **[DISCLAIMER]** 本文書はAIにより生成されたものであり、参考資料としてのみ使用されます。法的効力はありません。重要な判断を行う場合は、必ず公式文書を参照するか、発行機関（ベトナム日本大学 __https://vju.ac.vn__）にお問い合わせください。
@@ -110,3 +109,8 @@ VJU2020及びVJU2021の正規課程学部学生。
 <strong>Nguyễn Hoàng Oanh</strong>
 </div>
 </div>
+
+<div class="source-note" role="note" aria-label="出典メモ">このファイルは公開された内容を参考に作成しています。  
+技術的な問題で、レイアウトや内容の再現が正確でない可能性があります。  
+正確な情報は、文書番号などで調べて発行元にご確認ください。  
+発行元が公式に公開している他言語版が存在する場合があります。</div>

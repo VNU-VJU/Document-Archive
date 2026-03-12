@@ -9,9 +9,8 @@ date: 2022-10-24
 department: "Academic Affairs"
 type: "Regulation"
 restricted: false
-last_updated: 2026-02-25
 ---
-> **[免責事項]** この文書はAIにより生成されたものであり、参考用です。法的効力はありません。重要な判断を行う際は、必ず公式文書を参照するか、発行機関であるベトナム国家大学ハノイ校（__https://vnu.edu.vn__）に問い合わせてください。
+> **[DISCLAIMER]** 本文書はAIにより生成されたものであり、参考資料としてのみ使用されます。法的効力はありません。重要な判断を行う場合は、必ず公式文書を参照するか、発行機関（ベトナム国家大学ハノイ校 __https://vnu.edu.vn__）にお問い合わせください。
 
 <div style="display: flex; justify-content: space-between; text-align: center;">
 <div>

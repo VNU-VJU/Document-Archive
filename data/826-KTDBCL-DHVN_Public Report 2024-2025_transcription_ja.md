@@ -1,14 +1,18 @@
 ---
 id: DHVN-KT&DBCL-826
+doc_id: "826/VJU-KT&ĐBCL"
 title: 2024-2025年度の公開レポート
 issuer: Trường Đại học Việt Nhật
+date: 2025-07-25
+department: "Quality Assurance"
+type: "Report"
 category: Public Report
 issue_date: "2025-07-25"
+restricted: false
 status: active
 replaces: []
 replaced_by: []
 revision_history: []
-last_updated: "2026-02-23"
 tags:
 - public-report
 version:
@@ -23,6 +27,8 @@ lang: ja
   <p><em>当該ページで公開された内容に基づき正確さを期しています。</em></p>
   <p><em>表の認識には技術的な制約があるため、表のレイアウトや内容が完全に再現されない場合があります。</em></p>
 </div>
+
+> **[DISCLAIMER]** 本文書はAIにより生成されたものであり、参考資料としてのみ使用されます。法的効力はありません。重要な判断を行う場合は、必ず公式文書を参照するか、発行機関（ベトナム日本大学 __https://vju.ac.vn__）にお問い合わせください。
 
 
 ---

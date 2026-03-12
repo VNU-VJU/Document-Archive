@@ -5,7 +5,6 @@ date: 2013-08-15
 department: "Ministry of Finance"
 type: "Circular"
 restricted: false
-last_updated: 2026-02-23
 ---
 
 > **[DISCLAIMER]** 本文書はAIにより生成されたものであり、学習および参照を目的としています。内容はベトナム語の公式法的文書に基づいています。法的効力については、署名・捺印された公式のベトナム語原文を優先してください。
@@ -111,3 +110,5 @@ last_updated: 2026-02-23
    a) 課税所得を得るベトナム国籍の個人（海外へ派遣され勤務・労働・学習を行っている者を含む）。
 
    b) 課税所得を得る外国籍の個人には、ベトナムで働く外国人、およびベトナムに現実に滞在していないがベトナム国内で課税所得を得る外国人が含まれる。
+
+> **[SOURCE_NOTE]** Transcription source: `data/111-2013-TT-BTC_Personal Income Tax Implementation_source.pdf` (78 pages)

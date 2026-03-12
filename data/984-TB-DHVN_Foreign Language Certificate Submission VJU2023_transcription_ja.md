@@ -8,7 +8,6 @@ status: active
 replaces: []
 replaced_by: []
 revision_history: []
-last_updated: "2026-02-23"
 tags:
 - university-regulations
 version:
@@ -18,6 +17,8 @@ version:
 - source
 lang: ja
 ---
+> **[DISCLAIMER]** 本文書はAIにより生成されたものであり、参考資料としてのみ使用されます。法的効力はありません。重要な判断を行う場合は、必ず公式文書を参照するか、発行機関（ベトナム日本大学 __https://vju.ac.vn__）にお問い合わせください。
+
 <div class="source-note" role="note" aria-label="出典メモ">このファイルは公開された内容を参考に作成しています。  
 技術的な問題で、レイアウトや内容の再現が正確でない可能性があります。  
 正確な情報は、通達番号などで調べて発行元にご確認ください。  

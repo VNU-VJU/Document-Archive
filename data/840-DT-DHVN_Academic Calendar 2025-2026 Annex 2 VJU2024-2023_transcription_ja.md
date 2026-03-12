@@ -5,7 +5,6 @@ date: 2025-07-30
 department: "Academic Affairs"
 type: "Annex"
 restricted: false
-last_updated: 2026-02-22
 language: ja
 ---
 
@@ -45,3 +44,5 @@ language: ja
 | 番号 | 実施期間 | 業務内容 | 主担当部署 | 連携部署 |
 |---:|---|---|---|---|
 | 16 | 2026/07/25 - 2026/08/31 | 夏季学期の授業および期末試験の実施 | | |
+
+> **[SOURCE_NOTE]** Transcription source: `data/840-DT-DHVN_Academic Calendar 2025-2026 Annex 2 VJU2024-2023_source.pdf` (2 pages)

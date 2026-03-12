@@ -9,7 +9,6 @@ date: 2025-04-01
 department: "Academic Affairs"
 type: "Guidance"
 restricted: false
-last_updated: 2026-02-25
 ---
 
 > **[DISCLAIMER]** Tài liệu này được tạo bởi AI và chỉ mang tính chất tham khảo. Tài liệu không có giá trị pháp lý. Đối với các quyết định quan trọng, vui lòng tham khảo văn bản chính thức hoặc liên hệ cơ quan ban hành: Đại học Quốc gia Hà Nội (__https://vnu.edu.vn__)

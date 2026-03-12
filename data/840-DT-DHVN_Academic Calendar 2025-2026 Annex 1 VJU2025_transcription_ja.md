@@ -5,7 +5,6 @@ date: 2025-07-30
 department: "Academic Affairs"
 type: "Annex"
 restricted: false
-last_updated: 2026-02-22
 ---
 
 > **[DISCLAIMER]** 本文書はAIにより生成されたものであり、参考資料としてのみ使用されます。法的効力はありません。重要な判断を行う場合は、必ず公式文書を参照するか、発行機関（ベトナム日本大学 __https://vju.ac.vn__）にお問い合わせください。
@@ -62,3 +61,5 @@ last_updated: 2026-02-22
 ---
 (*): ベトナム国家大学ハノイ校（VNU）の通知による
 (**): 日越大学（VJU）のオリエンテーションウィークに関する通知による
+
+> **[SOURCE_NOTE]** Transcription source: `data/840-DT-DHVN_Academic Calendar 2025-2026 Annex 1 VJU2025_source.pdf` (4 pages)

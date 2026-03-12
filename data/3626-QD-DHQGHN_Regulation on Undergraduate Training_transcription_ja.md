@@ -5,10 +5,9 @@ date: 2022-10-24
 department: "Academic Affairs"
 type: "Regulation"
 restricted: false
-last_updated: 2026-02-22
 ---
 
-> **[免責事項]** この文書はAIにより生成されたものであり、参考用です。法的効力はありません。重要な判断を行う際は、必ず公式文書を参照するか、発行機関であるベトナム国家大学ハノイ校（__https://vnu.edu.vn__）に問い合わせてください。
+> **[DISCLAIMER]** 本文書はAIにより生成されたものであり、参考資料としてのみ使用されます。法的効力はありません。重要な判断を行う場合は、必ず公式文書を参照するか、発行機関（ベトナム国家大学ハノイ校 __https://vnu.edu.vn__）にお問い合わせください。
 
 <div style="margin-left: auto; width: fit-content; text-align: left;">
 <sub><strong>[Digital Certificate]</strong>: SAO Y<br>
@@ -900,3 +899,5 @@ last_updated: 2026-02-22
 
 本規程は署名日より施行され、2022年度入学生から適用される。本規程に反する従前の規定はすべて廃止される。
 特別な場合は、機関がベトナム国家大学ハノイ校総長に報告し、検討・決定を求める。/.
+
+> **[SOURCE_NOTE]** Transcription source: `data/3626-QD-DHQGHN_Regulation on Undergraduate Training_source.pdf` (53 pages)

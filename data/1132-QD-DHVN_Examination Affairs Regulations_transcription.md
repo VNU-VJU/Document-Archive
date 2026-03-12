@@ -5,7 +5,6 @@ date: 2025-10-01
 department: "Education Testing"
 type: "Regulation"
 restricted: false
-last_updated: 2026-03-07
 ---
 
 > **[DISCLAIMER]** Tài liệu này được tạo bởi AI và chỉ mang tính chất tham khảo. Tài liệu không có giá trị pháp lý. Đối với các quyết định quan trọng, vui lòng tham khảo văn bản chính thức hoặc liên hệ cơ quan ban hành: Đại học Việt Nhật (__https://vju.ac.vn__)
@@ -769,6 +768,8 @@ Tôi xin chân thành cảm ơn.
 **Xác nhận của chương trình đào tạo**
 
 **Người viết đơn**
+
+> **[SOURCE_NOTE]** Transcription source: `data/1132-QD-DHVN_Examination Affairs Regulations_source.pdf` (60 pages)
 
 ---
 

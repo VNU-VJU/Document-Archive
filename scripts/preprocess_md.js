@@ -9,14 +9,8 @@ function processFile(filePath) {
     let content = fs.readFileSync(filePath, 'utf-8');
     let originalContent = content;
 
-    const today = new Date().toISOString().split('T')[0];
-
-    // 1. Add or update last_updated in frontmatter
-    if (content.includes('last_updated:')) {
-        content = content.replace(/last_updated:\s*".*"/g, `last_updated: "${today}"`);
-    } else {
-        content = content.replace(/(replaces:\s*\[\]\nreplaced_by:\s*\[\]\nrevision_history:\s*\[\]\n)(tags:)/g, `$1last_updated: "${today}"\n$2`);
-    }
+    // 1. Remove legacy last_updated from frontmatter if present
+    content = content.replace(/^last_updated:\s*.*\n/gm, '');
 
     // Process line by line for indentation rules to avoid affecting frontmatter
     const lines = content.split('\n');

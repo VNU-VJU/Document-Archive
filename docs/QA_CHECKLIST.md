@@ -9,11 +9,14 @@
 - [ ] `department` is one of: Academic Affairs, Quality Assurance, Financial Affairs, General Affairs
 - [ ] `type` is one of: Regulation, Circular, Guideline, Notification, Decree, Decision, Report
 - [ ] `restricted` is boolean (true/false)
-- [ ] `last_updated` exists
+- [ ] `last_updated` is absent from transcription front matter
+- [ ] Update timing is managed in `tmp/qa_status.json` via `last_processed_at`, not in document front matter
 
 ### 1.2 Disclaimer Block
 
 - [ ] All 3 language versions have language-appropriate disclaimer
+- [ ] VI files do not use the English disclaimer text verbatim; JA files do not use the English disclaimer text verbatim
+- [ ] Disclaimer language matches the file language (`*_transcription.md` = VI, `_en.md` = EN, `_ja.md` = JA)
 - [ ] Placed after YAML, before first heading (renders above document title)
 - [ ] States AI-generated and reference-only purpose
 - [ ] Disclaimer uses blockquote (`>`) or `<div class="source-note">` for styled rendering
@@ -139,6 +142,9 @@ PDFの視覚的レイアウトがMDに正確に反映されていることを確
 - [ ] khoản/điểm indent identical in VI/EN/JA
 - [ ] HTML div structures (2-column etc.) identical in all 3
 - [ ] List structures identical in all 3
+- [ ] For translation files, heading count matches the source-language transcription
+- [ ] For translation files, bullet/list item count matches the source-language transcription
+- [ ] For translation files, sentence count is materially consistent with the source-language transcription and no sentences are silently dropped or merged away
 - [ ] Heading translation follows gold standard pattern
 - [ ] No suspicious early line breaks in prose (mid-sentence wraps preserved from OCR/translation are merged when not intentional)
 - [ ] JA版で `breaks: true` レンダリング時に中途改行が可視化される不自然な改行がない（箇条書き文中の継続行を重点確認）
@@ -149,6 +155,15 @@ PDFの視覚的レイアウトがMDに正確に反映されていることを確
 
 - [ ] VI: `# Chương I. ...` → EN: `# CHAPTER I. ...` → JA: `# 第I章 ...`
 - [ ] VI: `## Điều 1. ...` → EN: `## Article 1. ...` → JA: `## 第1条 ...`
+
+### 4.4 Final Gemini Translation Consistency Audit
+
+- [ ] This audit is run only after PDF↔VI fidelity, script checks, contract fixes, and structural consistency checks are already complete
+- [ ] Gemini receives the glossary, the source-language transcription, and the target translation under QA
+- [ ] Gemini confirms terminology usage, semantic fidelity, and that no content was mistranslated, omitted, or added
+- [ ] If Gemini flags structural drift, hallucination, omissions, or terminology errors, the translation is corrected first and the audit is rerun before completion is reported
+- [ ] Audit result is recorded in `tmp/qa_status.json` under `final_translation_audit_status`
+- [ ] A document is not treated as finally complete until this audit passes
 
 ## 5. ブラウザ動作検証 (Browser/UI Testing)
 

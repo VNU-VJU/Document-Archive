@@ -5,7 +5,6 @@ date: 2025-08-08
 department: "Academic Affairs"
 type: "Annex"
 restricted: false
-last_updated: 2026-02-22
 ---
 
 > **[DISCLAIMER]** 本文書はAIにより生成されたものであり、参考資料としてのみ使用されます。法的効力はありません。重要な判断を行う場合は、必ず公式文書を参照するか、発行機関（ベトナム日本大学 __https://vju.ac.vn__）にお問い合わせください。
@@ -113,3 +112,5 @@ last_updated: 2026-02-22
 | 番号 | 実施期間 | 業務内容 | 主担当部署 | 協力部署 |
 | ---: | :--- | :--- | :--- | :--- |
 | 8 | 2026年2月～3月 | 教育プログラムの実施 | 教務・学生課 | |
+
+> **[SOURCE_NOTE]** Transcription source: `data/840-DT-DHVN_Academic Calendar 2025-2026 Annex 4 Masters-PhD_source.pdf` (14 pages)

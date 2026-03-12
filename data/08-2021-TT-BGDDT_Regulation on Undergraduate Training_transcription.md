@@ -5,7 +5,6 @@ date: 2021-03-25
 department: "Ministry of Education and Training"
 type: "Circular"
 restricted: false
-last_updated: 2026-02-23
 ---
 
 > **[DISCLAIMER]** Tài liệu này được tạo bởi AI phục vụ mục đích học tập và tham khảo. Nội dung gốc tiếng Việt được trích xuất từ văn bản chính thức. Mọi thông tin có tính pháp lý phải được đối chiếu với văn bản gốc có đóng dấu đỏ.
@@ -52,6 +51,8 @@ Bộ trưởng Bộ Giáo dục và Đào tạo ban hành Thông tư ban hành Q
 **THỨ TRƯỞNG**
 
 **Hoàng Minh Sơn**
+
+> **[SOURCE_NOTE]** Transcription source: `data/08-2021-TT-BGDDT_Regulation on Undergraduate Training_source.pdf` (25 pages)
 
 ---
 

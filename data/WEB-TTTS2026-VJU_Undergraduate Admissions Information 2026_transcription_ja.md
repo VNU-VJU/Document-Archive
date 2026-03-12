@@ -1,14 +1,18 @@
 ---
 id: WEB-TTTS2026-VJU
+doc_id: "WEB-TTTS2026-VJU"
 title: 学部正規課程入試情報 2026
 issuer: 日越大学
+date: 2025-12-30
+department: "Academic Affairs"
+type: "Notification"
 category: 3. University Regulations
 issue_date: "2025-12-30"
+restricted: false
 status: active
 replaces: []
 replaced_by: []
 revision_history: []
-last_updated: "2026-02-23"
 tags:
 - admissions
 - undergraduate
@@ -25,6 +29,8 @@ source_modified: "2026-01-05T15:59:12+07:00"
 <div class="source-note" role="note" aria-label="出典メモ">このファイルはVJUウェブサイトの記事から変換し、参照用にページPDFスナップショットとともに保存したものです。  
 技術的制約により、動的なWebレイアウトや一部の表・書式が完全には再現されない場合があります。  
 公式利用時は元ページおよび保存PDFを必ず照合してください。</div>
+
+> **[DISCLAIMER]** 本文書はAIにより生成されたものであり、参考資料としてのみ使用されます。法的効力はありません。重要な判断を行う場合は、必ず公式文書を参照するか、発行機関（ベトナム日本大学 __https://vju.ac.vn__）にお問い合わせください。
 
 # 学部正規課程入試情報 2026
 

@@ -5,7 +5,6 @@ date: 2025-05-20
 department: "Academic Affairs"
 type: "Decision"
 restricted: false
-last_updated: 2026-02-22
 ---
 
 > **[DISCLAIMER]** Tài liệu này được tạo bởi AI và chỉ mang tính chất tham khảo. Tài liệu không có giá trị pháp lý. Đối với các quyết định quan trọng, vui lòng tham khảo văn bản chính thức hoặc liên hệ cơ quan ban hành: Đại học Quốc gia Hà Nội (__https://vnu.edu.vn__)
@@ -231,3 +230,8 @@ Có mặt:
 
 **Xác nhận của Đại diện Khoa**
 *(Ký và ghi rõ họ tên)*
+
+<div class="source-note" role="note" aria-label="Ghi chú nguồn">Tệp này được tạo dựa trên nội dung công khai.  
+Do hạn chế kỹ thuật, việc tái tạo bố cục và nội dung có thể không chính xác.  
+Để có thông tin chính xác, vui lòng tìm kiếm theo số văn bản và tham khảo cơ quan ban hành.  
+Cơ quan ban hành có thể công bố chính thức các phiên bản ngôn ngữ khác.</div>

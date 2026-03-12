@@ -1,9 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 
-const dataDir = '/Users/home/GitHub/3. DX-General/VJU Project 2/data';
-const indexFile = '/Users/home/GitHub/3. DX-General/VJU Project 2/index.html';
-const migrationPlan = '/Users/home/GitHub/3. DX-General/VJU Project 2/docs/MIGRATION_PLAN.md';
+const repoRoot = path.resolve(__dirname, '..');
+const dataDir = path.join(repoRoot, 'data');
+const indexFile = path.join(repoRoot, 'index.html');
+const migrationPlan = path.join(repoRoot, 'docs', 'MIGRATION_PLAN.md');
+const dryRun = process.argv.includes('--dry-run');
 
 const renames = [
     // Issuer-Type-Number -> Number-Type-Issuer
@@ -47,8 +49,10 @@ function renameFiles() {
             if (file.startsWith(oldId)) {
                 const oldPath = path.join(dataDir, file);
                 const newPath = path.join(dataDir, file.replace(oldId, newId));
-                console.log(`Renaming: ${file} -> ${file.replace(oldId, newId)}`);
-                fs.renameSync(oldPath, newPath);
+                console.log(`${dryRun ? '[dry-run] ' : ''}Renaming: ${file} -> ${file.replace(oldId, newId)}`);
+                if (!dryRun) {
+                    fs.renameSync(oldPath, newPath);
+                }
             }
         });
     });
@@ -63,11 +67,13 @@ function updateReferences() {
             const regex = new RegExp(oldId + '(?=[_\\"\'])', 'g');
             content = content.replace(regex, newId);
         });
-        fs.writeFileSync(filePath, content);
-        console.log(`Updated references in: ${filePath}`);
+        if (!dryRun) {
+            fs.writeFileSync(filePath, content);
+        }
+        console.log(`${dryRun ? '[dry-run] ' : ''}Updated references in: ${filePath}`);
     });
 }
 
 renameFiles();
 updateReferences();
-console.log('Done.');
+console.log(`Done.${dryRun ? ' (dry-run)' : ''}`);

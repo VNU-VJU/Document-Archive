@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Analyze PDF to extract text and image positions with surrounding context."""
+"""Analyze PDF image blocks and surrounding text context."""
+
+import argparse
+from pathlib import Path
 
 import fitz  # PyMuPDF
-
-PDF_PATH = "/Users/home/GitHub/4. Admin-Tasks/Proposals/INTRA/Báo cáo khảo sát hiện trạng Đại học Việt Nhật_Intra copy.pdf"
 
 def get_context_around_image(page, img_rect, chars=50):
     """Get text appearing before and after an image based on vertical position."""
@@ -31,10 +32,26 @@ def get_context_around_image(page, img_rect, chars=50):
         text_after = combined[:chars] if len(combined) > chars else combined
     return text_before, text_after
 
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Inspect PDF image blocks and print surrounding text context."
+    )
+    parser.add_argument("pdf_path", help="Path to the PDF file to inspect.")
+    parser.add_argument(
+        "--chars",
+        type=int,
+        default=50,
+        help="Number of surrounding characters to keep before and after each image.",
+    )
+    return parser.parse_args()
+
+
 def main():
-    doc = fitz.open(PDF_PATH)
+    args = parse_args()
+    pdf_path = Path(args.pdf_path).expanduser().resolve()
+    doc = fitz.open(pdf_path)
     total_images = 0
-    print(f"PDF: {PDF_PATH}")
+    print(f"PDF: {pdf_path}")
     print(f"Total pages: {len(doc)}")
     print("=" * 80)
     for page_num in range(len(doc)):
@@ -55,7 +72,7 @@ def main():
             for i, img in enumerate(image_blocks):
                 bbox = img["bbox"]
                 rect = fitz.Rect(bbox)
-                before, after = get_context_around_image(page, rect)
+                before, after = get_context_around_image(page, rect, chars=args.chars)
                 print(f"\n  Image {i+1}:")
                 print(f"    BBox: x0={bbox[0]:.1f}, y0={bbox[1]:.1f}, x1={bbox[2]:.1f}, y1={bbox[3]:.1f}")
                 print(f"    Size: {img['width']}x{img['height']} pts")

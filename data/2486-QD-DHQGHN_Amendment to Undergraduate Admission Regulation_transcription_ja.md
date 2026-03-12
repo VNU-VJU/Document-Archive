@@ -9,10 +9,9 @@ date: 2024-06-06
 department: "Academic Affairs"
 type: "Decision"
 restricted: false
-last_updated: 2026-02-25
 ---
 
-> **[免責事項]** この文書はAIにより生成されたものであり、参考用です。法的効力はありません。重要な判断を行う際は、必ず公式文書を参照するか、発行機関であるベトナム国家大学ハノイ校（__https://vnu.edu.vn__）に問い合わせてください。
+> **[DISCLAIMER]** 本文書はAIにより生成されたものであり、参考資料としてのみ使用されます。法的効力はありません。重要な判断を行う場合は、必ず公式文書を参照するか、発行機関（ベトナム国家大学ハノイ校 __https://vnu.edu.vn__）にお問い合わせください。
 
 <div style="display: flex; justify-content: space-between; text-align: center;">
 <div>
@@ -129,7 +128,5 @@ last_updated: 2026-02-25
     *各機関は、学業成績、競技結果に基づく直接入学審査の優先順位、受験者が獲得した賞およびその他の補足基準（該当する場合）に基づいて、入学審査の詳細な基準を定めるものとする。*
 
 ---
-
-> **[出典]** 公式文書からの転記: ベトナム国家大学ハノイ校総長 2024年6月6日付第2486/QĐ-ĐHQGHN号決定。出典: VNU学務局。
 
 > **[SOURCE_NOTE]** Transcription source: `data/2486-QD-DHQGHN_Amendment to Undergraduate Admission Regulation_source.pdf` (5 pages)

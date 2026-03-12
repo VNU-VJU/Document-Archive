@@ -49,7 +49,7 @@
 10. タグ表記
    1. タグは先頭を大文字で保存・表示する（例: `Academic`, `Vnu`）
    17. タグは先頭を大文字・ハイフン形式へ正規化する（例: `quality assurance` -> `Quality-Assurance`）。
-   18. メタデータ全般の正規化（ASCII化、空白除去等）は [Spec_PDF_Converter_App.md](Spec_PDF_Converter_App.md#11-メタデータ正規化ルール-metadata-normalization-rules) の規定に従う。
+   18. メタデータ全般の正規化（ASCII化、空白除去等）は [Spec-pdf-converter.md](Spec-pdf-converter.md) の規定に従う。
 
 You are an expert **Web Application Developer** specializing in React, TypeScript, and Generative AI integration.
 Your goal is to build a **Single Page Application (SPA)** that converts PDF documents into high-quality Markdown, with specific features for VJU Regulations but usable for general documents.

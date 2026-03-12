@@ -1,0 +1,34 @@
+{
+  "skill_name": "repo-qa",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Run a batch QA pass for the next incomplete public document sets in `data/`. Use batch size 12, update the master report, and stop safely if a required first-gate command is missing.",
+      "expected_output": "The agent resolves run config, checks required commands, processes up to twelve public document sets, updates report and status files, and reports blockers briefly in Japanese if configuration is incomplete.",
+      "files": [
+        "docs/QA_CHECKLIST.md",
+        "skills/repo-qa/SKILL.md",
+        "skills/repo-qa/references/vju-project.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Inspect `data/` for naming anomalies before QA, build a safe filename normalization plan, and record the proposed renames without applying unsafe moves.",
+      "expected_output": "The agent scans filenames, identifies naming anomalies, validates collision and doc-id impact, and writes a normalization plan into the report path without unsafe renames.",
+      "files": [
+        "skills/repo-qa/SKILL.md",
+        "skills/repo-qa/references/vju-project.md"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Resume a partially completed confidential QA batch using `tmp/qa_status.json`, update only the remaining incomplete document sets, and deploy through the configured confidential command instead of GitHub push.",
+      "expected_output": "The agent resumes from machine-readable state, avoids public push behavior, updates report and status consistently, and uses confidential deployment rules.",
+      "files": [
+        "docs/qa_status.example.json",
+        "skills/repo-qa/SKILL.md",
+        "skills/repo-qa/references/vju-project.md"
+      ]
+    }
+  ]
+}

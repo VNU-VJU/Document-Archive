@@ -5,7 +5,6 @@ date: 2021-03-25
 department: "Ministry of Education and Training"
 type: "Circular"
 restricted: false
-last_updated: 2026-02-23
 ---
 
 > **[DISCLAIMER]** 本文書はAIにより生成されたものであり、学習および参照を目的としています。内容はベトナム語の公式法的文書に基づいています。法的効力については、署名・捺印された公式のベトナム語原文を優先してください。
@@ -48,6 +47,8 @@ last_updated: 2026-02-23
 **副大臣**
 
 **Hoàng Minh Sơn**
+
+> **[SOURCE_NOTE]** Transcription source: `data/08-2021-TT-BGDDT_Regulation on Undergraduate Training_source.pdf` (25 pages)
 
 ------------------------------------------------------------------------
 

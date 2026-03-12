@@ -8,7 +8,6 @@ status: active
 replaces: []
 replaced_by: []
 revision_history: []
-last_updated: "2026-02-23"
 tags:
 - university-regulations
 version:
@@ -18,6 +17,8 @@ version:
 - source
 lang: vi
 ---
+> **[DISCLAIMER]** Tài liệu này được tạo bởi AI và chỉ nhằm mục đích tham khảo. Tài liệu không có giá trị pháp lý. Đối với các quyết định quan trọng, luôn tham khảo văn bản chính thức hoặc liên hệ cơ quan ban hành: Trường Đại học Ngoại ngữ, ĐHQGHN
+
 <div class="source-note" role="note" aria-label="Ghi chú nguồn">Tệp này được tạo dựa trên nội dung công khai.  
 Do hạn chế kỹ thuật, việc tái tạo bố cục và nội dung có thể không chính xác.  
 Để có thông tin chính xác, vui lòng tìm kiếm theo số thông tư và tham khảo cơ quan ban hành.  

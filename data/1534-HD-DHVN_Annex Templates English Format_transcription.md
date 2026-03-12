@@ -5,7 +5,6 @@ date: 2023-12-29
 department: "Academic Affairs"
 type: "Annex"
 restricted: false
-last_updated: 2026-02-22
 ---
 
 > **[DISCLAIMER]** Tài liệu này được tạo bởi AI và chỉ mang tính chất tham khảo. Tài liệu không có giá trị pháp lý. Đối với các quyết định quan trọng, vui lòng tham khảo văn bản gốc hoặc liên hệ cơ quan ban hành: Đại học Việt Nhật, Đại học Quốc gia Hà Nội (__https://vju.ac.vn__)
@@ -527,3 +526,5 @@ Based on the recommendation of the Undergraduate thesis evaluation committee, th
 |  |  |
 |  |  |
 |  |  |
+
+> **[SOURCE_NOTE]** Transcription source: `data/1534-HD-DHVN_Annex Templates English Format_source.pdf` (27 pages)

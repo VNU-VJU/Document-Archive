@@ -1,14 +1,18 @@
 ---
 id: DHVN-QD-323
+doc_id: "323/QĐ-ĐHVN"
 title: ĐÁNH GIÁ THỰC HIỆN DỰ TOÁN THU- CHI NGÂN SÁCH QUÝ
 issuer: Trường Đại học Việt Nhật
+date: 2025-04-04
+department: "Financial Affairs"
+type: "Decision"
 category: Public Report
 issue_date: "2025-04-04"
+restricted: false
 status: active
 replaces: []
 replaced_by: []
 revision_history: []
-last_updated: "2026-02-23"
 tags:
 - public-report
 version:
@@ -22,6 +26,8 @@ lang: vi
   <p><strong>Ghi chú nguồn.</strong> Tệp này là bản chuyển văn bản từ thông tin được công bố trên web. Để biết nội dung chính xác, vui lòng tìm kiếm theo số thông tư và tham khảo thông tin được công bố trên trang web chính thức.</p>
   <p><em>Việc nhận dạng bảng gặp khó khăn về mặt kỹ thuật nên bố cục và nội dung bảng có thể không hoàn toàn chính xác.</em></p>
 </div>
+
+> **[DISCLAIMER]** Tài liệu này được tạo bởi AI và chỉ nhằm mục đích tham khảo. Tài liệu không có giá trị pháp lý. Đối với các quyết định quan trọng, luôn tham khảo văn bản chính thức hoặc liên hệ cơ quan ban hành: Trường Đại học Việt Nhật (__https://vju.ac.vn__)
 
 ---
 

@@ -5,14 +5,13 @@ date: 2023-11-15
 department: "Education"
 type: "Guidance"
 restricted: false
-last_updated: 2026-03-09
 ---
 
 > **[DISCLAIMER]** 本文書はAIにより生成されたものであり、参考資料としてのみ使用されます。法的効力はありません。重要な判断を行う場合は、必ず公式文書を参照するか、発行機関（ベトナム日本大学 __https://vju.ac.vn__）にお問い合わせください。
 
 ## 抽出状況
 
-元PDFでは `pdftotext` による抽出がほぼ機能しませんでしたが、ページ画像 OCR により metadata と大まかな章構成は確認できました。本ファイルは依然として全文転記ではなく、高信頼で確認できた情報のみを反映しています。
+元PDFでは `pdftotext` による抽出がほぼ機能しませんでしたが、現環境で利用可能な OCR では少なくとも1ページ目が比較的明瞭に回復し、冒頭の根拠条項、`1.` の箇条書き、`2.1.` 見出しまでは確認できました。ただし全36ページについては、ベトナム語 OCR の完全な辞書がないため、依然として全文忠実転記とは見なせません。
 
 ## 高信頼で確認できた情報
 
@@ -35,6 +34,7 @@ last_updated: 2026-03-09
   - **3.2.** 教務・学生担当部門
   - **3.3.** その他の機能部門
   - **確認できた付録:** `付録3a`, `付録3b`, `付録3c`
+  - **追加で OCR 確認できた1ページ目の内容:** 完整な表題ブロック、冒頭の根拠文2件、`1. 実施原則` の箇条書き、`2.1. 科目終了試験の実施時期` 見出し
 
 ## 未検証情報
 
@@ -43,4 +43,4 @@ last_updated: 2026-03-09
   - 文末の署名者名・役職
   - 各手順内の詳細記述
 
-> **[SOURCE]** `1259-HD-DHVN_End-of-Semester Exam Organization Guidance S1 2023-2024_source.pdf`
+> **[SOURCE_NOTE]** Transcription source: `data/1259-HD-DHVN_End-of-Semester Exam Organization Guidance S1 2023-2024_source.pdf` (36 pages)

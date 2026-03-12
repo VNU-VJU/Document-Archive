@@ -11,7 +11,6 @@ status: active
 replaces: []
 replaced_by: []
 revision_history: []
-last_updated: 2026-02-25
 tags:
 - quality-assurance
 version:
@@ -22,7 +21,7 @@ version:
 lang: ja
 ---
 
-> **[免責事項]** この文書はAIにより生成されたものであり、参考用です。法的効力はありません。重要な判断を行う際は、必ず公式文書を参照するか、発行機関である教育訓練省に問い合わせてください。
+> **[DISCLAIMER]** 本文書はAIにより生成されたものであり、参考資料としてのみ使用されます。法的効力はありません。重要な判断を行う場合は、必ず公式文書を参照するか、発行機関にお問い合わせください。
 
 <div class="source-note" role="note" aria-label="出典メモ">
   <p><strong>出典メモ。</strong> このファイルは https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=171225 に掲載された情報を転記したものであり、正式な内容は同サイトで公開されている版をご確認ください。</p>

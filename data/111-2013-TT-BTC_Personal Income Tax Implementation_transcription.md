@@ -5,7 +5,6 @@ date: 2013-08-15
 department: "Ministry of Finance"
 type: "Circular"
 restricted: false
-last_updated: 2026-02-23
 ---
 
 > **[DISCLAIMER]** Tài liệu này được tạo bởi AI phục vụ mục đích học tập và tham khảo. Nội dung gốc tiếng Việt được trích xuất từ văn bản chính thức. Mọi thông tin có tính pháp lý phải được đối chiếu với văn bản gốc có đóng dấu đỏ.
@@ -2116,3 +2115,5 @@ Phụ lục: 02/PL-TNCN
 | 5 | Trên 27,25 trđ đến 42,25 trđ | (TNQĐ – 3,25 trđ)/0,75 |
 | 6 | Trên 42,25 trđ đến 61,85 trđ | (TNQĐ – 5,85 trđ)/0,7 |
 | 7 | Trên 61,85 trđ | (TNQĐ – 9,85 trđ)/0,65 |
+
+> **[SOURCE_NOTE]** Transcription source: `data/111-2013-TT-BTC_Personal Income Tax Implementation_source.pdf` (78 pages)

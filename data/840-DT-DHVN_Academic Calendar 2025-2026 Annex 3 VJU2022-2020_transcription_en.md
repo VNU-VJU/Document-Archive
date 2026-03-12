@@ -5,7 +5,6 @@ date: 2025-07-30
 department: "Academic Affairs"
 type: "Annex"
 restricted: false
-last_updated: 2026-02-22
 language: en
 ---
 
@@ -67,3 +66,5 @@ language: en
 (*): The training period for engineer programs is 4.5 years, so the project defense for ECE2022 and ESAS2022 will take place by December 2026 at the latest.
 
 (*): Students eligible for graduation in Batch 2, 2026 will undergo an academic review before the Graduation Review Council meeting.
+
+> **[SOURCE_NOTE]** Transcription source: `data/840-DT-DHVN_Academic Calendar 2025-2026 Annex 3 VJU2022-2020_source.pdf` (4 pages)

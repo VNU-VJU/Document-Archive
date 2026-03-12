@@ -5,7 +5,6 @@ date: 2025-07-30
 department: "Academic Affairs"
 type: "Annex"
 restricted: false
-last_updated: 2026-02-22
 language: en
 ---
 
@@ -45,3 +44,5 @@ language: en
 | No. | Timeline | Task | Lead Unit | Coordinating Unit |
 |---:|---|---|---|---|
 | 16 | 07/25/2026 - 08/31/2026 | Organize teaching and final examinations for the summer semester | | |
+
+> **[SOURCE_NOTE]** Transcription source: `data/840-DT-DHVN_Academic Calendar 2025-2026 Annex 2 VJU2024-2023_source.pdf` (2 pages)

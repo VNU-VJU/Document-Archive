@@ -5,7 +5,6 @@ date: 2025-09-09
 department: "Academic Affairs"
 type: "Notification"
 restricted: false
-last_updated: 2026-02-24
 ---
 <div class="source-note" role="note" aria-label="Source note">This file is created with reference to publicly available content.  
 Due to technical limitations, the layout and content reproduction may not be accurate.  
@@ -30,8 +29,8 @@ Other language versions may be officially published by the issuing authority.</d
 **Submission of English-language certificates/confirmations for recognition of academic results, credit conversion, and graduation standards for VJU2025 students at Vietnam-Japan University, Vietnam National University, Hanoi**
 
 Pursuant to Decision No. 3626/QĐ-ĐHQGHN dated October 21, 2022 of the Director of Vietnam National University, Hanoi on promulgating the Regulations on undergraduate training at Vietnam National University, Hanoi;
-Pursuant to Instruction No. 1011/HD-ĐHQGHN dated March 23, 2023 of the Director of Vietnam National University, Hanoi on organizing foreign language modules in the general knowledge block and determining graduation standards in undergraduate, master's, and doctoral training programs at Vietnam National University, Hanoi;
-Pursuant to Instruction No. 880/HD-ĐHVN dated August 11, 2025 of Vietnam-Japan University on guidance for using foreign language certificates to confirm graduation standards for students in the VJU2022 cohort and later;
+Pursuant to Guideline No. 1011/HD-ĐHQGHN dated March 23, 2023 of the Director of Vietnam National University, Hanoi on organizing foreign language modules in the general knowledge block and determining graduation standards in undergraduate, master's, and doctoral training programs at Vietnam National University, Hanoi;
+Pursuant to Guideline No. 880/HD-ĐHVN dated August 11, 2025 of Vietnam-Japan University on guidance for using foreign language certificates to confirm graduation standards for students in the VJU2022 cohort and later;
 
 Vietnam-Japan University hereby notifies the submission of English-language certificates/confirmations for recognition of academic results, credit conversion, and graduation standards for VJU2025 students as follows:
 
@@ -46,12 +45,12 @@ Vietnam-Japan University hereby notifies the submission of English-language cert
 | ---: | :--- | :--- | :--- |
 | 1 | Japanese Studies | Level 3 | English B1 (course code: FLF1107) |
 | 2 | Construction Engineering | Level 3 | English B1 (course code: FLF1107) |
-| 3 | Global Innovation and Development | Level 4 | English B1 (course code: FLF1107), English B2 (course code: FLF1108) |
+| 3 | Bachelor's program in Global Development and Innovation | Level 4 | English B1 (course code: FLF1107), English B2 (course code: FLF1108) |
 | 4 | Computer Science and Engineering | Level 4 | English B1 (course code: FLF1107), English B2 (course code: FLF1108) |
 | 5 | Smart and Sustainable Agriculture | Level 4 | English B1 (course code: FLF1107), English B2 (course code: FLF1108) |
 | 6 | Food Technology and Health | Level 4 | English B1 (course code: FLF1107), English B2 (course code: FLF1108) |
-| 7 | Intelligent Mechatronics and Japanese-style Manufacturing | Level 4 | English B1 (course code: FLF1107), English B2 (course code: FLF1108) |
-| 8 | Intelligent Control and Automation | Level 4 | English B1 (course code: FLF1107), English B2 (course code: FLF1108) |
+| 7 | Engineer's program in Intelligent Mechatronics System & Japanese Manufacturing | Level 4 | English B1 (course code: FLF1107), English B2 (course code: FLF1108) |
+| 8 | Bachelor's program in Intelligent Control and Automation | Level 4 | English B1 (course code: FLF1107), English B2 (course code: FLF1108) |
 | 9 | Semiconductor Chip Engineering Technology | Level 4 | English B1 (course code: FLF1107), English B2 (course code: FLF1108) |
 
 - Submission period: **From 9:00 a.m. on September 15, 2025 to before 4:00 p.m. on October 13, 2025** (9:00 a.m. to 4:00 p.m. on Mondays, Wednesdays, and Fridays);
@@ -77,17 +76,17 @@ Vietnam-Japan University hereby notifies the submission of English-language cert
 - The list of English certificates/confirmations is provided in Appendix 1 to this Notification;
 - The list of institutions authorized to issue English certificates/confirmations under the Vietnamese six-level foreign language proficiency framework is provided in Appendix 2;
 - Students who use falsified certificates/confirmations will be disciplined in accordance with current regulations;
-- For inquiries, students should contact the Department of Training and Student Affairs via phongdaotao@st.vju.ac.vn.
+- For inquiries, students should contact Academic Affairs & Student Activities via phongdaotao@st.vju.ac.vn.
 
 Respectfully notified./.
 
 **Recipients:**
-- Principal (for reporting);
+- Rector (for reporting);
 - Faculties and functional departments (for coordinated implementation);
-- Filed: VT, DT&CTSV, QH04.
+- File: VT, ĐT&CTSV, QH04.
 
-**KT. PRINCIPAL**  
-**Vice Principal**  
+**ON BEHALF OF THE RECTOR**  
+**VICE RECTOR**  
 *(signed)*  
 **Nguyễn Hoàng Oanh**
 
@@ -103,7 +102,7 @@ Respectfully notified./.
 | **Level 4** | 5.5 | 72 | B2 | B1 Preliminary: 160<br>B2 First: 160<br>C1 Advanced: 160<br>B1 Business Preliminary: 160<br>B2 Business Vantage: 160<br>C1 Business Higher: 160 | VSTEP.3-5 (6.0) | Level 4 |
 | **Level 5** | 7.0 | 95 | C1 | B2 First: 180<br>C1 Advanced: 180<br>C2 Proficiency: 180<br>B2 Business Vantage: 180<br>C1 Business Higher: 180 | VSTEP.3-5 (8.5) | Level 5 |
 
-(*) Based on Appendix 2 of Instruction No. 1011/HD-ĐHQGHN dated March 23, 2023 of Vietnam National University, Hanoi on organizing foreign language modules in the general knowledge block and determining graduation standards in undergraduate, master's, and doctoral training programs at Vietnam National University, Hanoi.
+(*) Based on Appendix 2 of Guideline No. 1011/HD-ĐHQGHN dated March 23, 2023 of Vietnam National University, Hanoi on organizing foreign language modules in the general knowledge block and determining graduation standards in undergraduate, master's, and doctoral training programs at Vietnam National University, Hanoi.
 - The scores above are the minimum required. For certificates/confirmations used to verify graduation standards that include all four skills (Listening, Speaking, Reading, and Writing), learners must take all four skills.
 - Vietnam National University, Hanoi does not recognize online foreign language certificates/confirmations./.
 

@@ -5,7 +5,6 @@ date: 2025-07-30
 department: "Academic Affairs"
 type: "Annex"
 restricted: false
-last_updated: 2026-02-22
 language: ja
 ---
 
@@ -67,3 +66,5 @@ language: ja
 （*）：技術者課程の修業年限は4.5年であるため、ECE2022およびESAS2022の卒業研究発表会は遅くとも2026年12月に行われます。
 
 （*）：2026年第2期卒業対象学生は、卒業判定会議の前に学籍審査を受けるものとします。
+
+> **[SOURCE_NOTE]** Transcription source: `data/840-DT-DHVN_Academic Calendar 2025-2026 Annex 3 VJU2022-2020_source.pdf` (4 pages)

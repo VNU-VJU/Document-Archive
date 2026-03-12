@@ -56,7 +56,7 @@ All repository-facing names - file names, folder names, branch names, and commit
 
 Repository-specific agent skills live under `skills/`.
 
-- `skills/common-qa-orchestrator/`: QA and transcription batch workflow for this repository
+- `skills/repo-qa/`: QA and repository-maintenance workflow for this repository
 
 Latest handover: `docs/handover.md`
 

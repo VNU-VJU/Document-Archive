@@ -5,7 +5,6 @@ date: 2023-12-29
 department: "Academic Affairs"
 type: "Annex"
 restricted: false
-last_updated: 2026-02-22
 ---
 
 > **[DISCLAIMER]** この文書はAIによって生成されたものであり、参考情報としてのみ提供されるものである。法的効力を有さない。重要な判断については、原本を参照するか、発行機関に問い合わせること：ベトナム日本大学、ベトナム国家大学ハノイ校（__https://vju.ac.vn__）
@@ -520,3 +519,5 @@ Defence date: ....................................
 |  |  |
 |  |  |
 |  |  |
+
+> **[SOURCE_NOTE]** Transcription source: `data/1534-HD-DHVN_Annex Templates English Format_source.pdf` (27 pages)

@@ -5,7 +5,6 @@ date: 2023-05-14
 department: "Government"
 type: "Decree"
 restricted: false
-last_updated: 2026-02-23
 ---
 
 > **[DISCLAIMER]** Tài liệu này được tạo bởi AI phục vụ mục đích học tập và tham khảo. Nội dung gốc tiếng Việt được trích xuất từ văn bản chính thức. Mọi thông tin có tính pháp lý phải được đối chiếu với văn bản gốc có đóng dấu đỏ.
@@ -121,3 +120,8 @@ Người hưởng lương, phụ cấp quy định tại Điều 1 Nghị địn
 *(đã ký)*
 
 **Lê Minh Khái**
+
+<div class="source-note" role="note" aria-label="Ghi chú nguồn">Tệp này được tạo dựa trên nội dung công khai.  
+Do hạn chế kỹ thuật, việc tái tạo bố cục và nội dung có thể không chính xác.  
+Để có thông tin chính xác, vui lòng tìm kiếm theo số văn bản và tham khảo cơ quan ban hành.  
+Cơ quan ban hành có thể công bố chính thức các phiên bản ngôn ngữ khác.</div>

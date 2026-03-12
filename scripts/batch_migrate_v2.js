@@ -63,8 +63,6 @@ function processFile(filePath) {
     const isTranscription = (lang === 'vi');
 
     let content = fs.readFileSync(filePath, 'utf-8');
-    const today = new Date().toISOString().split('T')[0];
-
     // 1. Construct YAML
     const yaml = `---
 doc_id: "${meta.doc_id}"
@@ -73,7 +71,6 @@ date: ${meta.date}
 department: "${meta.department}"
 type: "${meta.type}"
 restricted: false
-last_updated: ${today}
 ---`;
 
     // 2. Remove old YAML and header notes

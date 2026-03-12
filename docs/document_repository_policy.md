@@ -15,7 +15,7 @@
 4. 関連規定は `relations[]` で保持し、`type` は `replaces/replaced_by/related/references` のみ許可する。
 5. `related_ids[]` は内部互換用に保持し、`relations[]` へ自動展開する。外部出力は `relations[]` を優先する。
 6. タグは小文字・ハイフン形式へ正規化する（例: `quality assurance` -> `quality-assurance`）。
-7. メタデータ全般の正規化（ASCII化、空白除去等）は [Spec_PDF_Converter_App.md](Spec_PDF_Converter_App.md#11-メタデータ正規化ルール-metadata-normalization-rules) の規定に従う。
+7. メタデータ全般の正規化（ASCII化、空白除去等）は [Spec-pdf-converter.md](Spec-pdf-converter.md) の規定に従う。
 
 ## 3. 必須・推奨キー
 1. 必須: `doc_id`, `part_id`, `title`, `doc_language`, `tags`, `document_status`

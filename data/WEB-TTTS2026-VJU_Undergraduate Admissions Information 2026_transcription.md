@@ -1,14 +1,18 @@
 ---
 id: WEB-TTTS2026-VJU
+doc_id: "WEB-TTTS2026-VJU"
 title: THÔNG TIN TUYỂN SINH ĐẠI HỌC CHÍNH QUY NĂM 2026
 issuer: Trường Đại học Việt Nhật
+date: 2025-12-30
+department: "Academic Affairs"
+type: "Notification"
 category: 3. University Regulations
 issue_date: "2025-12-30"
+restricted: false
 status: active
 replaces: []
 replaced_by: []
 revision_history: []
-last_updated: "2026-02-23"
 tags:
 - admissions
 - undergraduate
@@ -25,6 +29,8 @@ source_modified: "2026-01-05T15:59:12+07:00"
 <div class="source-note" role="note" aria-label="Ghi chú nguồn">Tệp này được chuyển đổi từ bài viết trên website VJU và lưu kèm bản PDF chụp trang để tham chiếu.  
 Do hạn chế kỹ thuật, bố cục web động và một số bảng/định dạng có thể chưa được tái tạo hoàn hảo.  
 Vui lòng đối chiếu với trang gốc và bản PDF lưu trữ khi cần sử dụng chính thức.</div>
+
+> **[DISCLAIMER]** Tài liệu này được tạo bởi AI và chỉ nhằm mục đích tham khảo. Tài liệu không có giá trị pháp lý. Đối với các quyết định quan trọng, luôn tham khảo văn bản chính thức hoặc liên hệ cơ quan ban hành: Trường Đại học Việt Nhật (__https://vju.ac.vn__)
 
 # THÔNG TIN TUYỂN SINH ĐẠI HỌC CHÍNH QUY NĂM 2026
 
