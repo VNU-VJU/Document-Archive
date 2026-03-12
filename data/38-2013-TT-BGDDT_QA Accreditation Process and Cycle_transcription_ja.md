@@ -1,5 +1,6 @@
 ---
 id: BGDDT-TT-2013-38
+doc_id: "38/2013/TT-BGDĐT"
 language: "ja"
 original_language: "vi"
 source_pdf: "data/38-2013-TT-BGDDT_QA Accreditation Process and Cycle_source.pdf"
@@ -67,7 +68,7 @@ lang: ja
 ---
 
 ## 規程
-### 大学・学院および専門中等学校における教育課程質保証評価の手順と周期について
+**大学・学院および専門中等学校における教育課程質保証評価の手順と周期について**
 
 ### **第I章**
 #### **総則**

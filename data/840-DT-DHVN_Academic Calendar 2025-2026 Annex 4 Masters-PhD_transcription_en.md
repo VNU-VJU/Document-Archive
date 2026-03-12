@@ -15,6 +15,8 @@ restricted: false
 
 ### I. Master's Level
 
+#### 1. For cohorts QHJ2021, QHJ2022, QHJ2023
+
 | No. | Time | Tasks | Focal Unit | Cooperating Unit |
 | :--- | :--- | :--- | :--- | :--- |
 | **1** | | **For cohorts QHJ2021, QHJ2022, QHJ2023** | | |
@@ -25,6 +27,8 @@ restricted: false
 | 1.5 | 10-15/12/2025 | Meeting of the Graduation Evaluation Committee (4th time of 2025) | Academic and Student Affairs Office | Administrative Office, Faculties and Academic Programs |
 | 1.6 | Before 31/12/2025 | Organize Master's Graduation Ceremony (4th time of 2025) | Academic and Student Affairs Office | Administrative Office, Faculties and Academic Programs |
 | 1.7 | Before 06/02/2026 | Organize master's thesis defense | Faculties and Academic Programs | Faculties and Academic Programs |
+#### 2. For cohort QHJ2024
+
 | **2** | | **For cohort QHJ2024** | | |
 | 2.1 | 08/2025 | Arrange timetable for 1st semester AY2025-2026 for postgraduate programs (Master's and PhD) | Academic and Student Affairs Office | Faculties and Academic Programs |
 | 2.2 | Before 31/08/2025 | Organize internship registration for students of cohort QHJ2024 | Faculties and Academic Programs | Academic and Student Affairs Office |
@@ -33,6 +37,8 @@ restricted: false
 | 2.5 | Before 12/11/2025 | Assigning thesis title and supervisors for cohort QHJ2024 | Academic and Student Affairs Office | Faculties and Academic Programs |
 | 2.6 | 11/2025 | Arrange timetable for 2nd semester AY2025-2026 for postgraduate programs (Master's and PhD) | Academic and Student Affairs Office, Faculties and Academic Programs | |
 | 2.7 | 26/12/2025-14/01/2026 | Organize final exam of 1st semester for cohort QHJ2024 | Educational Testing and Quality Assurance Office | Academic and Student Affairs Office, Faculties and Academic Programs |
+#### 3. For cohort QHJ2025
+
 | **3** | | **For cohort QHJ2025** | | |
 | 3.1 | 08/2025 | Conduct postgraduate enrollment (1st time of 2025) | Academic and Student Affairs Office | Faculties and Academic Programs |
 | 3.2 | According to the schedule of VNU | Postgraduate Verification (1st time of 2025) | Academic and Student Affairs Office | |
@@ -72,6 +78,8 @@ restricted: false
 
 | No. | Time | Tasks | Focal Unit | Cooperating Unit |
 | :--- | :--- | :--- | :--- | :--- |
+#### 1. For cohort QHJ2024 and preceding cohorts
+
 | **1** | | **For cohort QHJ2024 and preceding cohorts** | | |
 | 5.1 | Before 03/03/2026 | Complete graduation application documents for postgraduate programs (1st time of 2026) | Academic and Student Affairs Office | Faculties and Academic Programs |
 | 5.2 | Before 10/03/2026 | Meeting of the Graduation Evaluation Committee (1st time of 2026) | Academic and Student Affairs Office | Faculties and Academic Programs |
@@ -81,6 +89,8 @@ restricted: false
 | 5.6 | Before 02/7/2026 | Complete graduation application documents for postgraduate programs (2nd time of 2026) | Academic and Student Affairs Office | Faculties and Academic Programs |
 | 5.7 | Before 8/7/2026 | Meeting of the Graduation Evaluation Committee (2nd time of 2026) | Academic and Student Affairs Office | Faculties and Academic Programs |
 | 5.8 | 16-21/7/2026 | Organize Master's Graduation Ceremony (2nd time of 2026) | Academic and Student Affairs Office | Faculties and Academic Programs |
+#### 2. For cohort QHJ2025
+
 | **2** | | **For cohort QHJ2025** | | |
 | 6.1 | 23/02/2026-07/06/2026 | 2nd semester AY2025-2026 starts for cohort QHJ2025 | Academic and Student Affairs Office | Faculties and Academic Programs |
 | 6.2 | 08/06/2026-14/06/2026 | Make-up week of 2nd semester for cohort QHJ2025 | Academic and Student Affairs Office | Faculties and Academic Programs |

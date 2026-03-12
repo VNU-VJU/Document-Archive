@@ -1,0 +1,486 @@
+{
+  "version": 1,
+  "updated_at": "2026-03-12T16:15:00+07:00",
+  "documents": [
+    {
+      "doc_id": "911/TB-ĐHVN",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "323/QĐ-ĐHVN",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "1259/HD-ĐHVN",
+      "target_root": "data",
+      "qa_status": "blocked",
+      "generation_status": "partial",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T22:53:41+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "24/2023/NĐ-CP",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "2459/QĐ-ĐHQGHN",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "2486/QĐ-ĐHQGHN",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "1592/QĐ-ĐHVN",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "01/2024/TT-BGDĐT",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "partial",
+      "last_processed_at": "2026-03-12T09:55:00+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "04/2016/TT-BGDĐT",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-12T09:07:14+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pass"
+    },
+    {
+      "doc_id": "04/2020/TT-BGDĐT",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-12T09:07:14+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pass"
+    },
+    {
+      "doc_id": "17/2021/TT-BGDĐT",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-12T16:15:00+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "18/2021/TT-BGDĐT",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "1010/TB-ĐHVN",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "partial",
+      "last_processed_at": "2026-03-12T09:55:00+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "1541/CV-ĐHVN-KT&ĐBCL",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-12T16:15:00+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "2184-TB-DHNN",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "259/HD-ĐHVN",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "304/HD-ĐHVN",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "473/QĐ-ĐHVN",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "4618/QĐ-ĐHQGHN",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "50/ĐHVN-KT&ĐBCL",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "700/QĐ-ĐHVN",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "78/2022/QĐ-TTg",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "840/ĐHVN-ĐT",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "DHVN-TB-984",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "WEB-TTTS2026-VJU",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "483/HD-ĐHVN",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "628/QĐ-ĐHQGHN",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "DHVN-KT&DBCL-826",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "1274/HD-KT&ĐBCL",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "partial",
+      "last_processed_at": "2026-03-12T09:55:00+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "774/QLCL-KĐCLGD",
+      "target_root": "data",
+      "qa_status": "complete",
+      "generation_status": "complete",
+      "review_status": "complete",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "08/2021/TT-BGDĐT",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "111/2013/TT-BTC",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "1132/QĐ-ĐHVN",
+      "target_root": "data",
+      "qa_status": "blocked",
+      "generation_status": "partial",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "1534/HD-ĐHVN",
+      "target_root": "data",
+      "qa_status": "blocked",
+      "generation_status": "partial",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "2085/QLCL-KĐCLGD",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-12T17:05:00+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "23/2021/TT-BGDĐT",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "30/2018/TT-BGDĐT",
+      "target_root": "data",
+      "qa_status": "blocked",
+      "generation_status": "partial",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "3626/QĐ-ĐHQGHN",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "3636/QĐ-ĐHQGHN",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "3638/QĐ-ĐHQGHN",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "BGDDT-TT-2013-38",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "39/2020/TT-BGDĐT",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "4391/QĐ-ĐHQGHN",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "4455/QĐ-ĐHQGHN",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "partial",
+      "last_processed_at": "2026-03-12T16:15:00+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "4998/QĐ-BGDĐT",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "5115/QĐ-ĐHQGHN",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "5292/QĐ-ĐHQGHN",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    },
+    {
+      "doc_id": "86/2021/NĐ-CP",
+      "target_root": "data",
+      "qa_status": "partial",
+      "generation_status": "complete",
+      "review_status": "pending",
+      "last_processed_at": "2026-03-11T23:02:18+07:00",
+      "report_updated": true,
+      "final_translation_audit_status": "pending"
+    }
+  ]
+}

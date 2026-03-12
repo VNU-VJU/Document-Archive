@@ -525,7 +525,7 @@ STT	SỐ LIỆU THỐNG KÊ	MỨC ĐỘ ĐẦY ĐỦ CỦA SỐ LIỆU TRÍCH XU
 11	Bảng 5B: Quy mô đào tạo theo lĩnh vực và trình độ			
 12	Bảng 6A: Công bố khoa học của giảng viên			
 13	Bảng KS-1: Kết quả khảo sát người học			
-TIÊU CHUẨN 2: GIẢNG VIÊN
+#### TIÊU CHUẨN 2: GIẢNG VIÊN
 CHỈ SỐ ĐÁNH GIÁ	NGƯỠNG	THỰC TẾ	KẾT QUẢ	GIẢI TRÌNH
 2.1	Tỉ lệ người học trên giảng viên	40			
 2.2	Tỉ lệ giảng viên cơ hữu trong độ tuổi lao động	70%			
@@ -537,7 +537,7 @@ CHỈ SỐ THỐNG KÊ	Trình độ(¹)			Tổng số	Chức danh		Tổng số
 2	Số giảng viên cơ hữu trong độ tuổi lao động							
 Ghi chú:								
 (1) Lưu ý: Số giảng viên có trình độ tiến sĩ kê khai ở đây BAO GỒM CẢ những người có chức danh giáo sư, phó giáo sư								
-TIÊU CHUẨN 3: CƠ SỞ VẬT CHẤT
+#### TIÊU CHUẨN 3: CƠ SỞ VẬT CHẤT
 CHỈ SỐ ĐÁNH GIÁ	NGƯỠNG	THỰC TẾ	KẾT QUẢ	GIẢI TRÌNH
 3.1	Diện tích đất/người học (m2)	25			
 3.2.1	Diện tích sàn/người học (m2)	2,8			
@@ -572,7 +572,7 @@ CHỈ SỐ THỐNG KÊ	Giá trị	Ghi chú
 1	Tốc độ hoặc băng thông đường truyền Internet (Mpbs)		
 2	Tổng số học phần giảng dạy trong năm		
 3	Tổng số học phần sẵn sàng giảng dạy trực tuyến > 50%		
-TIÊU CHUẨN 4: TÀI CHÍNH
+#### TIÊU CHUẨN 4: TÀI CHÍNH
 CHỈ SỐ ĐÁNH GIÁ	NGƯỠNG	THỰC TẾ	KẾT QUẢ	GIẢI TRÌNH
 4.1	Biên độ hoạt động trung bình 3 năm	0%; 30%			
 4.2	Chỉ số tăng trưởng bền vững	0,0%			
@@ -609,7 +609,7 @@ Bảng 4: Tình hình thu chi hoạt động trong năm
 | IV | Chi khác | | | | | |
 | C | CHÊNH LỆCH THU CHI | | | | | |
 | | Chênh lệch thu chi/Tổng thu | | | | | |
-TIÊU CHUẨN 5: TUYỂN SINH VÀ ĐÀO TẠO
+#### TIÊU CHUẨN 5: TUYỂN SINH VÀ ĐÀO TẠO
 CHỈ SỐ ĐÁNH GIÁ	NGƯỠNG	THỰC TẾ	KẾT QUẢ	GIẢI TRÌNH
 5.1.1	Tỉ lệ nhập học trung bình 3 năm	50,0%			
 5.1.2	Tỉ số tăng giảm quy mô đào tạo 3 năm	-30,0%			
@@ -653,7 +653,7 @@ Thời điểm thống kê: 31/12/20...
 | ... | ... | | | | | | | ... | | ... | |
 | 24 | Lĩnh vực khác | | | | | | | 1,0 | | 1,0 | |
 | | Tổng số | | | | | | | | | | |
-TIÊU CHUẨN 6: NGHIÊN CỨU VÀ ĐỔI MỚI SÁNG TẠO
+#### TIÊU CHUẨN 6: NGHIÊN CỨU VÀ ĐỔI MỚI SÁNG TẠO
 CHỈ SỐ ĐÁNH GIÁ	NGƯỠNG	THỰC TẾ	KẾT QUẢ	GIẢI TRÌNH
 6.1	Tỉ trọng thu khoa học-công nghệ	5,0%			
 6.2.1	Số công bố khoa học/giảng viên	0,3			

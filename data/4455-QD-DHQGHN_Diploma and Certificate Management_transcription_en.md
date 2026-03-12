@@ -1610,6 +1610,145 @@ law.
 
 ³ *If the training major name is not yet included in this list or has been renamed according to current regulations, record the major name according to the decision promulgating the program or the decision on changing/adjusting the program, in accordance with the effective application of the decision.*
   ----------------------
+# Appendix IV: LIST OF FIELDS AWARDING BACHELOR'S DEGREE³
+
+| No. | Vietnamese name of training major | English name of training major | Note |
+| :-- | :--- | :--- | :--- |
+| 1 | Báo chí | Journalism | |
+| 2 | Chính trị học | Political Science | |
+| 3 | Công nghệ kỹ thuật cơ điện tử | Mechatronics Engineering | |
+| 4 | Công nghệ kỹ thuật điện tử - Viễn thông | Electronics and Communications Engineering Technology | |
+| 5 | Công nghệ kỹ thuật hạt nhân | Nuclear Technology and Engineering | |
+| 6 | Công nghệ kỹ thuật hóa học | Chemical Engineering and Technology | |
+| 7 | Công nghệ kỹ thuật môi trường | Environmental Engineering | |
+| 8 | Công nghệ quan trắc và giám sát tài nguyên môi trường | Technology for Natural Resource and Environmental Monitoring | |
+| 9 | Công nghệ sinh học | Biotechnology | |
+| 10 | Công nghệ tài chính và kinh doanh số | Fintech and Digital Business | Combined Bachelor's and Master's degree |
+| 11 | Công nghệ thông tin | Information Technology | |
+| 12 | Công nghệ thông tin ứng dụng | Applied Information Technology | Combined Bachelor's and Master's degree |
+| 13 | Công tác xã hội | Social Work | |
+| 14 | Địa chất học | Geology | |
+| 15 | Địa lý tự nhiên | Physical Geography | |
+| 16 | Điều dưỡng | Nursing | |
+| 17 | Đông Nam Á học | Southeast Asian Studies | |
+| 18 | Đông phương học | Oriental Studies | |
+| 19 | Giáo dục Mầm non | Pre-school Education | |
+| 20 | Giáo dục tiểu học | Primary Teacher Education | |
+| 21 | Hải dương học | Oceanography | |
+| 22 | Hán Nôm | Sino - Nom | |
+| 23 | Hàn Quốc học | Korean Studies | |
+| 24 | Hệ thống thông tin | Information Systems | |
+| 25 | Hệ thống thông tin quản lý | Management Information Systems | |
+| 26 | Hóa dược | Pharmaceutical Chemistry | |
+| 27 | Hóa học | Chemistry | |
+| 28 | Kế toán | Accounting | |
+| 29 | Kế toán, Phân tích và Kiểm toán | Accounting, Analyzing and Auditing | |
+| 30 | Khí tượng và khí hậu học | Meteorology and Climatology | |
+| 31 | Khoa học đất | Soil Sciences | |
+| 32 | Khoa học dữ liệu | Data Science | |
+| 33 | Khoa học giáo dục | Education Sciences | |
+| 34 | Khoa học máy tính | Computer Science | |
+| 35 | Khoa học máy tính và thông tin⁴ | Computer and Information Science | |
+| 36 | Khoa học môi trường | Environmental Sciences | |
+| 37 | Khoa học quản lý | Management Science | |
+| 38 | Khoa học thông tin địa không gian | Geospatial Information Science | |
+| 39 | Khoa học và công nghệ thực phẩm | Food Science and Technology | |
+| 40 | Khoa học và kỹ thuật máy tính | Computer Science and Engineering | |
+| 41 | Khoa học vật liệu | Materials Science | |
+| 42 | Kĩ thuật hình ảnh y học | Medical Imaging Technology | |
+| 43 | Kĩ thuật xét nghiệm y học | Medical Laboratory Technology | |
+| 44 | Kinh doanh quốc tế | International Business | |
+| 45 | Kinh tế | Economics | |
+| 46 | Kinh tế phát triển | Development Economics | |
+| 47 | Kinh tế quốc tế | International Economics | |
+| 48 | Kỹ thuật địa chất | Geological Engineering | |
+| 49 | Kỹ thuật điện tử và tin học | Electronic Engineering and Informatics | |
+| 50 | Kỹ thuật hệ thống công nghiệp và Logistics | Industrial System Engineering and Logistics | Combined Bachelor's and Master's degree |
+| 51 | Kỹ thuật xây dựng | Civil Engineering | |
+| 52 | Lịch sử | History | |
+| 53 | Luật | Law | |
+| 54 | Luật kinh doanh | Business Law | |
+| 55 | Luật thương mại quốc tế | International Trade and Business Law | |
+| 56 | Lưu trữ học | Archival Science | |
+| 57 | Marketing | Marketing | |
+| 58 | Marketing và Truyền thông | Marketing and Communication | |
+| 59 | Môi trường, Sức khỏe và An toàn | Occupational Safety, Health and Environment | |
+| 60 | Ngôn ngữ Ả Rập | Arabic Language | |
+| 61 | Ngôn ngữ Anh | English Language | |
+| 62 | Ngôn ngữ Đức | German Language | |
+| 63 | Ngôn ngữ Hàn Quốc | Korean Language | |
+| 64 | Ngôn ngữ học | Linguistics | |
+| 65 | Ngôn ngữ Nga | Russian Language | |
+| 66 | Ngôn ngữ Nhật | Japanese Language | |
+| 67 | Ngôn ngữ Pháp | French Language | |
+| 68 | Ngôn ngữ Trung Quốc | Chinese Language | |
+| 69 | Nhân học | Anthropology | |
+| 70 | Nhật Bản học | Japanese Studies/Japan Studies | |
+| 71 | Phân tích dữ liệu kinh doanh | Business Data Analytics | |
+| 72 | Quan hệ công chúng | Public Relations | |
+| 73 | Quản lý | Management | |
+| 75 | Quản lý đất đai | Land Management | |
+| 76 | Quản lí giải trí và sự kiện | Leisure and Event Management | |
+| 77 | Quản lý giáo dục | Education Management | |
+| 78 | Quản lý phát triển đô thị và bất động sản | Urban Development Management and Real Estate | |
+| 79 | Quản lý tài nguyên và môi trường | Management of Natural Resources and Environment | |
+| 80 | Quản lý thông tin | Information Management | |
+| 81 | Quản trị chất lượng giáo dục | Education Quality Management | |
+| 82 | Quản trị Công nghệ giáo dục | Educational Technology Management | |
+| 83 | Quản trị dịch vụ du lịch và lữ hành | Tourism and Travel Management | |
+| 84 | Quản trị đô thị thông minh và bền vững | Smart and Sustainable Urban Managerment | |
+| 85 | Quản trị doanh nghiệp và công nghệ | Management of Enterprise &Technology | |
+| 86 | Quản trị khách sạn | Hotel Management | |
+| 87 | Quản trị kinh doanh | Business Administration | |
+| 88 | Quản trị Nhân lực và Nhân tài | Management of Human and Talent | |
+| 89 | Quản trị tài nguyên di sản | Heritage Resources Management | |
+| 90 | Quản trị thương hiệu | Brand Management | |
+| 91 | Quản trị trường học | School Administration | |
+| 92 | Quản trị và An ninh | Management and Security | |
+| 93 | Quản trị văn phòng | Office Management | |
+| 94 | Quốc tế học | International Studies | |
+| 95 | Sinh dược học | Biopharmaceutical | |
+| 96 | Sinh học | Biology | |
+| 97 | Sư phạm Hóa học | Chemistry Teacher Education | |
+| 98 | Sư phạm Khoa học tự nhiên | Natural Science Teacher Education | |
+| 99 | Sư phạm Lịch sử | History Teacher Education | |
+| 100 | Sư phạm Lịch sử - Địa lí | History - Geography Teacher Education | |
+| 101 | Sư phạm Ngữ văn | Linguistics and Literature Teacher Education | |
+| 102 | Sư phạm Sinh học | Biology Teacher Education | |
+| 103 | Sư phạm Tiếng Anh | English Language Teacher Education | |
+| 104 | Sư phạm Tiếng Đức | German Language Teacher Education | |
+| 105 | Sư phạm Tiếng Hàn Quốc | Korean Language Teacher Education | |
+| 106 | Sư phạm Tiếng Nga | Russian Language Teacher Education | |
+| 107 | Sư phạm Tiếng Nhật | Japanese Language Teacher Education | |
+| 108 | Sư phạm Tiếng Pháp | French Language Teacher Education | |
+| 109 | Sư phạm Tiếng Trung Quốc | Chinese Language Teacher Education | |
+| 110 | Sư phạm Toán học | Mathematics Teacher Education | |
+| 111 | Sư phạm Vật lý | Physics Teacher Education | |
+| 112 | Tài chính - Ngân hàng | Finance - Banking | |
+| 113 | Tài nguyên và môi trường nước | Water Resources and Environment | |
+| 114 | Tâm lý học | Psychology | |
+| 115 | Tham vấn học đường | School Counseling | |
+| 116 | Thiết kế sáng tạo | Creative Design | |
+| 117 | Khoa học Thông tin - Thư viện | Library and Information Science | |
+| 118 | Thủy văn học | Hydrology | |
+| 119 | Tin học và Kỹ thuật máy tính | Informatics and Computer Engineering | |
+| 120 | Toán cơ | Mathematics Mechanics | |
+| 121 | Toán học | Mathematics | |
+| 122 | Toán tin | Mathematics and Computer Science | |
+| 123 | Tôn giáo học | Religious Studies | |
+| 124 | Trí tuệ nhân tạo | Artificial Intelligence | |
+| 125 | Triết học | Philosophy | |
+| 126 | Văn hóa học | Cultural Studies | |
+| 127 | Văn hóa và truyền thông xuyên quốc gia | Transnational Cultural and Media Studies | |
+| 128 | Văn học | Literature | |
+| 129 | Vật lý học | Physics | |
+| 130 | Vật lý kỹ thuật | Engineering Physics | |
+| 131 | Việt Nam học | Vietnamese Studies | |
+| 132 | Xã hội học | Sociology | |
+
+³ *If the training major name is not yet included in this list or has been renamed according to current regulations, record the major name according to the decision promulgating the program or the decision on changing/adjusting the program, in accordance with the effective application of the decision.*
+⁴ *The major "Computer Science and Information" is printed on diplomas issued to students enrolled from 2022 onwards; for students enrolled before 2022, the diploma records the major name "Computer and Information Science" according to the decision promulgating the program.*
+
 # Appendix V: LIST OF PROFILES AWARDING ENGINEERING DEGREE⁵
 
 | No. | Vietnamese name of training major | English name of training major | Note |

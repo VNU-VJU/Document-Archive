@@ -1,5 +1,6 @@
 ---
 id: DHVN-TB-911
+doc_id: "911/TB-ĐHVN"
 title: Thông báo Nộp chứng nhận ngoại ngữ khóa VJU2024
 issuer: Trường Đại học Việt Nhật
 category: 3. University Regulations

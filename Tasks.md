@@ -74,3 +74,19 @@
 - [completed] Added explicit guidance for the case where `tmp/qa_status.json` is local-only because `tmp/` is gitignored.
 - [completed] Prohibited large missing-section reconstruction from inference alone when source-verified completion is not possible.
 - [completed] Clarified that heading-count mismatches require semantic validation, not naive count-only repair.
+
+## 2026-03-12 PR remediation on `copilot/qa-maintenance-agent`
+
+- [completed] Restored `docs/qa_report_master.md` to append-only history and appended a remediation entry instead of replacing prior runs.
+- [completed] Restored `Tasks.md` to append-only history and appended this remediation section.
+- [completed] Reverted `1541/CV-ĐHVN-KT&ĐBCL` EN masthead from flattened Markdown headings back to plain-text header layout.
+- [completed] Recombined `17/2021/TT-BGDĐT` JA chapter headings into the single-line gold pattern.
+- [completed] Replaced the `4455/QĐ-ĐHQGHN` JA Appendix IV placeholder with the actual bilingual table content.
+- [completed] Refreshed `tmp/qa_status.json:last_processed_at` for the touched `doc_id`s.
+- [blocked] Older PR commits still contain `Co-authored-by` trailers and require history cleanup or a clean squash before final merge under repo rules.
+
+## 2026-03-12 PR merge preparation on `copilot/qa-maintenance-agent`
+
+- [completed] Re-checked the PR diff after the latest follow-up commit and confirmed the prior content blockers remain resolved.
+- [completed] Refreshed `tmp/qa_status.json:last_processed_at` for `2085/QLCL-KĐCLGD` because the latest PR commit touched that file set.
+- [blocked] The only remaining merge blocker is the `Co-authored-by` trailer in PR branch history, which requires history cleanup before merge.

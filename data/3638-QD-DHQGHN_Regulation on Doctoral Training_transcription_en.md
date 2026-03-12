@@ -2367,9 +2367,7 @@ Council.
     Vietnam National University, Hanoi to consider and decide./.
 
   --------------------
-  ### Appendix I:
-  REPORT ON ENROLLMENT
-  RESULTS (Attached to
+## Appendix I: REPORT ON ENROLLMENT RESULTS (Attached to
   Decision No.
   3638/QD-VNU dated
   October 21, 2022 of
@@ -2378,9 +2376,7 @@ Council.
   University, Hanoi)
   Form 1.1
   --------------------
-  ### Appendix II:
-  ANNUAL REPORT ON PHD
-  STUDENT TRAINING
+## Appendix II: ANNUAL REPORT ON PHD STUDENT TRAINING
   (Attached to
   Decision No.
   3638/QD-VNU dated
@@ -2555,7 +2551,7 @@ THESIS** **(May ....)**
 **Head of training unit** *(Signed and sealed)*
 
   -------
-  ### Appendix IV: INVITATION LETTER FOR INDEPENDENT REVIEW (Attached to
+## Appendix IV: INVITATION LETTER FOR INDEPENDENT REVIEW (Attached to
   Decision No. 3638/QD-VNU dated October 21, 2022 of the Director of Vietnam
   National University, Hanoi) Form 4.1
 

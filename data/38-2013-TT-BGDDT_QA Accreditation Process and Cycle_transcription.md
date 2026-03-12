@@ -1,5 +1,6 @@
 ---
 id: BGDDT-TT-2013-38
+doc_id: "38/2013/TT-BGDĐT"
 language: "vi"
 original_language: "vi"
 source_pdf: "data/38-2013-TT-BGDDT_QA Accreditation Process and Cycle_source.pdf"

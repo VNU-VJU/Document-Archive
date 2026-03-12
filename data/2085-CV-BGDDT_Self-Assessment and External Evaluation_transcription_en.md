@@ -194,6 +194,9 @@ The education institution develops and implements improvement plans based on the
 
 ---
 
+### **MINISTRY OF EDUCATION AND TRAINING**
+**DEPARTMENT OF QUALITY MANAGEMENT**
+
 ## **LIST OF ANNEXES**
 
 | No. | Title |
@@ -262,6 +265,8 @@ Specific duties of the members shall be assigned by the council chairperson. The
 
 ---
 
+**TRAINING PROGRAM ............................**
+
 ### **LIST OF SELF-ASSESSMENT COUNCIL MEMBERS**
 **Program ............................**
 *(Attached to Decision No. ....../QĐ- ... dated ... month ... year ...........)*
@@ -317,7 +322,7 @@ No.: ..../KH......
 *..., date ...... month ...... year 20...*
 
 **SELF-ASSESSMENT PLAN**
-**Program ............................**
+**TRAINING PROGRAM ............................**
 
 **I. Purpose of the self-assessment**
 
@@ -1339,14 +1344,14 @@ Examples:
 
 **External evaluation team established under Decision No. .../QĐ-...**
 
-### **SOCIALIST REPUBLIC OF VIET NAM**
+**SOCIALIST REPUBLIC OF VIET NAM**
 **Independence - Freedom - Happiness**
 
 *..., date ...... month ...... year 20...*
 
 **EXTERNAL EVALUATION PLAN**
 
-**TRAINING PROGRAM .....................................**
+**TRAINING PROGRAM ............................**.........
 
 **I. PURPOSES OF THE EXTERNAL EVALUATION**
 
@@ -1560,7 +1565,7 @@ c) Criteria not fully evaluated.
 
 **MEMORANDUM**
 **PRELIMINARY VISIT OF THE EXTERNAL EVALUATION TEAM**
-**TRAINING PROGRAM .....................................**
+**TRAINING PROGRAM ............................**.........
 
 Pursuant to Decision No. ...... /QĐ- ............ dated ............. month ............. year ......... of the Director of the Center for Education Quality Accreditation ............. establishing the external evaluation team for the training program ............, the external evaluation team conducted a preliminary (pre-visit) survey at ............ (name of the education institution whose program is being evaluated) ........ on ...... month ...... year .........
 
@@ -1631,7 +1636,7 @@ Present the assigned standards and criteria in sequence using the following stru
 
 **REPORT ON THE RESULTS**
 **OF THE OFFICIAL VISIT BY THE EXTERNAL EVALUATION TEAM**
-**TRAINING PROGRAM .....................................**
+**TRAINING PROGRAM ............................**.........
 
 The report includes the following contents:
 1. Brief introduction of the external evaluation team and the evaluation process.
@@ -1661,7 +1666,7 @@ The report includes the following contents:
 
 **MINUTES**
 **COMPLETION OF THE OFFICIAL VISIT**
-**TRAINING PROGRAM .....................................**
+**TRAINING PROGRAM ............................**.........
 
 Pursuant to Decision No. ...... /QĐ- ............ dated ............. month ............. year ......... of the Director of the Center for Education Quality Accreditation ............. establishing the external evaluation team for the training program ............, the external evaluation team conducted a preliminary (pre-visit) survey at ............ (name of the education institution whose program is being evaluated) ........ on ...... month ...... year .........
 
@@ -1707,7 +1712,7 @@ Both parties signed the minutes concluding the official visit at......... on ...
 *(Logo of the KĐCLGD organization)*
 
 **EXTERNAL EVALUATION REPORT**
-**TRAINING PROGRAM .....................................**
+**TRAINING PROGRAM ............................**.........
 **OF (NAME OF THE EDUCATION INSTITUTION.........)**
 *(According to the CTĐT quality standards of the Ministry of Education and Training)*
 

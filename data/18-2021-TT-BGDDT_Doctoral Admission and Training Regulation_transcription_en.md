@@ -1144,7 +1144,7 @@ sent back to the PhD student.
 
 ------------------------------------------------------------------------
 
-### Appendix V: THESIS EVALUATION FORM BY COUNCIL MEMBERS
+**Appendix V: THESIS EVALUATION FORM BY COUNCIL MEMBERS**
 
 (Attached to Decision No. 3638/QD-VNU dated October 21, 2022 of the
 Director of Vietnam National University, Hanoi) Form 5.1
