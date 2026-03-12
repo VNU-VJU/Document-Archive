@@ -40,6 +40,30 @@
         "skills/repo-qa/references/vju-project.md",
         "docs/QA_CHECKLIST.md"
       ]
+    },
+    {
+      "id": 5,
+      "prompt": "A GitHub Copilot PR fixed heading counts but rewrote `docs/qa_report_master.md` and `Tasks.md`, skipped `tmp/qa_status.json`, and used `Co-authored-by` commit trailers. Update the branch so it satisfies `repo-qa` and do not mark it ready if the self-check fails.",
+      "expected_output": "The agent preserves append-only history in report/task files, updates the machine-readable status file, avoids AI co-author trailers, performs the required self-check, and refuses to mark the PR ready when any self-check item fails.",
+      "files": [
+        "skills/repo-qa/SKILL.md",
+        "skills/repo-qa/children/copilot-qa/SKILL.md",
+        "skills/repo-qa/references/vju-project.md",
+        "docs/QA_CHECKLIST.md",
+        "docs/qa_report_master.md",
+        "Tasks.md"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "A GitHub Copilot run notices that `tmp/qa_status.json` is gitignored and that several translated appendices are missing. It must continue safe work, avoid fabricating large missing content, report the local-only status update correctly, and avoid marking the PR ready if those checks fail.",
+      "expected_output": "The agent distinguishes local-only status tracking from tracked PR files, does not fabricate large untranslated sections from inference alone, continues safe non-Gemini work, and blocks Ready for review if the self-check fails.",
+      "files": [
+        ".gitignore",
+        "skills/repo-qa/SKILL.md",
+        "skills/repo-qa/children/copilot-qa/SKILL.md",
+        "skills/repo-qa/references/vju-project.md"
+      ]
     }
   ]
 }

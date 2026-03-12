@@ -62,3 +62,15 @@
 - [completed] Added `skills/repo-qa/children/copilot-qa/SKILL.md` as the GitHub Copilot handoff child skill for heavy repo-qa batches.
 - [completed] Updated the parent `repo-qa` skill to delegate to the Copilot child skill when the active runtime is GitHub Copilot.
 - [completed] Clarified that Gemini-unavailable steps must not halt unrelated QA work; only the affected gate stays pending or blocked.
+
+## 2026-03-12 repo-qa Copilot hardening
+
+- [completed] Strengthened `repo-qa` and `copilot-qa` to require append-only updates for `docs/qa_report_master.md` and `Tasks.md`.
+- [completed] Added explicit rules requiring `tmp/qa_status.json` updates for touched `doc_id`s and forbidding AI co-author trailers in commit messages.
+- [completed] Added a strict self-check gate: no push and no `Ready for review` if any self-check item fails.
+
+## 2026-03-12 repo-qa Copilot hardening round 2
+
+- [completed] Added explicit guidance for the case where `tmp/qa_status.json` is local-only because `tmp/` is gitignored.
+- [completed] Prohibited large missing-section reconstruction from inference alone when source-verified completion is not possible.
+- [completed] Clarified that heading-count mismatches require semantic validation, not naive count-only repair.

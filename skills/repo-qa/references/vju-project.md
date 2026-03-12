@@ -9,6 +9,9 @@ Use this reference only when the task is for this repository.
 - The default status path is `tmp/qa_status.json`.
 - Existing policy and QA rules live in `docs/QA_CHECKLIST.md` and `docs/document_repository_policy.md`.
 - If the active runtime is GitHub Copilot, `skills/repo-qa/children/copilot-qa/SKILL.md` defines the handoff pattern for large batch execution.
+- `docs/qa_report_master.md` and `Tasks.md` are long-running operational history files and must be updated append-only.
+- This repository forbids AI co-author trailers in commit messages.
+- `.gitignore` currently excludes `tmp/`, so `tmp/qa_status.json` is local-only unless the repository rules are changed.
 
 ## Existing Scripts
 - Disclaimer detection helper: `scripts/check_disclaimer_issuer_link.js`
@@ -61,3 +64,12 @@ Use:
 - Gemini-dependent gates remain mandatory for document completion.
 - If Gemini is temporarily unavailable, continue other safe repository work instead of stopping the whole batch.
 - Record Gemini-blocked items explicitly in the report and `tmp/qa_status.json`.
+
+## Copilot Failure Modes To Avoid
+- Rewriting `docs/qa_report_master.md` into a short one-run summary
+- Rewriting `Tasks.md` into a short one-run summary
+- Claiming progress without updating `tmp/qa_status.json`
+- Claiming that `tmp/qa_status.json` was updated in the PR diff even though `tmp/` is gitignored
+- Increasing heading counts by splitting one heading into multiple headings
+- Breaking layout fidelity by flattening official two-column headers into Markdown headings
+- Filling large missing translated sections by inference alone and reporting them as complete

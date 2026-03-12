@@ -39,6 +39,9 @@ If the same conversation invokes this skill again, you may omit this briefing un
 - Keep one consolidated report file and one machine-readable status file.
 - If the current runtime is GitHub Copilot, use the child skill to package and delegate large QA batches there.
 - If Gemini cannot be called, do not stop the whole run unless the current document is blocked on Gemini and no other eligible work remains. Continue with renames, metadata fixes, contract fixes, report/status updates, and other non-Gemini work.
+- Treat `docs/qa_report_master.md` and `Tasks.md` as append-only operational history. Add new run sections without replacing earlier sections.
+- Always update `STATUS_PATH` for touched `doc_id` records when a run claims QA progress.
+- Never add AI co-author trailers such as `Co-authored-by` to commit messages in this repository.
 
 ## Required Inputs
 Before execution, resolve or confirm these values:
@@ -80,6 +83,7 @@ Run the work in this order:
 - Confirm report and status files exist; initialize from templates if needed.
 - If the target root is missing in the working tree, recover only required files from `HEAD` into a temporary run directory.
 - Verify that batch limits and stop conditions are set before starting.
+- Verify whether `STATUS_PATH` is gitignored or otherwise non-committable. If it is local-only state, do not claim that a PR includes it; update it locally when possible and report separately that the status update is not part of the tracked diff.
 
 ## Inventory
 - Detect document sets by `*_source.pdf` and `*_transcription*.md`.
@@ -114,6 +118,10 @@ Run the work in this order:
 - If any check or review step finds a fixable problem such as structural drift, hallucination, omission, terminology mismatch, metadata defects, disclaimer mismatch, or source-note defects, attempt the correction before reporting the result to the user.
 - After applying a fix, rerun the relevant check whenever feasible and report both the fix applied and any remaining unresolved issues.
 - When processing translation files, verify that heading count, bullet/list item count, and sentence count remain aligned with the source-language transcription; do not accept silent omissions or structural shrinkage.
+- Do not satisfy heading-count checks by splitting one heading into multiple headings or by promoting layout text into headings unless the source structure truly requires it.
+- Preserve layout fidelity when repairing structure. Official two-column headers, centered title blocks, and signature areas must remain layout-faithful rather than being flattened into convenient Markdown headings.
+- Do not apply large content reconstruction, appendix insertion, or bulk table generation from inference alone. If the source content is missing in the target translation and cannot be verified safely against the source or glossary, leave the document `partial` or `blocked` and record the gap instead of fabricating completion.
+- Treat heading-count mismatches as a review signal, not proof by themselves. Confirm the semantic position and source structure before editing. Do not rely on naive positional or count-only comparison when translations reorder or merge visible labels.
 - The final translation audit must use Gemini with at least these inputs: glossary, source-language transcription, and the target translation under review.
 - The final Gemini translation audit is the last QA gate. Do not run it if any earlier step is incomplete or if the document still lacks required fixes, metadata, source note, or upstream fidelity checks.
 - If the final Gemini translation audit finds structural drift, hallucination, omissions, mistranslations, or glossary violations, fix the translation first when it is safe to do so, then rerun the audit before closing the document or reporting batch completion.
@@ -157,6 +165,8 @@ Each document result entry must include:
 
 `last_processed_at` is the authoritative per-document update timestamp. Do not add or maintain `last_updated` in document front matter.
 
+If `STATUS_PATH` is gitignored or local-only, keep it updated for local execution but do not describe it as part of the tracked PR diff. In that case, tracked evidence must still be reflected in `REPORT_PATH` and `Tasks.md`.
+
 ## Completion Rule
 Mark a document `complete` only when:
 
@@ -184,6 +194,20 @@ When reporting a `partial` or `blocked` result, explicitly separate:
 - Use English commit messages.
 - Push or deploy once per completed batch, not after every document.
 - In `confidential` mode, never use `git push`; run the configured confidential deploy command instead.
+
+## Self-Check Gate
+Before declaring a batch complete, pushing, or marking a PR ready for review:
+
+1. Verify `docs/qa_report_master.md` preserved prior history and appended the new run.
+2. Verify `Tasks.md` preserved prior history and appended the new run.
+3. Verify `STATUS_PATH` was updated for every touched `doc_id`.
+4. Verify no touched transcription file gained `last_updated` in front matter.
+5. Verify no fix introduced layout regressions in official headers, centered blocks, appendices, or signature sections.
+6. Verify no placeholder text remains in any section now presented as completed content.
+7. Verify commit messages do not contain AI co-author trailers.
+8. Verify no large untranslated section was silently replaced by inferred or placeholder-heavy content and then reported as complete.
+
+If any self-check item fails, do not mark the work complete, do not mark the PR ready for review, and do not push. Report the failed self-check explicitly and fix it first.
 
 ## Stop Conditions
 Continue working in priority order until one of these happens:
