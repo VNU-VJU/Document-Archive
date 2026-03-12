@@ -1,6 +1,10 @@
 ---
 id: 2184-TB-DHNN
 doc_id: "2184/TB-ĐHNN"
+date: 2024-12-05
+department: "Academic Affairs"
+type: "Notification"
+restricted: false
 title: Thông báo Kế hoạch tổ chức thi đánh giá năng lực ngoại ngữ (VNU-TESTS)
 issuer: Trường Đại học Ngoại ngữ, ĐHQGHN
 category: 3. University Regulations

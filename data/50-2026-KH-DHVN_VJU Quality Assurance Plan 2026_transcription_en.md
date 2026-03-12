@@ -3,7 +3,7 @@ doc_id: "50/ĐHVN-KT&ĐBCL"
 id: "50-2026-KH-DHVN"
 title: "Plan for Implementing Quality Assurance Activities at Vietnam Japan University in 2026"
 date: 2026-01-19
-department: "Vietnam Japan University"
+department: "Quality Assurance"
 type: "Plan"
 language: en
 original_language: vi

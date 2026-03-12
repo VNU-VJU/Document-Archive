@@ -6,7 +6,7 @@ source_pdf: "data/50-2026-KH-DHVN_VJU Quality Assurance Plan 2026_source.pdf"
 id: "50-2026-KH-DHVN"
 title: "Kế hoạch triển khai các hoạt động đảm bảo chất lượng của trường Đại học Việt Nhật năm 2026"
 date: 2026-01-19
-department: "Vietnam Japan University"
+department: "Quality Assurance"
 type: "Plan"
 restricted: false
 ---

@@ -7,9 +7,9 @@
 
 function validateYamlFrontMatter(md) {
   var errors = [];
-  var requiredFields = ['doc_id', 'title', 'date', 'department', 'type', 'restricted', 'last_updated'];
+  var requiredFields = ['doc_id', 'title', 'date', 'department', 'type', 'restricted'];
   var validDepartments = ['Academic Affairs', 'Quality Assurance', 'Financial Affairs', 'General Affairs', 'Student Affairs', 'International Cooperation', 'Science and Technology', 'Organization and Personnel'];
-  var validTypes = ['Regulation', 'Circular', 'Guideline', 'Notification', 'Decree', 'Decision', 'Report'];
+  var validTypes = ['Regulation', 'Circular', 'Guideline', 'Notification', 'Decree', 'Decision', 'Report', 'Plan'];
 
   var match = md.match(/^---\n([\s\S]*?)\n---/);
   if (!match) { errors.push('No YAML front matter found'); return { errors: errors }; }
@@ -33,6 +33,9 @@ function validateYamlFrontMatter(md) {
   }
   if (fields.date && !/^\d{4}-\d{2}-\d{2}$/.test(fields.date)) {
     errors.push('Invalid date format: ' + fields.date + ' (expected YYYY-MM-DD)');
+  }
+  if (yaml.split('\n').some(function (l) { return /^last_updated\s*:/.test(l); })) {
+    errors.push("Field 'last_updated' must be absent from transcription front matter (use tmp/qa_status.json last_processed_at instead)");
   }
 
   return { errors: errors, fields: fields };
@@ -129,19 +132,25 @@ describe('QA Validation Helpers', function () {
   });
 
   it('validateYamlFrontMatter passes valid front matter', function () {
-    var valid = '---\ndoc_id: "3626/Q\u0110-\u0110HQGHN"\ntitle: Test\ndate: 2024-01-01\ndepartment: Academic Affairs\ntype: Regulation\nrestricted: false\nlast_updated: 2024-01-01\n---\nBody';
+    var valid = '---\ndoc_id: "3626/Q\u0110-\u0110HQGHN"\ntitle: Test\ndate: 2024-01-01\ndepartment: Academic Affairs\ntype: Regulation\nrestricted: false\n---\nBody';
     var result = validateYamlFrontMatter(valid);
     assertEqual(result.errors.length, 0, 'Should have no errors, got: ' + result.errors.join('; '));
   });
 
+  it('validateYamlFrontMatter accepts Plan as a valid type', function () {
+    var valid = '---\ndoc_id: "50/\u0110HVN-KT&\u0110BCL"\ntitle: Test plan\ndate: 2026-01-19\ndepartment: Quality Assurance\ntype: Plan\nrestricted: false\n---\nBody';
+    var result = validateYamlFrontMatter(valid);
+    assertEqual(result.errors.length, 0, 'Plan should be accepted as a valid type, got: ' + result.errors.join('; '));
+  });
+
   it('validateYamlFrontMatter detects invalid department', function () {
-    var bad = '---\ndoc_id: "test"\ntitle: Test\ndate: 2024-01-01\ndepartment: Fake Department\ntype: Regulation\nrestricted: false\nlast_updated: 2024-01-01\n---\nBody';
+    var bad = '---\ndoc_id: "test"\ntitle: Test\ndate: 2024-01-01\ndepartment: Fake Department\ntype: Regulation\nrestricted: false\n---\nBody';
     var result = validateYamlFrontMatter(bad);
     assert(result.errors.some(function (e) { return e.includes('Invalid department'); }), 'Should flag invalid department');
   });
 
   it('validateYamlFrontMatter detects invalid date format', function () {
-    var bad = '---\ndoc_id: "test"\ntitle: Test\ndate: 01/01/2024\ndepartment: Academic Affairs\ntype: Regulation\nrestricted: false\nlast_updated: 2024-01-01\n---\nBody';
+    var bad = '---\ndoc_id: "test"\ntitle: Test\ndate: 01/01/2024\ndepartment: Academic Affairs\ntype: Regulation\nrestricted: false\n---\nBody';
     var result = validateYamlFrontMatter(bad);
     assert(result.errors.some(function (e) { return e.includes('Invalid date format'); }), 'Should flag invalid date');
   });
@@ -149,6 +158,12 @@ describe('QA Validation Helpers', function () {
   it('validateYamlFrontMatter detects missing front matter', function () {
     var result = validateYamlFrontMatter('No front matter here');
     assert(result.errors.some(function (e) { return e.includes('No YAML front matter found'); }), 'Should detect missing front matter');
+  });
+
+  it('validateYamlFrontMatter flags present last_updated as policy violation', function () {
+    var bad = '---\ndoc_id: "3626/Q\u0110-\u0110HQGHN"\ntitle: Test\ndate: 2024-01-01\ndepartment: Academic Affairs\ntype: Regulation\nrestricted: false\nlast_updated: 2024-01-01\n---\nBody';
+    var result = validateYamlFrontMatter(bad);
+    assert(result.errors.some(function (e) { return e.includes('last_updated'); }), 'Should flag last_updated as policy violation');
   });
 
   it('validateDocId detects diacritical presence', function () {
