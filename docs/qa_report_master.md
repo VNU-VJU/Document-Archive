@@ -1058,3 +1058,22 @@
 - partial: `1`
 - blocked: `0`
 - deployment_result: `not attempted`
+
+## 2026-03-12 Merge Preparation Recheck
+
+### Scope
+
+- Recheck the PR after the latest follow-up commit to determine whether it is worth merging.
+- Apply only merge-preparation fixes that preserve the already remediated content state.
+
+### Actions
+
+- Re-verified that the previous content blockers remain resolved in `1541/CV-ĐHVN-KT&ĐBCL`, `17/2021/TT-BGDĐT`, and `4455/QĐ-ĐHQGHN`.
+- Refreshed `tmp/qa_status.json:last_processed_at` for `2085/QLCL-KĐCLGD` because the latest PR commit modified that file set but had left the tracked timestamp stale.
+- Confirmed that the sole remaining hard blocker is the `Co-authored-by` trailer in the latest PR branch history.
+
+### Result
+
+- Content state: `acceptable for merge`
+- Tracking state: `acceptable for merge after timestamp refresh`
+- Remaining blocker: `history cleanup required to remove AI co-author trailer`

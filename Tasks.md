@@ -84,3 +84,9 @@
 - [completed] Replaced the `4455/QĐ-ĐHQGHN` JA Appendix IV placeholder with the actual bilingual table content.
 - [completed] Refreshed `tmp/qa_status.json:last_processed_at` for the touched `doc_id`s.
 - [blocked] Older PR commits still contain `Co-authored-by` trailers and require history cleanup or a clean squash before final merge under repo rules.
+
+## 2026-03-12 PR merge preparation on `copilot/qa-maintenance-agent`
+
+- [completed] Re-checked the PR diff after the latest follow-up commit and confirmed the prior content blockers remain resolved.
+- [completed] Refreshed `tmp/qa_status.json:last_processed_at` for `2085/QLCL-KĐCLGD` because the latest PR commit touched that file set.
+- [blocked] The only remaining merge blocker is the `Co-authored-by` trailer in PR branch history, which requires history cleanup before merge.
