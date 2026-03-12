@@ -120,6 +120,8 @@ VICE RECTOR</strong><br><br>
 2. Formative assessment may include class participation, quizzes, presentations, mid-term tests, assignments, or other tasks. Lecturers shall inform learners of the assessment plan at the beginning of the course.
 3. The end-of-course examination assesses the overall achievement of the course learning outcomes. Depending on the syllabus, it may take the form of a written exam, oral exam, essay, project, practicum report, or other approved form.
 
+# Chapter II. TESTING AND ASSESSMENT ACTIVITIES
+
 ## Article 6. Regulations on using assessment results
 
 1. Scores for each assessment component are calculated on a 10-point scale rounded to one decimal place, unless otherwise specified by VNU.
@@ -167,7 +169,7 @@ VICE RECTOR</strong><br><br>
 
 The Office of Academic Affairs and Student Services shall develop the annual academic calendar and submit it to the Board of Rectors for approval. Key milestones are summarised in Appendix 2.
 
-# Chapter II. ORGANISING TEST BANKS AND EXAMINATION PAPERS
+# Chapter III. ORGANISING TEST BANKS AND EXAMINATION PAPERS
 
 ## Article 11. Developing and managing test banks
 

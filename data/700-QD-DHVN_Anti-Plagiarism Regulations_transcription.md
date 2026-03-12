@@ -31,7 +31,7 @@ Số: 700/QĐ-ĐHVN
 # QUYẾT ĐỊNH
 **Ban hành Quy định về phòng chống đạo văn trong đào tạo và nghiên cứu khoa học tại Trường Đại học Việt Nhật, ĐHQGHN**
 
-**HIỆU TRƯỞNG TRƯỜNG ĐẠI HỌC VIỆT NHẬT**
+## HIỆU TRƯỞNG TRƯỜNG ĐẠI HỌC VIỆT NHẬT
 
 *Căn cứ Quyết định số 1186/QĐ-TTg ngày 21/7/2014 của Thủ tướng Chính phủ về việc thành lập Trường Đại học Việt Nhật thuộc Đại học Quốc gia Hà Nội;*
 

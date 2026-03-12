@@ -25,12 +25,12 @@ Số: 3636/QĐ-ĐHQGHN
 
 **Promulgating the Regulations on Master's training at Hanoi National University**
 
-**DIRECTOR OF HANOI NATIONAL UNIVERSITY**
+## DIRECTOR OF HANOI NATIONAL UNIVERSITY
 
 *Pursuant to the Law on Education dated June 14, 2019; Pursuant to the Law on Higher Education dated June 18, 2012 and the Law on amending and supplementing a number of articles of the Law on Higher Education dated November 19, 2018; Pursuant to Decree No. 186/2013/ND-CP dated November
 17, 2013 of the Government on National Universities; Pursuant to Decision No. 26/2014/QD-TTg dated March 26, 2014 of the Prime Minister promulgating the Regulation on Organization and Operation of National Universities and member higher education institutions; Pursuant to Circular No. 23/2021/TT-BGDDT dated August 30, 2021 of the Minister of Education and Training promulgating the Regulation on admission and training for master's degrees; Pursuant to Resolution No. 3349/NQ-HD dated October 4, 2022 of the Council of Hanoi National University for the 2018-2023 term on approving the Master's training regulations at Hanoi National University; At the request of the Head of the Training Department.*
 
-**DECISION:**
+## DECIDES:
 
 **Article 1.** Promulgated together with this Decision are the Regulations on Master's training at Hanoi National University.
 

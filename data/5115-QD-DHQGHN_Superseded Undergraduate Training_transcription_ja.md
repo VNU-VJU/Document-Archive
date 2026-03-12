@@ -807,4 +807,10 @@ restricted: false
 
 **総長** **フン・スアン・ニャ**
 
+---
+
+# 目次
+
+*[目次および参照ページ番号については、ベトナム語の原文ソース文書を参照してください。]*
+
 > **[SOURCE_NOTE]** Transcription source: `data/5115-QD-DHQGHN_Superseded Undergraduate Training_source.pdf` (48 pages)

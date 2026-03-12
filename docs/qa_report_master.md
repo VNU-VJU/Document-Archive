@@ -1005,3 +1005,56 @@
   - Targeted grep confirmed the originally flagged English/Japanese office-name deviations were removed from `1274` and the hallucinated `Form 1..10` / `様式1..10` block no longer remains in `01/2024`.
 - Remaining blocker:
   - Final Gemini rerun could not be completed in this environment during the fix cycle. Direct Gemini API execution returned `API_KEY_INVALID`, and the Gemini CLI path did not yield reusable headless output. Therefore these 4 sets were moved to `final_translation_audit_status = pending` pending rerun.
+
+## 2026-03-12 PR Remediation for `copilot/qa-maintenance-agent`
+
+### Scope
+
+- Restore append-only tracking files after the PR replaced them with one-run summaries.
+- Fix the remaining review blockers in:
+  - `1541/CV-ĐHVN-KT&ĐBCL`
+  - `17/2021/TT-BGDĐT`
+  - `4455/QĐ-ĐHQGHN`
+- Refresh machine-readable status timestamps for the touched `doc_id` records.
+
+### Actions
+
+- Restored `docs/qa_report_master.md` from the append-only baseline and appended this remediation entry instead of replacing prior history.
+- Restored `Tasks.md` from the append-only baseline and appended a remediation task section.
+- Reverted the `1541` EN masthead from Markdown heading form back to the plain-text header structure.
+- Recombined the `17/2021` JA chapter headings back into the single-line gold pattern (`# 第I章 総則`, etc.).
+- Replaced the `4455` JA Appendix IV placeholder with the actual bilingual table content and restored the related footnotes.
+- Refreshed `tmp/qa_status.json:last_processed_at` for the touched document records.
+
+### Results
+
+#### `1541/CV-ĐHVN-KT&ĐBCL`
+- Result: `COMPLETE`
+- Notes: The previous masthead regression was removed; the header is again represented as plain text rather than flattened into generic Markdown headings.
+
+#### `17/2021/TT-BGDĐT`
+- Result: `COMPLETE`
+- Notes: The JA chapter headings no longer split one chapter into two headings solely for count alignment.
+
+#### `4455/QĐ-ĐHQGHN`
+- Result: `PARTIAL`
+- Notes: The JA Appendix IV placeholder was replaced with table content, but the set still remains outside full closeout because downstream translation audit status has not yet been rerun.
+
+### Remaining Open Items
+
+- `111/2013/TT-BTC` remains blocked on full translation completion.
+- `1534/HD-ĐHVN` Thesis Guidelines remains blocked on missing translated structure/content.
+- `2085/QLCL-KĐCLGD` still needs Gemini-assisted completion for the missing content sections.
+- PR branch history still contains earlier `Co-authored-by` trailers in older commits and requires history cleanup or a clean squash before final merge under repo rules.
+
+### Batch Summary
+
+- batch_id: `pr_remediation_20260312`
+- processed_doc_ids:
+  - `1541/CV-ĐHVN-KT&ĐBCL`
+  - `17/2021/TT-BGDĐT`
+  - `4455/QĐ-ĐHQGHN`
+- completed: `2`
+- partial: `1`
+- blocked: `0`
+- deployment_result: `not attempted`

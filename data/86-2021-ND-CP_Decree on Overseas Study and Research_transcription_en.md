@@ -35,13 +35,13 @@ The Government promulgates this Decree on Vietnamese citizens leaving the countr
 
 <p align="center"><strong>---</strong></p>
 
-<p align="center"><strong>Chapter I</strong></p>
-<p align="center"><strong>GENERAL PROVISIONS</strong></p>
+# Chapter I
+**GENERAL PROVISIONS**
 
-<p align="center"><strong>Article 1. Scope of regulation</strong></p>
+## Article 1. Scope of regulation
 This Decree regulates Vietnamese citizens leaving the country to study, teach, conduct scientific research, and engage in academic exchange, and stipulates the rights and responsibilities of related agencies, organizations, and individuals.
 
-<p align="center"><strong>Article 2. Subjects of application</strong></p>
+## Article 2. Subjects of application
 1.  This Decree applies to:
     a) Vietnamese citizens who are pupils, students, trainees, postgraduate researchers, interns, and learners who go abroad to study in training and refresher courses lasting 03 consecutive months or longer (hereinafter collectively referred to as overseas students);
     b) Vietnamese citizens who are teachers and lecturers of general education institutions, vocational education institutions, and higher education institutions within the national education system who go abroad to teach, conduct scientific research, and engage in academic exchange;
@@ -403,7 +403,7 @@ Assume the prime responsibility and coordinate with ministries and sectors to am
 ---
 
 # Chapter V
-**IMPLEMENTATION PROVISIONS**
+## IMPLEMENTATION PROVISIONS
 
 ## Article 29. Effectiveness
 1.  This Decree takes effect on 01 December 2021.
