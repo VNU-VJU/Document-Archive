@@ -265,7 +265,7 @@ Specific duties of the members shall be assigned by the council chairperson. The
 
 ---
 
-# TRAINING PROGRAM ............................
+**TRAINING PROGRAM ............................**
 
 ### **LIST OF SELF-ASSESSMENT COUNCIL MEMBERS**
 **Program ............................**
@@ -322,7 +322,7 @@ No.: ..../KH......
 *..., date ...... month ...... year 20...*
 
 **SELF-ASSESSMENT PLAN**
-# TRAINING PROGRAM ............................
+**TRAINING PROGRAM ............................**
 
 **I. Purpose of the self-assessment**
 
@@ -1190,7 +1190,7 @@ Ratio of reports (converted) per permanent staff member: .......................
 | 1 | Number of awards for scientific research and innovation | | | | | |
 | 2 | Number of published articles and works | | | | | |
 
-**VII. Facilities and library**
+## **VII. Facilities and library**
 
 56. Total land area used by the education institution (in m²): .....................
 
@@ -1216,7 +1216,7 @@ Total number of book titles in the resource room of the unit implementing the pr
 
 Ratio of computers for learners to full-time learners: ..........................
 
-**VIII. Summary of key indicators**
+## **VIII. Summary of key indicators**
 
 Based on the survey results above, compile the following key indicators:
 
@@ -1351,7 +1351,7 @@ Examples:
 
 **EXTERNAL EVALUATION PLAN**
 
-# TRAINING PROGRAM .....................................
+**TRAINING PROGRAM ............................**.........
 
 **I. PURPOSES OF THE EXTERNAL EVALUATION**
 
@@ -1461,7 +1461,7 @@ The CTĐT external evaluation team of .......... (name of the education institut
 ### **Annex 11. Template for Comments on the Training Program Self-Assessment Report**
 
 **COMMENTS ON THE SELF-ASSESSMENT REPORT**
-# OF THE TRAINING PROGRAM
+**OF THE TRAINING PROGRAM**
 
 **Evaluator’s full name:** ....................................................................
 **Affiliated unit:** ..................................................................................
@@ -1565,7 +1565,7 @@ c) Criteria not fully evaluated.
 
 **MEMORANDUM**
 **PRELIMINARY VISIT OF THE EXTERNAL EVALUATION TEAM**
-# TRAINING PROGRAM .....................................
+**TRAINING PROGRAM ............................**.........
 
 Pursuant to Decision No. ...... /QĐ- ............ dated ............. month ............. year ......... of the Director of the Center for Education Quality Accreditation ............. establishing the external evaluation team for the training program ............, the external evaluation team conducted a preliminary (pre-visit) survey at ............ (name of the education institution whose program is being evaluated) ........ on ...... month ...... year .........
 
@@ -1636,7 +1636,7 @@ Present the assigned standards and criteria in sequence using the following stru
 
 **REPORT ON THE RESULTS**
 **OF THE OFFICIAL VISIT BY THE EXTERNAL EVALUATION TEAM**
-# TRAINING PROGRAM .....................................
+**TRAINING PROGRAM ............................**.........
 
 The report includes the following contents:
 1. Brief introduction of the external evaluation team and the evaluation process.
@@ -1666,7 +1666,7 @@ The report includes the following contents:
 
 **MINUTES**
 **COMPLETION OF THE OFFICIAL VISIT**
-# TRAINING PROGRAM .....................................
+**TRAINING PROGRAM ............................**.........
 
 Pursuant to Decision No. ...... /QĐ- ............ dated ............. month ............. year ......... of the Director of the Center for Education Quality Accreditation ............. establishing the external evaluation team for the training program ............, the external evaluation team conducted a preliminary (pre-visit) survey at ............ (name of the education institution whose program is being evaluated) ........ on ...... month ...... year .........
 
@@ -1712,7 +1712,7 @@ Both parties signed the minutes concluding the official visit at......... on ...
 *(Logo of the KĐCLGD organization)*
 
 **EXTERNAL EVALUATION REPORT**
-# TRAINING PROGRAM .....................................
+**TRAINING PROGRAM ............................**.........
 **OF (NAME OF THE EDUCATION INSTITUTION.........)**
 *(According to the CTĐT quality standards of the Ministry of Education and Training)*
 

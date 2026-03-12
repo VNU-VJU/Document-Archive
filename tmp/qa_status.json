@@ -90,7 +90,7 @@
       "review_status": "complete",
       "last_processed_at": "2026-03-12T09:07:14+07:00",
       "report_updated": true,
-      "final_translation_audit_status": "PASS"
+      "final_translation_audit_status": "pass"
     },
     {
       "doc_id": "04/2020/TT-BGDĐT",
@@ -100,7 +100,7 @@
       "review_status": "complete",
       "last_processed_at": "2026-03-12T09:07:14+07:00",
       "report_updated": true,
-      "final_translation_audit_status": "PASS"
+      "final_translation_audit_status": "pass"
     },
     {
       "doc_id": "17/2021/TT-BGDĐT",
@@ -119,16 +119,6 @@
       "generation_status": "complete",
       "review_status": "complete",
       "last_processed_at": "2026-03-11T23:02:18+07:00",
-      "report_updated": true,
-      "final_translation_audit_status": "pending"
-    },
-    {
-      "doc_id": "/HD-ĐHVN",
-      "target_root": "data",
-      "qa_status": "partial",
-      "generation_status": "complete",
-      "review_status": "partial",
-      "last_processed_at": "2026-03-12T09:55:00+07:00",
       "report_updated": true,
       "final_translation_audit_status": "pending"
     },
@@ -347,16 +337,6 @@
       "target_root": "data",
       "qa_status": "blocked",
       "generation_status": "partial",
-      "review_status": "pending",
-      "last_processed_at": "2026-03-11T23:02:18+07:00",
-      "report_updated": true,
-      "final_translation_audit_status": "pending"
-    },
-    {
-      "doc_id": "DHVN-HD-1534",
-      "target_root": "data",
-      "qa_status": "blocked",
-      "generation_status": "complete",
       "review_status": "pending",
       "last_processed_at": "2026-03-11T23:02:18+07:00",
       "report_updated": true,

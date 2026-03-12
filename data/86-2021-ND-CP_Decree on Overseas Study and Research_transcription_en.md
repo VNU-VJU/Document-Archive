@@ -403,7 +403,7 @@ Assume the prime responsibility and coordinate with ministries and sectors to am
 ---
 
 # Chapter V
-## IMPLEMENTATION PROVISIONS
+**IMPLEMENTATION PROVISIONS**
 
 ## Article 29. Effectiveness
 1.  This Decree takes effect on 01 December 2021.
