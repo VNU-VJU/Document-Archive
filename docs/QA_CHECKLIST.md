@@ -305,9 +305,9 @@ When adding a new document:
 | 1 | VI版 ダッシュリスト 4sp→2sp | `2667d75` | ✅ pushed |
 | 2 | EN/JA版 ダッシュリスト 4sp→2sp (8件ずつ) | `9ca6f84` | ✅ pushed |
 | 3 | CSS: `p.khoan` padding-left 1.5em→0 | `1f11cab` | ✅ pushed |
-| 4 | テストコード修正・追加 (下記参照) | — | ⚠️ 未コミット |
+| 4 | テストコード修正・追加 (下記参照) | `2421af6` | ✅ committed |
 
-### 未コミットの変更 (ファイル2件)
+### 現在のテスト反映内容 (ファイル2件)
 
 **`test/test-qa-validation.js`:**
 - `validateIndentation()` ロジック反転: khoản列0=正 / 4sp字下げ=誤
@@ -322,8 +322,7 @@ When adding a new document:
 
 ### 残タスク
 
-- [ ] **テスト実行**: `test/test-runner.html` をブラウザで開き全テストパス確認
-- [ ] **テストコード commit & push**: 上記2ファイルをコミット
-- [ ] **デプロイ検証 (CSS修正)**: GitHub Pages で 3636 EN版 Article 35 付近を表示し、khoản番号がインデントされていないことを確認
-- [ ] **デプロイ検証 (ダッシュリスト)**: Article 35 のダッシュリスト項目がモノスペースフォントでなく通常フォントで表示されていることを確認
-- [ ] **JA版も同様に確認**: JP切替で同じ箇所が正常表示されること
+- [x] **テスト実行**: `test/test-runner.html` をブラウザで開き、2026-03-13 時点で 72/72 pass を確認
+- [x] **テストコード commit & push**: 上記2ファイルは現ブランチの最終状態でコミット済み
+- [ ] **ブラウザ検証 (EN/JA Article 35)**: この Copilot runtime では CDN 依存アセット (`marked`, Tailwind) がブロックされ、reader が `marked is not defined` で描画できないため未完了
+- [ ] **GitHub Pages 上の content-level 目視確認**: 上記 runtime 制約が解消された環境で、3636 EN/JA の Article 35 付近について khoản とダッシュリストの表示を再確認すること
