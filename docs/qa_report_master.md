@@ -1173,3 +1173,48 @@
 - blocked: `1`
 - blocked_steps: `missing date for 1534/HD-ĐHVN`, `first-gate cross-check (Gemini)`, `final translation audit (Gemini)`
 - deployment_result: `not attempted`
+
+## 2026-03-13 3636 verification rerun
+
+### Scope
+
+- Re-checked the already-committed 3636 indentation/test follow-up items against the final branch state.
+- Verified the existing repository checks that are directly relevant to the 3636 indentation/preprocessing fix.
+- Updated repository tracking so the 3636 status reflects this rerun without overstating blocked gates.
+
+### Actions
+
+- Ran `scripts/check_disclaimer_issuer_link.js`; result: `0` mismatches across `172` files.
+- Opened `test/test-runner.html` in the browser and confirmed `72/72` passing tests.
+- Re-checked `3636-QD-DHQGHN_Regulation on Masters Training_transcription_en.md` and `_ja.md` for:
+  - 4-space-indented khoản lines
+  - 4-space-indented dash-list lines
+  - Article 35 heading presence
+- Updated `docs/QA_CHECKLIST.md` section 11 so it no longer claims the 3636 test files are uncommitted.
+- Refreshed `tmp/qa_status.json` for `3636/QĐ-ĐHQGHN`.
+
+### Results
+
+#### doc_id: `3636/QĐ-ĐHQGHN`
+
+- target_root: `data`
+- processed_files: `3636-QD-DHQGHN_Regulation on Masters Training_transcription_en.md`, `3636-QD-DHQGHN_Regulation on Masters Training_transcription_ja.md`, `docs/QA_CHECKLIST.md`
+- checks_run: `disclaimer-link script`, `browser test runner`, `regex regression scan for 4-space indentation`, `Article 35 heading presence check`
+- issues_found: `No remaining 4-space khoản/dash-list regressions in EN/JA`; `browser reader rendering could not be verified in this runtime because CDN-loaded marked/Tailwind assets were blocked`
+- fixes_applied: `tracking/report cleanup only` — updated the stale 3636 checklist note so it matches the final branch state
+- final_status: `partial`
+- deployment_status: `not attempted`
+- notes: `Blocked steps remain limited to browser rendering verification in this runtime and the pending Gemini final translation audit`
+
+### Batch Execution Summary
+
+- batch_id: `20260313_copilot_3636_verification_rerun`
+- processed_doc_ids:
+  - `3636/QĐ-ĐHQGHN`
+- target_sets: `1`
+- checked_sets: `1`
+- passed_sets: `0`
+- fixed_but_open_sets: `0`
+- blocked_sets: `1`
+- skipped_sets: `0`
+- blocked_steps: `browser rendering verification blocked by unavailable CDN assets in runtime`, `final translation audit (Gemini unavailable)`

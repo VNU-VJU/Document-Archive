@@ -99,3 +99,13 @@
 - [completed] Updated `docs/qa_report_master.md` with new run entry (append-only).
 - [blocked] First-gate PDF-to-Markdown cross-check: Gemini API unavailable in this environment.
 - [blocked] Final Gemini translation consistency audit: Gemini API unavailable in this environment.
+
+## 2026-03-13 repo-qa 3636 verification rerun
+
+- [completed] Re-ran `scripts/check_disclaimer_issuer_link.js` and confirmed 0 mismatches across 172 files.
+- [completed] Re-ran `test/test-runner.html` in the browser and confirmed 72/72 passing tests.
+- [completed] Re-checked `3636/QĐ-ĐHQGHN` EN/JA transcription files for 4-space-indented khoản or dash-list regressions; none remained in the final branch state.
+- [completed] Updated `docs/QA_CHECKLIST.md` section 11 so the 3636 note reflects the current committed test state instead of claiming the test files are still uncommitted.
+- [completed] Refreshed `tmp/qa_status.json:last_processed_at` for `3636/QĐ-ĐHQGHN` and appended this rerun to `docs/qa_report_master.md`.
+- [blocked] Browser content rendering verification for `3636/QĐ-ĐHQGHN` remains blocked in this runtime because CDN-loaded `marked` and Tailwind assets were unavailable, resulting in `marked is not defined`.
+- [blocked] Final Gemini translation audit for `3636/QĐ-ĐHQGHN` remains pending because Gemini is unavailable in this environment.
