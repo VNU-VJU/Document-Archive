@@ -3,8 +3,8 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Run a batch QA pass for the next incomplete public document sets in `data/`. Use batch size 12, update the master report, and stop safely if a required first-gate command is missing.",
-      "expected_output": "The agent resolves run config, checks required commands, processes up to twelve public document sets, updates report and status files, and reports blockers briefly in Japanese if configuration is incomplete.",
+      "prompt": "Run a repository-wide QA pass for the next incomplete public document sets in `data/`. Use a work window of 30, update the master report and status file, and stop only for a real blocker.",
+      "expected_output": "The agent resolves run config, checks required commands, processes eligible public document sets under a 30-item work window, updates report and status files, and reports blockers briefly in Japanese only when safe continuation is impossible.",
       "files": [
         "docs/QA_CHECKLIST.md",
         "skills/repo-qa/SKILL.md",
@@ -22,8 +22,8 @@
     },
     {
       "id": 3,
-      "prompt": "Resume a partially completed confidential QA batch using `tmp/qa_status.json`, update only the remaining incomplete document sets, and deploy through the configured confidential command instead of GitHub push.",
-      "expected_output": "The agent resumes from machine-readable state, avoids public push behavior, updates report and status consistently, and uses confidential deployment rules.",
+      "prompt": "Resume a partially completed confidential QA run using `tmp/qa_status.json`, update only the remaining incomplete document sets, and deploy through the configured confidential command instead of GitHub push.",
+      "expected_output": "The agent resumes from machine-readable state, avoids public push behavior, updates report and status consistently, and uses confidential deployment rules without weakening the checklist.",
       "files": [
         "docs/qa_status.example.json",
         "skills/repo-qa/SKILL.md",
@@ -32,11 +32,11 @@
     },
     {
       "id": 4,
-      "prompt": "Run `repo-qa` in a GitHub Copilot runtime for a heavy public batch. Use the child handoff skill, keep working when Gemini is unavailable, and leave only Gemini-gated steps pending.",
-      "expected_output": "The agent loads the Copilot child skill, packages a single heavy-batch handoff, preserves the repo-qa contracts, and continues non-Gemini work instead of halting the whole batch when Gemini is unavailable.",
+      "prompt": "Run `repo-qa` under the Codex runtime for a heavy public batch. Use the runtime child skill, preserve the repo contracts, and keep working until only real blockers remain.",
+      "expected_output": "The agent loads the Codex child skill, follows the 30-item work-window rule, preserves the repo-qa contracts, and continues non-blocked work instead of halting after a small sample.",
       "files": [
         "skills/repo-qa/SKILL.md",
-        "skills/repo-qa/children/copilot-qa/SKILL.md",
+        "skills/repo-qa/children/codex-qa/SKILL.md",
         "skills/repo-qa/references/vju-project.md",
         "docs/QA_CHECKLIST.md"
       ]
@@ -47,7 +47,7 @@
       "expected_output": "The agent preserves append-only history in report/task files, updates the machine-readable status file, avoids AI co-author trailers, performs the required self-check, and refuses to mark the PR ready when any self-check item fails.",
       "files": [
         "skills/repo-qa/SKILL.md",
-        "skills/repo-qa/children/copilot-qa/SKILL.md",
+        "skills/repo-qa/children/codex-qa/SKILL.md",
         "skills/repo-qa/references/vju-project.md",
         "docs/QA_CHECKLIST.md",
         "docs/qa_report_master.md",
@@ -56,13 +56,34 @@
     },
     {
       "id": 6,
-      "prompt": "A GitHub Copilot run notices that `tmp/qa_status.json` is gitignored and that several translated appendices are missing. It must continue safe work, avoid fabricating large missing content, report the local-only status update correctly, and avoid marking the PR ready if those checks fail.",
-      "expected_output": "The agent distinguishes local-only status tracking from tracked PR files, does not fabricate large untranslated sections from inference alone, continues safe non-Gemini work, and blocks Ready for review if the self-check fails.",
+      "prompt": "A repo-qa run notices that `tmp/qa_status.json` is tracked even though `tmp/` is in `.gitignore`, and that several translated appendices are missing. It must continue safe work, avoid fabricating large missing content, report tracked status updates correctly, and avoid marking the PR ready if those checks fail.",
+      "expected_output": "The agent distinguishes tracked status files from local-only state, does not fabricate large untranslated sections from inference alone, continues safe work, and blocks PR completion if the self-check fails.",
       "files": [
         ".gitignore",
         "skills/repo-qa/SKILL.md",
-        "skills/repo-qa/children/copilot-qa/SKILL.md",
+        "skills/repo-qa/children/codex-qa/SKILL.md",
         "skills/repo-qa/references/vju-project.md"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Process a VJU-issued document batch and confirm that the issuer child skill is loaded only for the qualifying issuer while the main repo-qa checklist remains unchanged.",
+      "expected_output": "The agent loads the VJU issuer child, applies issuer-specific caution without relaxing any checklist criteria, and keeps report/status updates consistent with the parent contract.",
+      "files": [
+        "skills/repo-qa/SKILL.md",
+        "skills/repo-qa/children/issuer-vju/SKILL.md",
+        "skills/repo-qa/references/vju-project.md",
+        "docs/QA_CHECKLIST.md"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "A repo-qa run computes `target_sets = 0`. Verify that this result is real rather than a bad inventory filter, and if it is still correct, report zero targets clearly to the user instead of pretending work was completed.",
+      "expected_output": "The agent re-checks inventory assumptions, confirms whether zero is valid, and reports zero-target execution explicitly when that is the correct result.",
+      "files": [
+        "skills/repo-qa/SKILL.md",
+        "skills/repo-qa/references/vju-project.md",
+        "docs/QA_CHECKLIST.md"
       ]
     }
   ]

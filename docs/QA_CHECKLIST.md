@@ -1,5 +1,19 @@
 # QA Checklist — VJU Document Portal
 
+## 0. 実行件数の報告ルール (Execution Count Reporting)
+
+このセクションは検査基準そのものではなく、各実行で必ず見える形で報告すべき件数ルールです。QA基準を変えずに、対象数と結果数を明確化するために使います。
+
+- [ ] 対象文書セット総数 (`target_sets`) を報告した
+- [ ] 実際に確認した文書セット数 (`checked_sets`) を報告した
+- [ ] パスした文書セット数 (`passed_sets`) を報告した
+- [ ] 修正したが未完了の文書セット数 (`fixed_but_open_sets`) を報告した
+- [ ] ブロックされた文書セット数 (`blocked_sets`) を報告した
+- [ ] 対象外または今回スキップした文書セット数 (`skipped_sets`) を報告した
+- [ ] 件数が `0` の項目がある場合、その理由を説明した
+- [ ] `target_sets = 0` の場合、inventory条件・フィルタ・status解釈が正しいか再確認した
+- [ ] `target_sets = 0` が本当に正しい場合、ユーザーへその事実を明確に報告した
+
 ## 1. 文書フォーマット検証 (Document Format Validation)
 
 ### 1.1 YAML Front Matter
